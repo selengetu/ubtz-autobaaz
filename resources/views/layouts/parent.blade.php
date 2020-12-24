@@ -57,7 +57,7 @@
                             <!-- Dark Logo icon -->
                             <img src="../assets/images/logo-icon.png" alt="homepage" class="dark-logo" />
                             <!-- Light Logo icon -->
-                            <span>АҮС<span>
+                            <span>АТҮТ<span>
                         </b>
                         <!--End Logo icon -->
                         <!-- Logo text --><span>
@@ -103,7 +103,15 @@
                 <!-- Sidebar navigation-->
                 <nav class="sidebar-nav">
                     <ul id="sidebarnav">
-                        
+                        <li> <a class="waves-effect waves-dark" aria-expanded="false"><i class="fa fa-table"></i><span class="hide-menu">Тохиргоо</span></a>
+                            <ul aria-expanded="false" class="collapse first-level in">
+                                <li class="sidebar-item"><a href="{{ route('mark') }}" class="sidebar-link"><i class="mdi mdi-format-align-left"></i><span class="hide-menu"> Үйлдвэрлэгч </span></a></li>
+                                <li class="sidebar-item"><a href="{{ route('model') }}" class="sidebar-link"><i class="mdi mdi-format-align-right"></i><span class="hide-menu"> Загвар </span></a></li>
+                   
+                                  </span></a></li>
+                          
+                            </ul>
+                        </li>
                         <li> <a class="waves-effect waves-dark" href="{{ route('home') }}" aria-expanded="false"><i class="fa fa-table"></i><span class="hide-menu">Бүртгэл</span></a>
                             <ul aria-expanded="false" class="collapse first-level in">
                                 <li class="sidebar-item"><a href="" class="sidebar-link"><i class="mdi mdi-format-align-left"></i><span class="hide-menu"> Тээврийн хэрэгсэл </span></a></li>
