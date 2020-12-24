@@ -21,7 +21,7 @@
             </ol>
         </div>
         <div class="col-md-7 align-self-center">
-            <a href="#" class="btn waves-effect waves-light btn btn-info pull-right hidden-sm-down" data-toggle="modal"
+            <a href="#" class="add btn waves-effect waves-light btn btn-info pull-right hidden-sm-down" data-toggle="modal"
                 data-target="#exampleModal"> <i class="fa fa-plus" aria-hidden="true"></i> Үйлдвэрлэгч бүртгэх</a>
         </div>
     </div>
@@ -42,7 +42,7 @@
                         </div>
                     </div>
                     <div class="table-responsive m-t-20 no-wrap">
-                        <table class="table table-bordered vm"
+                        <table class="table table-bordered vm" id="example"
                             style="font-size:10px; color:black; word-wrap:break-word;">
                             <thead style="background-color:#ceedf9; font-size: 10px;">
                                 <tr>
@@ -136,7 +136,7 @@
                         "previous":   "Өмнөх"
                     },
                 },
-                "pageLength": 50
+                "pageLength": 10
             } );
         } );
     </script>
@@ -149,10 +149,9 @@
             var itag=$(this).attr('tag');
             $.get('markfill/'+itag,function(data){
                 $.each(data,function(i,qwe){
-                    $('#id').val(qwe.method_code);
-                    $('#method_name').val(qwe.method_name);
-                    $('#method_name_ru').val(qwe.method_name_ru);
-                    $('#parent_method_code').val(qwe.parent_method_code);
+                    $('#mark_id').val(qwe.mark_id);
+                    $('#mark_name').val(qwe.mark_name);
+                   
                 });
 
             });
@@ -162,20 +161,20 @@
     <script>
         $('.add').on('click',function(){
             var title = document.getElementById("modal-title");
-            title.innerHTML = "Гүйцэтгэлийн арга бүртгэх цонх";
-            document.getElementById('form1').action = "addmethod"
+            title.innerHTML = "Үйлдвэрлэгч бүртгэх цонх";
+            document.getElementById('form1').action = "addmark"
             document.getElementById('form1').method ="post";
-            $('#method_name').val('');
-            $('#method_name_ru').val('');
-            $('#parent_method_code').val(1);
+            $('#mark_id').val('');
+            $('#mark_name').val('');
+            
             $('.delete').hide();
         });
         $('.delete').on('click',function(){
-            var itag = $('#id').val();
+            var itag = $('#mark_id').val();
 
             $.ajax(
                 {
-                    url: "method/delete/" + itag,
+                    url: "mark/delete/" + itag,
                     type: 'GET',
                     dataType: "JSON",
                     data: {
@@ -183,11 +182,11 @@
                         "_method": 'DELETE',
                     },
                     success: function () {
-                        alert('Гүйцэтгэлийн арга устгагдлаа');
+                        alert('Үйлдвэрлэгч устгагдлаа');
                     }
 
                 });
-            alert('Гүйцэтгэлийн арга устгагдлаа');
+            alert(' Үйлдвэрлэгч устгагдлаа');
             location.reload();
         });
     </script>
