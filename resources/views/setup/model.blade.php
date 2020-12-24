@@ -14,9 +14,9 @@
 
     <div class="row page-titles">
         <div class="col-md-5 align-self-center">
-            <h3 class="text-themecolor">Тээврийн хэрэгслийн модель бүртгэл</h3>
+            <h3 class="text-themecolor">Тээврийн хэрэгслийн модель</h3>
             <ol class="breadcrumb">
-                <li class="breadcrumb-item"><a href="javascript:void(0)">Бүртгэл</a></li>
+                <li class="breadcrumb-item"><a href="javascript:void(0)">Тохиргоо</a></li>
                 <li class="breadcrumb-item active">Тээврийн хэрэгслийн модель</li>
             </ol>
         </div>
