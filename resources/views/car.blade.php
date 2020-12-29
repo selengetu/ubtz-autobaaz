@@ -64,7 +64,7 @@
                                 @foreach($car as $c)
                                     <tr>
                                         <td>{{$no}}</td>
-                                        <td>{{$c->mark_name}}</td>
+                                        <td>{{$c->vtypecode}}</td>
                                         <td>{{$c->model_name}}</td>
                                         
                                         <td class='m1'> <a class='btn btn-xs btn-info update' data-toggle='modal' data-target='#exampleModal' data-id="{{$m->model_id}}" tag='{{$m->model_id}}'><i class="fa fa-pencil-square-o" style="color: rgb(255, 255, 255); "></i></a> </td>
@@ -76,6 +76,73 @@
                     </div>
                 </div>
             </div>
+        </div>
+    </div>
+</div>
+<div class="modal fade " id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" data-keyboard="false" data-backdrop="static">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <form id="form1" action="post">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="modal-title">Тээврийн хэрэгсэл бүртгэх цонх</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+
+                    <div class="form-row">
+
+                        <div class="form-group col-md-4">
+                            <label for="inputAddress">Үйлдвэрлэгчийн нэр</label>
+                            <input type="hidden" name="_token" value="{{ csrf_token() }}">
+                            <input type="hidden" class="form-control" id="model_id" name="model_id">
+                            <select class="form-control select2" id="mark_id" name="mark_id" >
+                             
+                                @foreach($mark as $m)
+                                  
+                                    <option value= "{{$m->mark_id}}">  {{$m->mark_name}}</option>
+                                  
+                                @endforeach
+                            </select>
+                        
+                        </div>
+                   
+                        <div class="form-group col-md-4">
+                            <label for="inputAddress">Загварын нэр</label>
+                            <select class="form-control select2" id="model_id" name="model_id" >
+                             
+                                @foreach($model as $mo)
+                                  
+                                    <option value= "{{$mo->model_id}}">  {{$mo->model_name}}</option>
+                                  
+                                @endforeach
+                            </select>
+                        
+                        </div>
+                        <div class="form-group col-md-4">
+                            <label for="inputAddress">Улсын дугаар</label>
+                            <input type="text" class="form-control" id="carno" name="carno" placeholder="">
+                        
+                        </div>
+                        <div class="form-group col-md-4">
+                            <label for="inputAddress">Арлын дугаар</label>
+                            <input type="text" class="form-control" id="vinno" name="vinno" placeholder="">
+                        
+                        </div>
+                    </div>
+
+                </div>
+                <div class="modal-footer">
+                    <div class="col-md-5">
+                        <button type="button" class="btn btn-danger delete">Устгах</button>
+                    </div>
+                    <div class="col-md-7" style="display: inline-block; text-align: right;" >
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Хаах</button>
+                        <button type="submit" class="btn btn-primary">Хадгалах</button>
+                    </div>
+                </div>
+            </form>
         </div>
     </div>
 </div>
