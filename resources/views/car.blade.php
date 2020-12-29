@@ -60,7 +60,17 @@
                                 </tr>
                             </thead>
                             <tbody>
-                              
+                                <?php $no = 1; ?>
+                                @foreach($car as $c)
+                                    <tr>
+                                        <td>{{$no}}</td>
+                                        <td>{{$c->mark_name}}</td>
+                                        <td>{{$c->model_name}}</td>
+                                        
+                                        <td class='m1'> <a class='btn btn-xs btn-info update' data-toggle='modal' data-target='#exampleModal' data-id="{{$m->model_id}}" tag='{{$m->model_id}}'><i class="fa fa-pencil-square-o" style="color: rgb(255, 255, 255); "></i></a> </td>
+                                    </tr>
+                                    <?php $no++; ?>
+                                @endforeach
                             </tbody>
                         </table>
                     </div>
