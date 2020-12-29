@@ -49,6 +49,7 @@
                                     <th>№</th>
                                   
                                     <th>Үйлдвэрлэгч</th>
+                                    <th>Загвар</th>
                                     <th></th>
                                 </tr>
                             </thead>
@@ -57,6 +58,7 @@
                                     @foreach($model as $m)
                                         <tr>
                                             <td>{{$no}}</td>
+                                            <td>{{$m->mark_name}}</td>
                                             <td>{{$m->model_name}}</td>
                                             
                                             <td class='m1'> <a class='btn btn-xs btn-info update' data-toggle='modal' data-target='#exampleModal' data-id="{{$m->model_id}}" tag='{{$m->model_id}}'><i class="fa fa-pencil-square-o" style="color: rgb(255, 255, 255); "></i></a> </td>
@@ -164,7 +166,7 @@
                 $.each(data,function(i,qwe){
                     $('#model_id').val(qwe.model_id);
                     $('#model_name').val(qwe.model_name);
-                   
+                    $('#mark_id').val(qwe.mark_id).trigger('change');
                 });
 
             });

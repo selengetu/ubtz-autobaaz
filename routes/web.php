@@ -36,6 +36,15 @@ Route::get('/model/delete/{id}', 'ModelController@destroy');
 Route::post('/addmodel','ModelController@store');
 Route::post('/updatemodel','ModelController@update');
 Route::get('/modelfill/{id?}',function($id = 0){
-    $dt=App\Model::where('model_id','=',$id)->get();
+    $dt=App\CModel::where('model_id','=',$id)->get();
+    return $dt;
+});
+
+Route::get('/car', 'CarController@index')->name('car');
+Route::get('/car/delete/{id}', 'CarController@destroy');
+Route::post('/addcar','CarController@store');
+Route::post('/updatecar','CarController@update');
+Route::get('/carfill/{id?}',function($id = 0){
+    $dt=App\Car::where('carid','=',$id)->get();
     return $dt;
 });

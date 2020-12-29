@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use DB;
-
+use App\CModel;
 class ModelController extends Controller {
 
    public function __construct() {
@@ -12,14 +12,14 @@ class ModelController extends Controller {
     }
 
     public function index() {
-        $model = DB::select('select * from CONST_CAR_MODEL');
+        $model = DB::select('select * from V_CONST_CAR_MODEL');
         $mark = DB::select('select * from CONST_CAR_MARK');
         return view('setup.model',compact('model','mark'));
     }
 
     public function store(Request $request)
     {
-        $model = new Model;
+        $model = new CModel;
         $model->model_name = $request->model_name;
         $model->mark_id = $request->mark_id;
         $model->save();
@@ -28,10 +28,10 @@ class ModelController extends Controller {
 
     public function update(Request $request)
     {
-        $mark = DB::table('CONST_CAR_MARK')
-            ->where('mark_id', $request->mark_id)
-            ->update(['mark_name' =>  $request->mark_name]);
-        return Redirect('mark');
+        $mark = DB::table('CONST_CAR_MODEL')
+            ->where('model_id', $request->model_id)
+            ->update(['model_name' =>  $request->model_name,'mark_id' =>  $request->mark_id]);
+        return Redirect('model');
     }
 
     /**
@@ -42,7 +42,7 @@ class ModelController extends Controller {
      */
     public function destroy($id)
     {
-        Mark::where('mark_id', '=', $id)->delete();
-        return Redirect('mark');
+        CModel::where('model_id', '=', $id)->delete();
+        return Redirect('model');
     }
 }

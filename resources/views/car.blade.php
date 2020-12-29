@@ -47,7 +47,8 @@
                             <thead style="background-color:#ceedf9; font-size: 10px;">
                                 <tr>
                                     <th>№</th>
-                                   
+                                    <th>Төрөл </th>
+                                    <th>Парк</th>
                                     <th>Улсын дугаар</th>
                                     <th>Арлын дугаар</th>
                                     <th>Марк</th>
