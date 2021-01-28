@@ -82,7 +82,7 @@
 <div class="modal fade " id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" data-keyboard="false" data-backdrop="static">
     <div class="modal-dialog modal-lg" role="document">
         <div class="modal-content">
-            <form id="form1" action="post">
+            <form id="form1" action="addcar" method="post">
                 <div class="modal-header">
                     <h5 class="modal-title" id="modal-title">Тээврийн хэрэгсэл бүртгэх цонх</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
@@ -110,7 +110,7 @@
                    
                         <div class="form-group col-md-4">
                             <label for="inputAddress">Загварын нэр</label>
-                            <select class="form-control select2" id="model_id" name="model_id" >
+                            <select class="form-control" id="model_id" name="model_id" >
                              
                                 @foreach($model as $mo)
                                   
@@ -122,17 +122,32 @@
                         </div>
                         <div class="form-group col-md-4">
                             <label for="inputAddress">Улсын дугаар</label>
-                            <input type="text" class="form-control" id="carno" name="carno" placeholder="">
+                            <input type="text" class="form-control" id="carno" name="carno" placeholder="9999ААA" maxlength="7">
                         
                         </div>
                         <div class="form-group col-md-4">
                             <label for="inputAddress">Арлын дугаар</label>
-                            <input type="text" class="form-control" id="vinno" name="vinno" placeholder="">
+                            <input type="text" class="form-control" id="vinno" name="vinno" placeholder="" maxlength="17">
                         
                         </div>
                         <div class="form-group col-md-4">
-                            <label for="inputAddress">Хөдөлгүүрийн марк, дугаар</label>
-                            <input type="text" class="form-control" id="vinno" name="vinno" placeholder="">
+                            <label for="inputAddress">Хөдөлгүүрийн марк</label>
+                            <input type="text" class="form-control" id="enginecc" name="enginecc" placeholder="">
+                        
+                        </div>
+                        <div class="form-group col-md-4">
+                            <label for="inputAddress">Хөдөлгүүрийн дугаар</label>
+                            <input type="text" class="form-control" id="engineid" name="engineid" placeholder="">
+                        
+                        </div>
+                        <div class="form-group col-md-4">
+                            <label for="inputAddress">Тосны багтаамж</label>
+                            <input type="text" class="form-control" id="engineid" name="engineid" placeholder="">
+                        
+                        </div>
+                        <div class="form-group col-md-4">
+                            <label for="inputAddress">Тосны төрөл</label>
+                            <input type="text" class="form-control" id="engineid" name="engineid" placeholder="">
                         
                         </div>
                         <div class="form-group col-md-4">
@@ -173,14 +188,22 @@
                         </div>
                         <div class="form-group col-md-4">
                             <label for="inputAddress">Үйлдвэрлэсэн он</label>
-                            <select class="form-control select2" id="vtypecode" name="vtypecode" >
-                             
-                                @foreach($type as $t)
-                                  
-                                    <option value= "{{$t->vtypecode}}">  {{$t->vtypename}}</option>
-                                  
-                                @endforeach
-                            </select>
+                            <input type="number" class="form-control" id="manuyear" name="manuyear" maxlength="4">
+                        
+                        </div>
+                        <div class="form-group col-md-4">
+                            <label for="inputAddress">Хурдны хайрцаг</label>
+                            <input type="number" class="form-control" id="speedbox" name="speedbox" maxlength="4">
+                        
+                        </div>
+                        <div class="form-group col-md-4">
+                            <label for="inputAddress">Тосны төрөл </label>
+                            <input type="number" class="form-control" id="speedtype" name="speedtype" maxlength="4">
+                        
+                        </div>
+                        <div class="form-group col-md-4">
+                            <label for="inputAddress">Тосны багтаамж</label>
+                            <input type="number" class="form-control" id="speedcap" name="speedcap" maxlength="4">
                         
                         </div>
                     </div>
@@ -203,6 +226,17 @@
 
 @section('scripts')
 <script>
-  
+     $('#mark_id').change(function() {
+        var item=$(this).val();
+        console.log(item);
+        $('#model_id').empty();
+        $.get('modelfill/'+item,function(data){
+            $.each(data,function(i,qwe){
+                $('#model_id').val(qwe.model_id).trigger('change');
+                
+            });
+
+        });
+    });
 </script>
 @endsection

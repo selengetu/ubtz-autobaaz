@@ -36,7 +36,7 @@ Route::get('/model/delete/{id}', 'ModelController@destroy');
 Route::post('/addmodel','ModelController@store');
 Route::post('/updatemodel','ModelController@update');
 Route::get('/modelfill/{id?}',function($id = 0){
-    $dt=App\CModel::where('model_id','=',$id)->get();
+    $dt=App\CModel::where('mark_id','=',$id)->get();
     return $dt;
 });
 

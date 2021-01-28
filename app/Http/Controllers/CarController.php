@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use DB;
 use App\Mark;
+use App\Car;
 class CarController extends Controller {
 
    public function __construct() {
@@ -24,6 +25,7 @@ class CarController extends Controller {
 
     public function store(Request $request)
     {
+        dd($request);
         $car = new Car;
         $car->vtypecode = $request->vtypecode;
         $car->parkid = $request->parkid;
@@ -34,6 +36,10 @@ class CarController extends Controller {
         $car->speedbox = $request->speedbox;
         $car->manuyear = $request->manuyear;
         $car->technote = $request->technote;
+        $car->speedcap = $request->speedcap;
+        $car->speedtype = $request->speedtype;
+        $car->engineid = $request->engineid;
+        $car->enginecap = $request->enginecap;
         $car->save();
         return Redirect('car');
     }
