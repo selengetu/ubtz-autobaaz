@@ -16,7 +16,10 @@ class CarController extends Controller {
         $mark = DB::select('select * from CONST_CAR_MARK');
         $model = DB::select('select * from CONST_CAR_MODEL');
         $park = DB::select('select * from CONST_PARKS');
-        return view('car',compact('car','mark','model','park'));
+        $oil = DB::select('select * from CONST_OIL_TYPE');
+        $colour = DB::select('select * from CONST_CAR_COLOUR');
+        $type = DB::select('select * from CONST_VEHICLE_TYPES');
+        return view('car',compact('car','mark','model','park','oil','colour','type'));
     }
 
     public function store(Request $request)

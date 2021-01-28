@@ -96,7 +96,7 @@
                         <div class="form-group col-md-4">
                             <label for="inputAddress">Үйлдвэрлэгчийн нэр</label>
                             <input type="hidden" name="_token" value="{{ csrf_token() }}">
-                            <input type="hidden" class="form-control" id="model_id" name="model_id">
+                            <input type="hidden" class="form-control" id="car_id" name="car_id">
                             <select class="form-control select2" id="mark_id" name="mark_id" >
                              
                                 @foreach($mark as $m)
@@ -128,6 +128,59 @@
                         <div class="form-group col-md-4">
                             <label for="inputAddress">Арлын дугаар</label>
                             <input type="text" class="form-control" id="vinno" name="vinno" placeholder="">
+                        
+                        </div>
+                        <div class="form-group col-md-4">
+                            <label for="inputAddress">Хөдөлгүүрийн марк, дугаар</label>
+                            <input type="text" class="form-control" id="vinno" name="vinno" placeholder="">
+                        
+                        </div>
+                        <div class="form-group col-md-4">
+                            <label for="inputAddress">Шатахууны төрөл</label>
+                            <select class="form-control select2" id="oil_id" name="oil_id" >
+                             
+                                @foreach($oil as $o)
+                                  
+                                    <option value= "{{$o->oil_id}}">  {{$o->oil_name}}</option>
+                                  
+                                @endforeach
+                            </select>
+                        
+                        </div>
+                        <div class="form-group col-md-4">
+                            <label for="inputAddress">Өнгө</label>
+                            <select class="form-control select2" id="oil_id" name="oil_id" >
+                             
+                                @foreach($colour as $c)
+                                  
+                                    <option value= "{{$c->colour_id}}">  {{$c->colour_name}}</option>
+                                  
+                                @endforeach
+                            </select>
+                        
+                        </div>
+                        <div class="form-group col-md-4">
+                            <label for="inputAddress">Зориулалт</label>
+                            <select class="form-control select2" id="vtypecode" name="vtypecode" >
+                             
+                                @foreach($type as $t)
+                                  
+                                    <option value= "{{$t->vtypecode}}">  {{$t->vtypename}}</option>
+                                  
+                                @endforeach
+                            </select>
+                        
+                        </div>
+                        <div class="form-group col-md-4">
+                            <label for="inputAddress">Үйлдвэрлэсэн он</label>
+                            <select class="form-control select2" id="vtypecode" name="vtypecode" >
+                             
+                                @foreach($type as $t)
+                                  
+                                    <option value= "{{$t->vtypecode}}">  {{$t->vtypename}}</option>
+                                  
+                                @endforeach
+                            </select>
                         
                         </div>
                     </div>

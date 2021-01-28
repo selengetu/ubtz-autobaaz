@@ -47,9 +47,9 @@
     .register-block {
         background: #DE6262;
         /* fallback for old browsers */
-        background: -webkit-linear-gradient(to bottom, #e1eef5, #e1eef5);
+        background: -webkit-linear-gradient(to bottom, #475F7B, #475F7B);
         /* Chrome 10-25, Safari 5.1-6 */
-        background: linear-gradient(to bottom, #e1eef5, #e1eef5);
+        background: linear-gradient(to bottom, #475F7B, #475F7B);
         /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
         float: left;
         width: 100%;
@@ -64,7 +64,7 @@
     .banner-sec {
         background: url('/assets/images/back.jpg') no-repeat bottom;
         background-size: cover;
-        min-height: 500px;
+        min-height: 600px;
         border-radius: 0 10px 10px 0;
         padding: 0;
     }
