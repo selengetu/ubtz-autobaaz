@@ -26,56 +26,219 @@
         </div>
     </div>
 
-    <div class="row">
-        <!-- Column -->
-        <div class="col-lg-12">
-            <div class="card">
-                <div class="card-body">
-              
-                    <div class="table-responsive m-t-20 no-wrap">
-                        <table class="table table-bordered vm"
-                            style="font-size:10px; color:black; word-wrap:break-word;">
-                            <thead style="background-color:#ceedf9; font-size: 10px;">
-                                <tr>
-                                    <th>№</th>
-                                    <th>Төрөл </th>
-                                    <th>Парк</th>
-                                    <th>Улсын дугаар</th>
-                                    <th>Арлын дугаар</th>
-                                    <th>Марк</th>
-                                    <th>Модель</th>
-                                    <th>Үйлдвэрлэсэн он</th>
-                                    <th>Хөдөлгүүрийн<br>багтаамж</th>
-                                    <th>Хурдны хайрцаг</th>
-                                    <th></th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <?php $no = 1; ?>
-                                @foreach($car as $c)
-                                    <tr>
-                                        <td>{{$no}}</td>
-                                        <td>{{$c->vtypename}}</td>
-                                        <td>{{$c->parkname}}</td>
-                                        <td>{{$c->carno}}</td>
-                                        <td>{{$c->vinno}}</td>
-                                        <td>{{$c->mark_name}}</td>
-                                        <td>{{$c->model_name}}</td>
-                                        <td>{{$c->manuyear}}</td>
-                                        <td>{{$c->enginecc}} {{$c->engineid}} -{{$c->enginecap}}л - {{$c->engineid}}</td>
-                                        <td>{{$c->speedbox}}- {{$c->speedtype}} {{$c->speedcap}}л</td>
-                                   
-                                        <td class='m1'> <a class='btn btn-xs btn-info update' data-toggle='modal' data-target='#exampleModal' data-id="{{$c->carid}}" tag='{{$c->carid}}'><i class="fa fa-pencil-square-o" style="color: rgb(255, 255, 255); "></i></a> </td>
-                                    </tr>
-                                    <?php $no++; ?>
-                                @endforeach
-                            </tbody>
-                        </table>
+   
+        <ul class="nav nav-tabs" id="myTab" role="tablist">
+            <li class="nav-item">
+              <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">Тээврийн хэрэгсэл</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">Эд анги</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" id="contact-tab" data-toggle="tab" href="#repair" role="tab" aria-controls="contact" aria-selected="false">Засвар</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" id="driver-tab" data-toggle="tab" href="#driver" role="tab" aria-controls="driver" aria-selected="false">Жолооч</a>
+              </li>
+          </ul>
+          <div class="tab-content" id="myTabContent">
+            <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+                <div class="row">
+                    <!-- Column -->
+                    <div class="col-lg-12">
+                        <div class="card">
+                            <div class="card-body">
+                          
+                                <div class="table-responsive m-t-20 no-wrap">
+                                    <table class="table table-bordered vm"
+                                        style="font-size:10px; color:black; word-wrap:break-word;">
+                                        <thead style="background-color:#ceedf9; font-size: 10px;">
+                                            <tr>
+                                                <th>№</th>
+                                                <th>Төрөл </th>
+                                                <th>Парк</th>
+                                                <th>Улсын дугаар</th>
+                                                <th>Арлын дугаар</th>
+                                                <th>Марк</th>
+                                                <th>Модель</th>
+                                                <th>Үйлдвэрлэсэн он</th>
+                                                <th>Хөдөлгүүрийн<br>багтаамж</th>
+                                                <th>Хурдны хайрцаг</th>
+                                                <th></th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <?php $no = 1; ?>
+                                            @foreach($car as $c)
+                                                <tr>
+                                                    <td>{{$no}}</td>
+                                                    <td>{{$c->vtypename}}</td>
+                                                    <td>{{$c->parkname}}</td>
+                                                    <td>{{$c->carno}}</td>
+                                                    <td>{{$c->vinno}}</td>
+                                                    <td>{{$c->mark_name}}</td>
+                                                    <td>{{$c->model_name}}</td>
+                                                    <td>{{$c->manuyear}}</td>
+                                                    <td>{{$c->enginecc}} {{$c->engineid}} -{{$c->enginecap}}л - {{$c->engineid}}</td>
+                                                    <td>{{$c->speedbox}}- {{$c->speedtype}} {{$c->speedcap}}л</td>
+                                               
+                                                    <td class='m1'> <a class='btn btn-xs btn-info update' data-toggle='modal' data-target='#exampleModal' data-id="{{$c->carid}}" tag='{{$c->carid}}'><i class="fa fa-pencil-square-o" style="color: rgb(255, 255, 255); "></i></a> </td>
+                                                </tr>
+                                                <?php $no++; ?>
+                                            @endforeach
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
-    </div>
+            <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+                <div class="row">
+                    <!-- Column -->
+                    <div class="col-lg-12">
+                        <div class="card">
+                            <div class="card-body">
+                          
+                                <div class="table-responsive m-t-20 no-wrap">
+                                    <table class="table table-bordered vm"
+                                        style="font-size:10px; color:black; word-wrap:break-word;">
+                                        <thead style="background-color:#ceedf9; font-size: 10px;">
+                                            <tr>
+                                                <th>№</th>
+                                                <th>Төрөл </th>
+                                                <th>Парк</th>
+                                                <th>Улсын дугаар</th>
+                                                <th>Арлын дугаар</th>
+                                                <th>Марк</th>
+                                                <th>Модель</th>
+                                                <th>Үйлдвэрлэсэн он</th>
+                                                <th>Хөдөлгүүрийн<br>багтаамж</th>
+                                                <th>Хурдны хайрцаг</th>
+                                                <th></th>
+                                            </tr>
+                                        </thead>
+                                       
+                                    </table>
+                                    <br>
+                                    <table class="table table-bordered vm"
+                                    style="font-size:10px;width:50%; color:black; word-wrap:break-word;">
+                                    <thead style="background-color:#ceedf9; font-size: 10px;">
+                                        <tr>
+                                           
+                                            <th>Эд ангийн нэр </th>
+                                            <th>Явсан км</th>
+                                            <th>Огноо</th>
+                                          
+                                        </tr>
+                                    </thead>
+                                   
+                                </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="tab-pane fade" id="repair" role="tabpanel" aria-labelledby="contact-tab">
+                <div class="row">
+                    <!-- Column -->
+                    <div class="col-lg-12">
+                        <div class="card">
+                            <div class="card-body">
+                          
+                                <div class="table-responsive m-t-20 no-wrap">
+                                    <table class="table table-bordered vm"
+                                        style="font-size:10px; color:black; word-wrap:break-word;">
+                                        <thead style="background-color:#ceedf9; font-size: 10px;">
+                                            <tr>
+                                                <th>№</th>
+                                                <th>Төрөл </th>
+                                                <th>Парк</th>
+                                                <th>Улсын дугаар</th>
+                                                <th>Арлын дугаар</th>
+                                                <th>Марк</th>
+                                                <th>Модель</th>
+                                                <th>Үйлдвэрлэсэн он</th>
+                                                <th>Хөдөлгүүрийн<br>багтаамж</th>
+                                                <th>Хурдны хайрцаг</th>
+                                                <th></th>
+                                            </tr>
+                                        </thead>
+                                       
+                                    </table>
+                                    <br>
+                                    <table class="table table-bordered vm"
+                                    style="font-size:10px;width:50%; color:black; word-wrap:break-word;">
+                                    <thead style="background-color:#ceedf9; font-size: 10px;">
+                                        <tr>
+                                            <th>Огноо</th>
+                                            <th>Хийгдсэн үйлчилгээ</th>
+                                            <th>Явсан км</th>
+                                            <th>Тайлбар</th>
+                                          
+                                        </tr>
+                                    </thead>
+                                   
+                                </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="tab-pane fade" id="driver" role="tabpanel" aria-labelledby="contact-tab">
+                <div class="row">
+                    <!-- Column -->
+                    <div class="col-lg-12">
+                        <div class="card">
+                            <div class="card-body">
+                          
+                                <div class="table-responsive m-t-20 no-wrap">
+                                    <table class="table table-bordered vm"
+                                        style="font-size:10px; color:black; word-wrap:break-word;">
+                                        <thead style="background-color:#ceedf9; font-size: 10px;">
+                                            <tr>
+                                                <th>№</th>
+                                                <th>Төрөл </th>
+                                                <th>Парк</th>
+                                                <th>Улсын дугаар</th>
+                                                <th>Арлын дугаар</th>
+                                                <th>Марк</th>
+                                                <th>Модель</th>
+                                                <th>Үйлдвэрлэсэн он</th>
+                                                <th>Хөдөлгүүрийн<br>багтаамж</th>
+                                                <th>Хурдны хайрцаг</th>
+                                                <th></th>
+                                            </tr>
+                                        </thead>
+                                       
+                                    </table>
+                                     <br>
+                              
+                                <table class="table table-bordered vm"
+                                style="font-size:10px;width:50%; color:black; word-wrap:break-word;">
+                                <thead style="background-color:#ceedf9; font-size: 10px;">
+                                    <tr>
+                                        <th>Нэр</th>
+                                        <th>Ангилал</th>
+                                        <th>Мэргэшсэн</th>
+                                        <th>Эхэлсэн огноо </th>
+                                        <th>Дууссан огноо</th>
+                                      
+                                    </tr>
+                                </thead>
+                               
+                            </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+          </div>
+  
 </div>
 <div class="modal fade " id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" data-keyboard="false" data-backdrop="static">
     <div class="modal-dialog modal-lg" role="document">
@@ -140,7 +303,7 @@
                         </div>
                         <div class="form-group col-md-4">
                             <label for="inputAddress">Тосны багтаамж</label>
-                            <input type="text" class="form-control" id="enginecap" name="enginecap" placeholder="">
+                            <input type="text" class="form-control" id="enginecap" name="enginecap" placeholder="" step="0.01">
                         
                         </div>
                         <div class="form-group col-md-4">
@@ -191,7 +354,14 @@
                         </div>
                         <div class="form-group col-md-4">
                             <label for="inputAddress">Хурдны хайрцаг</label>
-                            <input type="number" class="form-control" id="speedbox" name="speedbox" maxlength="4">
+                            <select class="form-control" id="oil_id" name="oil_id" >
+                             
+                                @foreach($speedbox as $s)
+                                  
+                                    <option value= "{{$s->speedbox_id}}">  {{$s->speedbox_name}}</option>
+                                  
+                                @endforeach
+                            </select>
                         
                         </div>
                         <div class="form-group col-md-4">
@@ -201,7 +371,7 @@
                         </div>
                         <div class="form-group col-md-4">
                             <label for="inputAddress">Тосны багтаамж</label>
-                            <input type="number" class="form-control" id="speedcap" name="speedcap" maxlength="4">
+                            <input type="number" class="form-control" id="speedcap" name="speedcap" maxlength="4" step="0.01">
                         
                         </div>
                     </div>
