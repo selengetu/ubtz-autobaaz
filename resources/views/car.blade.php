@@ -31,16 +31,7 @@
         <div class="col-lg-12">
             <div class="card">
                 <div class="card-body">
-                    <div class="d-flex">
-                        <div>
-                         
-                        </div>
-                        <div class="ml-auto">
-                            <select class="form-control select2" id="sexecutor_id" name="sexecutor_id">
-                               
-                            </select>
-                        </div>
-                    </div>
+              
                     <div class="table-responsive m-t-20 no-wrap">
                         <table class="table table-bordered vm"
                             style="font-size:10px; color:black; word-wrap:break-word;">
@@ -56,7 +47,7 @@
                                     <th>Үйлдвэрлэсэн он</th>
                                     <th>Хөдөлгүүрийн<br>багтаамж</th>
                                     <th>Хурдны хайрцаг</th>
-                                  
+                                    <th></th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -64,10 +55,17 @@
                                 @foreach($car as $c)
                                     <tr>
                                         <td>{{$no}}</td>
-                                        <td>{{$c->vtypecode}}</td>
+                                        <td>{{$c->vtypename}}</td>
+                                        <td>{{$c->parkname}}</td>
+                                        <td>{{$c->carno}}</td>
+                                        <td>{{$c->vinno}}</td>
+                                        <td>{{$c->mark_name}}</td>
                                         <td>{{$c->model_name}}</td>
-                                        
-                                        <td class='m1'> <a class='btn btn-xs btn-info update' data-toggle='modal' data-target='#exampleModal' data-id="{{$m->model_id}}" tag='{{$m->model_id}}'><i class="fa fa-pencil-square-o" style="color: rgb(255, 255, 255); "></i></a> </td>
+                                        <td>{{$c->manuyear}}</td>
+                                        <td>{{$c->enginecc}} {{$c->engineid}} -{{$c->enginecap}}л - {{$c->engineid}}</td>
+                                        <td>{{$c->speedbox}}- {{$c->speedtype}} {{$c->speedcap}}л</td>
+                                   
+                                        <td class='m1'> <a class='btn btn-xs btn-info update' data-toggle='modal' data-target='#exampleModal' data-id="{{$c->carid}}" tag='{{$c->carid}}'><i class="fa fa-pencil-square-o" style="color: rgb(255, 255, 255); "></i></a> </td>
                                     </tr>
                                     <?php $no++; ?>
                                 @endforeach
@@ -97,7 +95,7 @@
                             <label for="inputAddress">Үйлдвэрлэгчийн нэр</label>
                             <input type="hidden" name="_token" value="{{ csrf_token() }}">
                             <input type="hidden" class="form-control" id="car_id" name="car_id">
-                            <select class="form-control select2" id="mark_id" name="mark_id" >
+                            <select class="form-control" id="mark_id" name="mark_id" >
                              
                                 @foreach($mark as $m)
                                   
@@ -142,17 +140,17 @@
                         </div>
                         <div class="form-group col-md-4">
                             <label for="inputAddress">Тосны багтаамж</label>
-                            <input type="text" class="form-control" id="engineid" name="engineid" placeholder="">
+                            <input type="text" class="form-control" id="enginecap" name="enginecap" placeholder="">
                         
                         </div>
                         <div class="form-group col-md-4">
                             <label for="inputAddress">Тосны төрөл</label>
-                            <input type="text" class="form-control" id="engineid" name="engineid" placeholder="">
+                            <input type="text" class="form-control" id="enginetype" name="enginetype" placeholder="">
                         
                         </div>
                         <div class="form-group col-md-4">
                             <label for="inputAddress">Шатахууны төрөл</label>
-                            <select class="form-control select2" id="oil_id" name="oil_id" >
+                            <select class="form-control" id="oil_id" name="oil_id" >
                              
                                 @foreach($oil as $o)
                                   
@@ -164,7 +162,7 @@
                         </div>
                         <div class="form-group col-md-4">
                             <label for="inputAddress">Өнгө</label>
-                            <select class="form-control select2" id="oil_id" name="oil_id" >
+                            <select class="form-control" id="colour_id" name="colour_id" >
                              
                                 @foreach($colour as $c)
                                   
@@ -176,7 +174,7 @@
                         </div>
                         <div class="form-group col-md-4">
                             <label for="inputAddress">Зориулалт</label>
-                            <select class="form-control select2" id="vtypecode" name="vtypecode" >
+                            <select class="form-control" id="vtypecode" name="vtypecode" >
                              
                                 @foreach($type as $t)
                                   
@@ -198,7 +196,7 @@
                         </div>
                         <div class="form-group col-md-4">
                             <label for="inputAddress">Тосны төрөл </label>
-                            <input type="number" class="form-control" id="speedtype" name="speedtype" maxlength="4">
+                            <input type="text" class="form-control" id="speedtype" name="speedtype" maxlength="4">
                         
                         </div>
                         <div class="form-group col-md-4">
@@ -226,16 +224,22 @@
 
 @section('scripts')
 <script>
+       $('.select2').select2();
      $('#mark_id').change(function() {
         var item=$(this).val();
         console.log(item);
-        $('#model_id').empty();
+    
         $.get('modelfill/'+item,function(data){
-            $.each(data,function(i,qwe){
-                $('#model_id').val(qwe.model_id).trigger('change');
-                
-            });
+            console.log(data);
+            $('#model_id').empty();
 
+            $.each(data,function(i,qwe){
+                $('#model_id').append($('<option>', {
+                    value: qwe.model_id,
+                    text: qwe.model_name
+                }));
+            });
+        
         });
     });
 </script>

@@ -13,7 +13,7 @@ class CarController extends Controller {
     }
 
     public function index() {
-        $car = DB::select('select * from CARS');
+        $car = DB::select('select * from V_CARS');
         $mark = DB::select('select * from CONST_CAR_MARK');
         $model = DB::select('select * from CONST_CAR_MODEL');
         $park = DB::select('select * from CONST_PARKS');
@@ -25,13 +25,14 @@ class CarController extends Controller {
 
     public function store(Request $request)
     {
-        dd($request);
+        
         $car = new Car;
         $car->vtypecode = $request->vtypecode;
-        $car->parkid = $request->parkid;
+        $car->parkid =1;
         $car->vinno = $request->vinno;
         $car->carno = $request->carno;
         $car->mark = $request->mark;
+        $car->model = $request->model_id;
         $car->enginecc = $request->enginecc;
         $car->speedbox = $request->speedbox;
         $car->manuyear = $request->manuyear;
@@ -40,6 +41,7 @@ class CarController extends Controller {
         $car->speedtype = $request->speedtype;
         $car->engineid = $request->engineid;
         $car->enginecap = $request->enginecap;
+        $car->enginetype = $request->enginetype;
         $car->save();
         return Redirect('car');
     }
