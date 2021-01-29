@@ -65,6 +65,7 @@
                                                 <th>Хөдөлгүүрийн<br>багтаамж</th>
                                                 <th>Хурдны хайрцаг</th>
                                                 <th></th>
+                                                <th></th>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -81,7 +82,7 @@
                                                     <td>{{$c->manuyear}}</td>
                                                     <td>{{$c->enginecc}} {{$c->engineid}} -{{$c->enginecap}}л - {{$c->engineid}}</td>
                                                     <td>{{$c->speedbox}}- {{$c->speedtype}} {{$c->speedcap}}л</td>
-                                               
+                                                    <td><button onclick="carClicked({{$c->carid}})" data-id="{{$c->carid}}" tag="{{$c->carid}}" class="btn btn-primary btn-sm process"> <i class="fa fa-plus" style="color: rgb(255, 255, 255);"></i></button></td>
                                                     <td class='m1'> <a class='btn btn-xs btn-info update' data-toggle='modal' data-target='#exampleModal' data-id="{{$c->carid}}" tag='{{$c->carid}}'><i class="fa fa-pencil-square-o" style="color: rgb(255, 255, 255); "></i></a> </td>
                                                 </tr>
                                                 <?php $no++; ?>
@@ -102,11 +103,11 @@
                             <div class="card-body">
                           
                                 <div class="table-responsive m-t-20 no-wrap">
-                                    <table class="table table-bordered vm"
+                                    <table class="table table-bordered main"
                                         style="font-size:10px; color:black; word-wrap:break-word;">
                                         <thead style="background-color:#ceedf9; font-size: 10px;">
                                             <tr>
-                                                <th>№</th>
+                                              
                                                 <th>Төрөл </th>
                                                 <th>Парк</th>
                                                 <th>Улсын дугаар</th>
@@ -116,7 +117,7 @@
                                                 <th>Үйлдвэрлэсэн он</th>
                                                 <th>Хөдөлгүүрийн<br>багтаамж</th>
                                                 <th>Хурдны хайрцаг</th>
-                                                <th></th>
+                                              
                                             </tr>
                                         </thead>
                                        
@@ -124,7 +125,7 @@
                                     <br>
                                     <table class="table table-bordered vm"
                                     style="font-size:10px;width:50%; color:black; word-wrap:break-word;">
-                                    <thead style="background-color:#ceedf9; font-size: 10px;">
+                                    <thead style="background-color:#ceedf9; font-size: 10px;" id="producttable">
                                         <tr>
                                            
                                             <th>Эд ангийн нэр </th>
@@ -149,11 +150,11 @@
                             <div class="card-body">
                           
                                 <div class="table-responsive m-t-20 no-wrap">
-                                    <table class="table table-bordered vm"
+                                    <table class="table table-bordered main"
                                         style="font-size:10px; color:black; word-wrap:break-word;">
                                         <thead style="background-color:#ceedf9; font-size: 10px;">
                                             <tr>
-                                                <th>№</th>
+                                              
                                                 <th>Төрөл </th>
                                                 <th>Парк</th>
                                                 <th>Улсын дугаар</th>
@@ -163,7 +164,7 @@
                                                 <th>Үйлдвэрлэсэн он</th>
                                                 <th>Хөдөлгүүрийн<br>багтаамж</th>
                                                 <th>Хурдны хайрцаг</th>
-                                                <th></th>
+                                            
                                             </tr>
                                         </thead>
                                        
@@ -171,7 +172,7 @@
                                     <br>
                                     <table class="table table-bordered vm"
                                     style="font-size:10px;width:50%; color:black; word-wrap:break-word;">
-                                    <thead style="background-color:#ceedf9; font-size: 10px;">
+                                    <thead style="background-color:#ceedf9; font-size: 10px;"  id="repairtable">
                                         <tr>
                                             <th>Огноо</th>
                                             <th>Хийгдсэн үйлчилгээ</th>
@@ -196,11 +197,11 @@
                             <div class="card-body">
                           
                                 <div class="table-responsive m-t-20 no-wrap">
-                                    <table class="table table-bordered vm"
+                                    <table class="table table-bordered main"
                                         style="font-size:10px; color:black; word-wrap:break-word;">
                                         <thead style="background-color:#ceedf9; font-size: 10px;">
                                             <tr>
-                                                <th>№</th>
+                                              
                                                 <th>Төрөл </th>
                                                 <th>Парк</th>
                                                 <th>Улсын дугаар</th>
@@ -210,7 +211,7 @@
                                                 <th>Үйлдвэрлэсэн он</th>
                                                 <th>Хөдөлгүүрийн<br>багтаамж</th>
                                                 <th>Хурдны хайрцаг</th>
-                                                <th></th>
+                                             
                                             </tr>
                                         </thead>
                                        
@@ -218,7 +219,7 @@
                                      <br>
                               
                                 <table class="table table-bordered vm"
-                                style="font-size:10px;width:50%; color:black; word-wrap:break-word;">
+                                style="font-size:10px;width:50%; color:black; word-wrap:break-word;" id="drivertable">
                                 <thead style="background-color:#ceedf9; font-size: 10px;">
                                     <tr>
                                         <th>Нэр</th>
@@ -412,5 +413,58 @@
         
         });
     });
+</script>
+<script>
+        function getcar($id){
+        var itag = $id;
+        $.get('carfill/'+itag,function(data){
+            $(".main tbody").empty();
+            $("#drivertable tbody").empty();
+            $("#repairtable tbody").empty();
+            $("#producttable tbody").empty();
+            $.each(data,function(i,qwe){
+
+                $('#gcar_id').val(qwe.carid);
+                var sHtml = " <tr class='table-row' >" +
+
+                    "   <td class='m1'>" + qwe.vtypename 
+                    "   <td class='m1'>" + qwe.parkname + "</td>" +
+                    "   <td class='m1'>" + qwe.carno + "</td>" +
+                    "   <td class='m1'>" + qwe.vinno+ "</td>" +
+                    "   <td class='m1'>" + qwe.mark_name + "</td>" +
+                    "   <td class='m1'>" + qwe.model_name+ "</td>" +
+                    "   <td class='m1'>" + qwe.manuyear+ "</td>" +
+                    "   <td class='m1'>" +  qwe.enginecc + " - "+ qwe.engineid + " - "+ qwe.enginecap + "</td>" +
+                    "   <td class='m1'>" + qwe.speedbox  + " - "+ qwe.speedtype  + " - "+ qwe.speedcap + "</td>" +
+                  
+                    "</tr>";
+
+                $("#projecttable tbody").append(sHtml);
+                var sHtml1 = " <tr class='table-row' >" +
+
+                    "   <td class='m1'>" + qwe.plancomma + "</td>" +
+                    "   <td class='m1'>" + qwe.plan1comma + "</td>" +
+                    "   <td class='m1'>" + qwe.plan2comma + "</td>" +
+                    "   <td class='m1'>" + qwe.plan3comma + "</td>" +
+                    "   <td class='m1'>" + qwe.plan4comma + "</td>" +
+                    "</tr>";
+
+                $("#plantable tbody").append(sHtml1);
+
+            });
+
+        });
+    }
+
+    $('#nav-home-tab').on('click',function(){
+        $( "#nav-profile-tab" ).addClass("disabled disabledTab");
+    });
+    function carClicked(carid) {
+        $( "#nav-profile-tab" ).removeClass("disabled disabledTab");
+        $('#nav-profile-tab').trigger('click');
+
+        getcar(carid);
+      
+    }
 </script>
 @endsection
