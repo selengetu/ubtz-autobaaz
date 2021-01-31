@@ -105,7 +105,8 @@
                     <div class="col-lg-12">
                         <div class="card">
                             <div class="card-body">
-                          
+                                <div class="row">
+                          <div class="col-md-12">
                                 <div class="table-responsive m-t-20 no-wrap">
                                     <table class="table table-bordered main"
                                         style="font-size:10px; color:black; word-wrap:break-word;" id="producttable">
@@ -127,21 +128,33 @@
                                         <tbody>
                                         </tbody>
                                     </table>
-                                    <br>
-                                    <table class="table table-bordered vm"
-                                    style="font-size:10px;width:50%; color:black; word-wrap:break-word;">
-                                    <thead style="background-color:#ceedf9; font-size: 10px;" >
-                                        <tr>
-                                           
-                                            <th>Эд ангийн нэр </th>
-                                            <th>Явсан км</th>
-                                            <th>Огноо</th>
-                                          
-                                        </tr>
-                                    </thead>
                                    
-                                </table>
                                 </div>
+                               
+                            </div>
+                            <div class="col-md-6" >
+                             
+                                <table class="table table-bordered vm"
+                                style="font-size:10px;width:100%; color:black; word-wrap:break-word;">
+                                <thead style="background-color:#ceedf9; font-size: 10px;" >
+                                    <tr>
+                                       
+                                        <th>Эд ангийн нэр </th>
+                                        <th>Явсан км</th>
+                                        <th>Огноо</th>
+                                      
+                                    </tr>
+                                </thead>
+                               <tbody>
+                               </tbody>
+                            </table>
+                               
+                                
+                            </div>
+                            <div class="col-md-3" >
+                                <a href="#" class="btn waves-effect waves-light btn btn-info pull-right hidden-sm-down" data-toggle="modal" data-target="#productModal"> <i class="fa fa-plus" aria-hidden="true"></i> Эд анги бүртгэх</a>
+                            </div>
+                        </div>
                             </div>
                         </div>
                     </div>
@@ -187,7 +200,8 @@
                                           
                                         </tr>
                                     </thead>
-                                   
+                                    <tbody>
+                                    </tbody>
                                 </table>
                                 </div>
                             </div>
@@ -237,7 +251,8 @@
                                       
                                     </tr>
                                 </thead>
-                               
+                                <tbody>
+                                </tbody>
                             </table>
                                 </div>
                             </div>
@@ -398,6 +413,120 @@
         </div>
     </div>
 </div>
+<div class="modal fade " id="productModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" data-keyboard="false" data-backdrop="static">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <form id="form1" action="addcar" method="post">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="modal-title">Эд анги бүртгэх цонх</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+
+                    <div class="form-row">
+
+                        <div class="form-group col-md-4">
+                            <label for="inputAddress">Эд ангийн нэр</label>
+                            <input type="hidden" name="_token" value="{{ csrf_token() }}">
+                            <input type="hidden" class="form-control" id="gcar" name="gcar">
+                            <select class="form-control" id="product_id" name="product_id" >
+                             
+                                @foreach($product as $p)
+                                  
+                                    <option value= "{{$p->product_id}}">  {{$p->product_name}}</option>
+                                  
+                                @endforeach
+                            </select>
+                        
+                        </div>
+                   
+                        <div class="form-group col-md-4">
+                            <label for="inputAddress">Явсан км</label>
+                            <input type="number" class="form-control" id="carno" name="carno" maxlength="10">
+                        
+                        </div>
+                      
+                        <div class="form-group col-md-4">
+                            <label for="inputAddress">Огноо</label>
+                            <input type="text" class="form-control" id="engineid" name="engineid" placeholder="">
+                        
+                        </div>
+                     
+                    </div>
+
+                </div>
+                <div class="modal-footer">
+                    <div class="col-md-5">
+                        <button type="button" class="btn btn-danger delete">Устгах</button>
+                    </div>
+                    <div class="col-md-7" style="display: inline-block; text-align: right;" >
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Хаах</button>
+                        <button type="submit" class="btn btn-primary">Хадгалах</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<div class="modal fade " id="repairModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" data-keyboard="false" data-backdrop="static">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <form id="form1" action="addcar" method="post">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="modal-title">Эд анги бүртгэх цонх</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+
+                    <div class="form-row">
+
+                        <div class="form-group col-md-4">
+                            <label for="inputAddress">Эд ангийн нэр</label>
+                            <input type="hidden" name="_token" value="{{ csrf_token() }}">
+                            <input type="hidden" class="form-control" id="gcar" name="gcar">
+                            <select class="form-control" id="product_id" name="product_id" >
+                             
+                                @foreach($product as $p)
+                                  
+                                    <option value= "{{$p->product_id}}">  {{$p->product_name}}</option>
+                                  
+                                @endforeach
+                            </select>
+                        
+                        </div>
+                   
+                        <div class="form-group col-md-4">
+                            <label for="inputAddress">Явсан км</label>
+                            <input type="number" class="form-control" id="carno" name="carno" maxlength="10">
+                        
+                        </div>
+                      
+                        <div class="form-group col-md-4">
+                            <label for="inputAddress">Огноо</label>
+                            <input type="text" class="form-control" id="engineid" name="engineid" placeholder="">
+                        
+                        </div>
+                     
+                    </div>
+
+                </div>
+                <div class="modal-footer">
+                    <div class="col-md-5">
+                        <button type="button" class="btn btn-danger delete">Устгах</button>
+                    </div>
+                    <div class="col-md-7" style="display: inline-block; text-align: right;" >
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Хаах</button>
+                        <button type="submit" class="btn btn-primary">Хадгалах</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
 @endsection
 
 @section('scripts')
@@ -442,7 +571,7 @@
                     "   <td class='m1'>" + qwe.model_name+ "</td>" +
                     "   <td class='m1'>" + qwe.manuyear+ "</td>" +
                     "   <td class='m1'>" +  qwe.enginecc + " - "+ qwe.engineid + " - "+ qwe.enginecap + "</td>" +
-                    "   <td class='m1'>" + qwe.speedbox  + " - "+ qwe.speedtype  + " - "+ qwe.speedcap + "</td>" +
+                    "   <td class='m1'>" + qwe.speedbox_name  + " - "+ qwe.speedtype  + " - "+ qwe.speedcap + "</td>" +
                   
                     "</tr>";
 
