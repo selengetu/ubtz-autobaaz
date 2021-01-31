@@ -33,6 +33,7 @@ class CarController extends Controller {
         $car->vinno = $request->vinno;
         $car->carno = $request->carno;
         $car->mark = $request->mark;
+        $car->colour_id = $request->colour;
         $car->model = $request->model_id;
         $car->enginecc = $request->enginecc;
         $car->speedbox = $request->speedbox;

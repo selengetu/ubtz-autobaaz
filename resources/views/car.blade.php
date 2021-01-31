@@ -6,6 +6,10 @@
     .table th {
         font-size: 10px;
     }
+   
+    .disabledTab {
+        pointer-events: none;
+    }
 </style>
 @endsection
 
@@ -32,13 +36,13 @@
               <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">Тээврийн хэрэгсэл</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">Эд анги</a>
+              <a class="nav-link disabled disabledTab" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">Эд анги</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" id="contact-tab" data-toggle="tab" href="#repair" role="tab" aria-controls="contact" aria-selected="false">Засвар</a>
+              <a class="nav-link disabled disabledTab" id="contact-tab" data-toggle="tab" href="#repair" role="tab" aria-controls="contact" aria-selected="false">Засвар</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" id="driver-tab" data-toggle="tab" href="#driver" role="tab" aria-controls="driver" aria-selected="false">Жолооч</a>
+                <a class="nav-link disabled disabledTab" id="driver-tab" data-toggle="tab" href="#driver" role="tab" aria-controls="driver" aria-selected="false">Жолооч</a>
               </li>
           </ul>
           <div class="tab-content" id="myTabContent">
@@ -65,7 +69,7 @@
                                                 <th>Хөдөлгүүрийн<br>багтаамж</th>
                                                 <th>Хурдны хайрцаг</th>
                                                 <th></th>
-                                                <th></th>
+                                               
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -80,10 +84,10 @@
                                                     <td>{{$c->mark_name}}</td>
                                                     <td>{{$c->model_name}}</td>
                                                     <td>{{$c->manuyear}}</td>
-                                                    <td>{{$c->enginecc}} {{$c->engineid}} -{{$c->enginecap}}л - {{$c->engineid}}</td>
-                                                    <td>{{$c->speedbox}}- {{$c->speedtype}} {{$c->speedcap}}л</td>
-                                                    <td><button onclick="carClicked({{$c->carid}})" data-id="{{$c->carid}}" tag="{{$c->carid}}" class="btn btn-primary btn-sm process"> <i class="fa fa-plus" style="color: rgb(255, 255, 255);"></i></button></td>
-                                                    <td class='m1'> <a class='btn btn-xs btn-info update' data-toggle='modal' data-target='#exampleModal' data-id="{{$c->carid}}" tag='{{$c->carid}}'><i class="fa fa-pencil-square-o" style="color: rgb(255, 255, 255); "></i></a> </td>
+                                                    <td>{{$c->enginecc}} {{$c->engineid}} -{{$c->enginecap}}л </td>
+                                                    <td>{{$c->speedbox_name}}- {{$c->speedtype}} {{$c->speedcap}}л</td>
+                                                    <td><button onclick="carClicked({{$c->carid}})" data-id="{{$c->carid}}" tag="{{$c->carid}}" class="btn btn-primary btn-sm process"> <i class="fa fa-plus" style="color: rgb(255, 255, 255);"></i></button>
+                                                        <button class='btn btn-sm btn-info update' data-toggle='modal' data-target='#exampleModal' data-id="{{$c->carid}}" tag='{{$c->carid}}'><i class="fa fa-pencil-square-o" style="color: rgb(255, 255, 255); "></i></button> </td>
                                                 </tr>
                                                 <?php $no++; ?>
                                             @endforeach
@@ -104,7 +108,7 @@
                           
                                 <div class="table-responsive m-t-20 no-wrap">
                                     <table class="table table-bordered main"
-                                        style="font-size:10px; color:black; word-wrap:break-word;">
+                                        style="font-size:10px; color:black; word-wrap:break-word;" id="producttable">
                                         <thead style="background-color:#ceedf9; font-size: 10px;">
                                             <tr>
                                               
@@ -120,12 +124,13 @@
                                               
                                             </tr>
                                         </thead>
-                                       
+                                        <tbody>
+                                        </tbody>
                                     </table>
                                     <br>
                                     <table class="table table-bordered vm"
                                     style="font-size:10px;width:50%; color:black; word-wrap:break-word;">
-                                    <thead style="background-color:#ceedf9; font-size: 10px;" id="producttable">
+                                    <thead style="background-color:#ceedf9; font-size: 10px;" >
                                         <tr>
                                            
                                             <th>Эд ангийн нэр </th>
@@ -151,7 +156,7 @@
                           
                                 <div class="table-responsive m-t-20 no-wrap">
                                     <table class="table table-bordered main"
-                                        style="font-size:10px; color:black; word-wrap:break-word;">
+                                        style="font-size:10px; color:black; word-wrap:break-word;" id="repairtable">
                                         <thead style="background-color:#ceedf9; font-size: 10px;">
                                             <tr>
                                               
@@ -167,12 +172,13 @@
                                             
                                             </tr>
                                         </thead>
-                                       
+                                        <tbody>
+                                        </tbody>
                                     </table>
                                     <br>
                                     <table class="table table-bordered vm"
                                     style="font-size:10px;width:50%; color:black; word-wrap:break-word;">
-                                    <thead style="background-color:#ceedf9; font-size: 10px;"  id="repairtable">
+                                    <thead style="background-color:#ceedf9; font-size: 10px;"  >
                                         <tr>
                                             <th>Огноо</th>
                                             <th>Хийгдсэн үйлчилгээ</th>
@@ -198,7 +204,7 @@
                           
                                 <div class="table-responsive m-t-20 no-wrap">
                                     <table class="table table-bordered main"
-                                        style="font-size:10px; color:black; word-wrap:break-word;">
+                                        style="font-size:10px; color:black; word-wrap:break-word;" id="drivertable">
                                         <thead style="background-color:#ceedf9; font-size: 10px;">
                                             <tr>
                                               
@@ -214,12 +220,13 @@
                                              
                                             </tr>
                                         </thead>
-                                       
+                                       <tbody>
+                                       </tbody>
                                     </table>
                                      <br>
                               
                                 <table class="table table-bordered vm"
-                                style="font-size:10px;width:50%; color:black; word-wrap:break-word;" id="drivertable">
+                                style="font-size:10px;width:50%; color:black; word-wrap:break-word;" >
                                 <thead style="background-color:#ceedf9; font-size: 10px;">
                                     <tr>
                                         <th>Нэр</th>
@@ -259,7 +266,7 @@
                             <label for="inputAddress">Үйлдвэрлэгчийн нэр</label>
                             <input type="hidden" name="_token" value="{{ csrf_token() }}">
                             <input type="hidden" class="form-control" id="car_id" name="car_id">
-                            <select class="form-control" id="mark_id" name="mark_id" >
+                            <select class="form-control" id="mark" name="mark" >
                              
                                 @foreach($mark as $m)
                                   
@@ -326,7 +333,7 @@
                         </div>
                         <div class="form-group col-md-4">
                             <label for="inputAddress">Өнгө</label>
-                            <select class="form-control" id="colour_id" name="colour_id" >
+                            <select class="form-control" id="colour" name="colour" >
                              
                                 @foreach($colour as $c)
                                   
@@ -355,7 +362,7 @@
                         </div>
                         <div class="form-group col-md-4">
                             <label for="inputAddress">Хурдны хайрцаг</label>
-                            <select class="form-control" id="oil_id" name="oil_id" >
+                            <select class="form-control" id="speedbox" name="speedbox" >
                              
                                 @foreach($speedbox as $s)
                                   
@@ -416,8 +423,8 @@
 </script>
 <script>
         function getcar($id){
-        var itag = $id;
-        $.get('carfill/'+itag,function(data){
+
+        $.get('carfill/'+$id,function(data){
             $(".main tbody").empty();
             $("#drivertable tbody").empty();
             $("#repairtable tbody").empty();
@@ -427,7 +434,7 @@
                 $('#gcar_id').val(qwe.carid);
                 var sHtml = " <tr class='table-row' >" +
 
-                    "   <td class='m1'>" + qwe.vtypename 
+                    "   <td class='m1'>" + qwe.vtypename + "</td>" +
                     "   <td class='m1'>" + qwe.parkname + "</td>" +
                     "   <td class='m1'>" + qwe.carno + "</td>" +
                     "   <td class='m1'>" + qwe.vinno+ "</td>" +
@@ -439,32 +446,30 @@
                   
                     "</tr>";
 
-                $("#projecttable tbody").append(sHtml);
-                var sHtml1 = " <tr class='table-row' >" +
-
-                    "   <td class='m1'>" + qwe.plancomma + "</td>" +
-                    "   <td class='m1'>" + qwe.plan1comma + "</td>" +
-                    "   <td class='m1'>" + qwe.plan2comma + "</td>" +
-                    "   <td class='m1'>" + qwe.plan3comma + "</td>" +
-                    "   <td class='m1'>" + qwe.plan4comma + "</td>" +
-                    "</tr>";
-
-                $("#plantable tbody").append(sHtml1);
+                $("#drivertable tbody").append(sHtml);
+                $("#repairtable tbody").append(sHtml);
+                $("#producttable tbody").append(sHtml);
+              
 
             });
 
         });
     }
 
-    $('#nav-home-tab').on('click',function(){
-        $( "#nav-profile-tab" ).addClass("disabled disabledTab");
-    });
+   
     function carClicked(carid) {
-        $( "#nav-profile-tab" ).removeClass("disabled disabledTab");
-        $('#nav-profile-tab').trigger('click');
+        $( "#profile-tab" ).removeClass("disabled disabledTab");
+        $( "#driver-tab" ).removeClass("disabled disabledTab");
+        $( "#contact-tab" ).removeClass("disabled disabledTab");
+        $('#profile-tab').trigger('click');
 
         getcar(carid);
       
     }
+    $('#home-tab').on('click',function(){
+        $( "#profile-tab" ).addClass("disabled disabledTab");
+        $( "#driver-tab" ).addClass("disabled disabledTab");
+        $( "#contact-tab" ).addClass("disabled disabledTab");
+    });
 </script>
 @endsection
