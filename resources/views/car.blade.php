@@ -455,7 +455,8 @@
 
                         <div class="form-group col-md-4">
                             <label for="inputAddress">Огноо</label>
-                            <input type="text" class="form-control" id="engineid" name="engineid" placeholder="">
+                            <input class="form-control form-control-inline input-medium date-picker" name="fdate" id="fdate"
+                            size="16" type="text" value="">
                         
                         </div>
                         <div class="form-group col-md-4">
@@ -478,11 +479,6 @@
                             <input type="hidden" class="form-control" id="gcar" name="gcar">
                             <select class="form-control" id="product_id" name="product_id" >
                              
-                                @foreach($product as $p)
-                                  
-                                    <option value= "{{$p->product_id}}">  {{$p->product_name}}</option>
-                                  
-                                @endforeach
                             </select>
                         
                         </div>
@@ -493,7 +489,7 @@
                         </div>
                         <div class="form-group col-md-8">
                             <label for="inputAddress">Тайлбар</label>
-                            <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                            <textarea class="form-control" id="exampleFormControlTextarea1" ></textarea>
                         
                         </div>
                         
@@ -589,11 +585,11 @@
                             <label for="inputAddress">Жолоочийн нэр</label>
                             <input type="hidden" name="_token" value="{{ csrf_token() }}">
                             <input type="hidden" class="form-control" id="gcar" name="gcar">
-                            <select class="form-control" id="product_id" name="product_id" >
+                            <select class="form-control" id="driver_id" name="driver_id" >
                              
-                                @foreach($product as $p)
+                                @foreach($driver as $d)
                                   
-                                    <option value= "{{$p->product_id}}">  {{$p->product_name}}</option>
+                                    <option value= "{{$d->driver_id}}">  {{$d->driver_name}}</option>
                                   
                                 @endforeach
                             </select>
@@ -602,7 +598,7 @@
                    
                         <div class="form-group col-md-4">
                             <label for="inputAddress">Эхэлсэн огноо</label>
-                            <input class="form-control form-control-inline input-medium date-picker" name="fdate" id="fdate"
+                            <input class="form-control form-control-inline input-medium date-picker" name="sdate" id="sdate"
                             size="16" type="text" value="">
                         
                         </div>

@@ -22,7 +22,8 @@ class CarController extends Controller {
         $speedbox = DB::select('select * from CONST_CAR_SPEEDBOX');
         $type = DB::select('select * from CONST_VEHICLE_TYPES');
         $product = DB::select('select * from CONST_PRODUCT');
-        return view('car',compact('car','mark','model','park','oil','colour','type','speedbox','product'));
+        $driver = DB::select('select * from CONST_DRIVER');
+        return view('car',compact('car','mark','model','park','oil','colour','type','speedbox','product','driver'));
     }
 
     public function store(Request $request)

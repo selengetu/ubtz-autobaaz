@@ -55,6 +55,6 @@ Route::get('/product/delete/{id}', 'CarController@destroy');
 Route::post('/addproduct','CarController@store');
 Route::post('/updateproduct','CarController@update');
 Route::get('/productfill/{id?}',function($id = 0){
-    $dt=DB::table('v_cars')->where('carid','=',$id)->get();
+    $dt=DB::table('v_products')->where('carid','=',$id)->get();
     return $dt;
 });
