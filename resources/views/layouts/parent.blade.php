@@ -9,13 +9,13 @@
     <meta name="description" content="">
     <meta name="author" content="">
   
-<link href="../assets/node_modules/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-<link href="../assets/node_modules/perfect-scrollbar/css/perfect-scrollbar.css" rel="stylesheet">
+<link href="assets/node_modules/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+<link href="assets/node_modules/perfect-scrollbar/css/perfect-scrollbar.css" rel="stylesheet">
 <!-- This page CSS -->
 <!-- chartist CSS -->
-<link href="../assets/node_modules/morrisjs/morris.css" rel="stylesheet">
+<link href="assets/node_modules/morrisjs/morris.css" rel="stylesheet">
 <!--c3 CSS -->
-<link href="../assets/node_modules/c3-master/c3.min.css" rel="stylesheet">
+<link href="assets/node_modules/c3-master/c3.min.css" rel="stylesheet">
 <!-- Custom CSS -->
 <link href="css/style.css" rel="stylesheet">
 <!-- Dashboard 1 Page CSS -->
@@ -56,14 +56,14 @@
                         <!-- Logo icon --><b>
                             <!--You can put here icon as well // <i class="wi wi-sunset"></i> //-->
                             <!-- Dark Logo icon -->
-                            <img src="../assets/images/logo-icon.png" alt="homepage" class="dark-logo" />
+                            <img src="assets/images/logo-icon.png" alt="homepage" class="dark-logo" />
                             <!-- Light Logo icon -->
                             <span>АТҮТ<span>
                         </b>
                         <!--End Logo icon -->
                         <!-- Logo text --><span>
                         
-                         <img src="../assets/images/logo-light-text.png" class="light-logo" alt="homepage" /></span> </a>
+                         <img src="assets/images/logo-light-text.png" class="light-logo" alt="homepage" /></span> </a>
                 </div>
                 <!-- ============================================================== -->
                 <!-- End Logo -->
@@ -164,10 +164,10 @@
     <!-- ============================================================== -->
 
 
-    <script src="../assets/node_modules/jquery/jquery.min.js"></script>
+    <script src="assets/node_modules/jquery/jquery.min.js"></script>
     <!-- Bootstrap popper Core JavaScript -->
-    <script src="../assets/node_modules/bootstrap/js/popper.min.js"></script>
-    <script src="../assets/node_modules/bootstrap/js/bootstrap.min.js"></script>
+    <script src="assets/node_modules/bootstrap/js/popper.min.js"></script>
+    <script src="assets/node_modules/bootstrap/js/bootstrap.min.js"></script>
     <!-- slimscrollbar scrollbar JavaScript -->
     <script src="js/perfect-scrollbar.jquery.min.js"></script>
     <!--Wave Effects -->
@@ -180,11 +180,11 @@
     <!-- This page plugins -->
     <!-- ============================================================== -->
     <!--morris JavaScript -->
-    <script src="../assets/node_modules/raphael/raphael-min.js"></script>
-    <script src="../assets/node_modules/morrisjs/morris.min.js"></script>
+    <script src="assets/node_modules/raphael/raphael-min.js"></script>
+    <script src="assets/node_modules/morrisjs/morris.min.js"></script>
     <!--c3 JavaScript -->
-    <script src="../assets/node_modules/d3/d3.min.js"></script>
-    <script src="../assets/node_modules/c3-master/c3.min.js"></script>
+    <script src="assets/node_modules/d3/d3.min.js"></script>
+    <script src="assets/node_modules/c3-master/c3.min.js"></script>
     <script src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/js/bootstrap-datepicker.min.js"></script>
