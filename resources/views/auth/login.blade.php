@@ -62,7 +62,7 @@
     }
 
     .banner-sec {
-        background: url('/assets/images/back.jpg') no-repeat bottom;
+        background: url('assets/images/back.jpg') no-repeat bottom;
         background-size: cover;
         min-height: 600px;
         border-radius: 0 10px 10px 0;
