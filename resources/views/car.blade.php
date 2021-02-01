@@ -166,44 +166,57 @@
                     <div class="col-lg-12">
                         <div class="card">
                             <div class="card-body">
-                          
-                                <div class="table-responsive m-t-20 no-wrap">
-                                    <table class="table table-bordered main"
-                                        style="font-size:10px; color:black; word-wrap:break-word;" id="repairtable">
-                                        <thead style="background-color:#ceedf9; font-size: 10px;">
+                                <div class="row">
+                                    <div class="col-md-12">
+                                          <div class="table-responsive m-t-20 no-wrap">
+                                              <table class="table table-bordered main"
+                                                  style="font-size:10px; color:black; word-wrap:break-word;" id="repairtable">
+                                                  <thead style="background-color:#ceedf9; font-size: 10px;">
+                                                      <tr>
+                                                        
+                                                          <th>Төрөл </th>
+                                                          <th>Парк</th>
+                                                          <th>Улсын дугаар</th>
+                                                          <th>Арлын дугаар</th>
+                                                          <th>Марк</th>
+                                                          <th>Модель</th>
+                                                          <th>Үйлдвэрлэсэн он</th>
+                                                          <th>Хөдөлгүүрийн<br>багтаамж</th>
+                                                          <th>Хурдны хайрцаг</th>
+                                                        
+                                                      </tr>
+                                                  </thead>
+                                                  <tbody>
+                                                  </tbody>
+                                              </table>
+                                             
+                                          </div>
+                                         
+                                      </div>
+                                      <div class="col-md-6" >
+                                       
+                                        <table class="table table-bordered vm"
+                                        style="font-size:10px;width:100%; color:black; word-wrap:break-word;">
+                                        <thead style="background-color:#ceedf9; font-size: 10px;"  >
                                             <tr>
+                                                <th>Огноо</th>
+                                                <th>Хийгдсэн үйлчилгээ</th>
+                                                <th>Явсан км</th>
+                                                <th>Тайлбар</th>
                                               
-                                                <th>Төрөл </th>
-                                                <th>Парк</th>
-                                                <th>Улсын дугаар</th>
-                                                <th>Арлын дугаар</th>
-                                                <th>Марк</th>
-                                                <th>Модель</th>
-                                                <th>Үйлдвэрлэсэн он</th>
-                                                <th>Хөдөлгүүрийн<br>багтаамж</th>
-                                                <th>Хурдны хайрцаг</th>
-                                            
                                             </tr>
                                         </thead>
                                         <tbody>
                                         </tbody>
                                     </table>
-                                    <br>
-                                    <table class="table table-bordered vm"
-                                    style="font-size:10px;width:50%; color:black; word-wrap:break-word;">
-                                    <thead style="background-color:#ceedf9; font-size: 10px;"  >
-                                        <tr>
-                                            <th>Огноо</th>
-                                            <th>Хийгдсэн үйлчилгээ</th>
-                                            <th>Явсан км</th>
-                                            <th>Тайлбар</th>
+                                         
                                           
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                    </tbody>
-                                </table>
-                                </div>
+                                      </div>
+                                      <div class="col-md-3" >
+                                          <a href="#" class="btn waves-effect waves-light btn btn-info pull-right hidden-sm-down" data-toggle="modal" data-target="#repairModal"> <i class="fa fa-plus" aria-hidden="true"></i> Засвар бүртгэх</a>
+                                      </div>
+                                  </div>
+                              
                             </div>
                         </div>
                     </div>
@@ -215,50 +228,63 @@
                     <div class="col-lg-12">
                         <div class="card">
                             <div class="card-body">
-                          
-                                <div class="table-responsive m-t-20 no-wrap">
-                                    <table class="table table-bordered main"
-                                        style="font-size:10px; color:black; word-wrap:break-word;" id="drivertable">
-                                        <thead style="background-color:#ceedf9; font-size: 10px;">
-                                            <tr>
-                                              
-                                                <th>Төрөл </th>
-                                                <th>Парк</th>
-                                                <th>Улсын дугаар</th>
-                                                <th>Арлын дугаар</th>
-                                                <th>Марк</th>
-                                                <th>Модель</th>
-                                                <th>Үйлдвэрлэсэн он</th>
-                                                <th>Хөдөлгүүрийн<br>багтаамж</th>
-                                                <th>Хурдны хайрцаг</th>
+                                <div class="row">
+                                    <div class="col-md-12">
+                                          <div class="table-responsive m-t-20 no-wrap">
+                                              <table class="table table-bordered main"
+                                                  style="font-size:10px; color:black; word-wrap:break-word;" id="repairtable">
+                                                  <thead style="background-color:#ceedf9; font-size: 10px;">
+                                                      <tr>
+                                                        
+                                                          <th>Төрөл </th>
+                                                          <th>Парк</th>
+                                                          <th>Улсын дугаар</th>
+                                                          <th>Арлын дугаар</th>
+                                                          <th>Марк</th>
+                                                          <th>Модель</th>
+                                                          <th>Үйлдвэрлэсэн он</th>
+                                                          <th>Хөдөлгүүрийн<br>багтаамж</th>
+                                                          <th>Хурдны хайрцаг</th>
+                                                        
+                                                      </tr>
+                                                  </thead>
+                                                  <tbody>
+                                                  </tbody>
+                                              </table>
                                              
-                                            </tr>
-                                        </thead>
-                                       <tbody>
-                                       </tbody>
-                                    </table>
-                                     <br>
-                              
-                                <table class="table table-bordered vm"
-                                style="font-size:10px;width:50%; color:black; word-wrap:break-word;" >
-                                <thead style="background-color:#ceedf9; font-size: 10px;">
-                                    <tr>
-                                        <th>Нэр</th>
-                                        <th>Ангилал</th>
-                                        <th>Мэргэшсэн</th>
-                                        <th>Эхэлсэн огноо </th>
-                                        <th>Дууссан огноо</th>
-                                      
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                </tbody>
-                            </table>
-                                </div>
+                                          </div>
+                                         
+                                      </div>
+                                      <div class="col-md-6" >
+                                       
+                                        <table class="table table-bordered vm"
+                                    style="font-size:10px;width:100%; color:black; word-wrap:break-word;" >
+                                    <thead style="background-color:#ceedf9; font-size: 10px;">
+                                        <tr>
+                                            <th>Нэр</th>
+                                            <th>Ангилал</th>
+                                            <th>Мэргэшсэн</th>
+                                            <th>Эхэлсэн огноо </th>
+                                            <th>Дууссан огноо</th>
+                                          
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                    </tbody>
+                                </table>
+                                         
+                                          
+                                      </div>
+                                      <div class="col-md-3" >
+                                          <a href="#" class="btn waves-effect waves-light btn btn-info pull-right hidden-sm-down" data-toggle="modal" data-target="#driverModal"> <i class="fa fa-plus" aria-hidden="true"></i> Жолооч бүртгэх</a>
+                                      </div>
+                                  </div>
+                               
                             </div>
                         </div>
                     </div>
                 </div>
+            
             </div>
           </div>
   
@@ -413,10 +439,85 @@
         </div>
     </div>
 </div>
+<div class="modal fade " id="repairModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" data-keyboard="false" data-backdrop="static">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <form id="form1" action="addrepair" method="post">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="modal-title">Эд анги бүртгэх цонх</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+
+                    <div class="form-row">
+
+                        <div class="form-group col-md-4">
+                            <label for="inputAddress">Огноо</label>
+                            <input type="text" class="form-control" id="engineid" name="engineid" placeholder="">
+                        
+                        </div>
+                        <div class="form-group col-md-4">
+                            <label for="inputAddress">Эд анги</label>
+                            <input type="hidden" name="_token" value="{{ csrf_token() }}">
+                            <input type="hidden" class="form-control" id="gcar" name="gcar">
+                            <select class="form-control" id="product_id" name="product_id" >
+                             
+                                @foreach($product as $p)
+                                  
+                                    <option value= "{{$p->product_id}}">  {{$p->product_name}}</option>
+                                  
+                                @endforeach
+                            </select>
+                        
+                        </div>
+                        <div class="form-group col-md-4">
+                            <label for="inputAddress">Хийгдсэн үйлчилгээ</label>
+                            <input type="hidden" name="_token" value="{{ csrf_token() }}">
+                            <input type="hidden" class="form-control" id="gcar" name="gcar">
+                            <select class="form-control" id="product_id" name="product_id" >
+                             
+                                @foreach($product as $p)
+                                  
+                                    <option value= "{{$p->product_id}}">  {{$p->product_name}}</option>
+                                  
+                                @endforeach
+                            </select>
+                        
+                        </div>
+                        <div class="form-group col-md-4">
+                            <label for="inputAddress">Явсан км</label>
+                            <input type="number" class="form-control" id="carno" name="carno" maxlength="10">
+                        
+                        </div>
+                        <div class="form-group col-md-8">
+                            <label for="inputAddress">Тайлбар</label>
+                            <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                        
+                        </div>
+                        
+                     
+                    </div>
+
+                </div>
+                <div class="modal-footer">
+                    <div class="col-md-5">
+                        <button type="button" class="btn btn-danger delete">Устгах</button>
+                    </div>
+                    <div class="col-md-7" style="display: inline-block; text-align: right;" >
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Хаах</button>
+                        <button type="submit" class="btn btn-primary">Хадгалах</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
 <div class="modal fade " id="productModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" data-keyboard="false" data-backdrop="static">
     <div class="modal-dialog modal-lg" role="document">
         <div class="modal-content">
-            <form id="form1" action="addcar" method="post">
+            <form id="form1" action="addproduct" method="post">
                 <div class="modal-header">
                     <h5 class="modal-title" id="modal-title">Эд анги бүртгэх цонх</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
@@ -450,8 +551,8 @@
                       
                         <div class="form-group col-md-4">
                             <label for="inputAddress">Огноо</label>
-                            <input type="text" class="form-control" id="engineid" name="engineid" placeholder="">
-                        
+                            <input class="form-control form-control-inline input-medium date-picker" name="fdate" id="fdate"
+                            size="16" type="text" value="">
                         </div>
                      
                     </div>
@@ -470,10 +571,10 @@
         </div>
     </div>
 </div>
-<div class="modal fade " id="repairModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" data-keyboard="false" data-backdrop="static">
+<div class="modal fade " id="driverModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" data-keyboard="false" data-backdrop="static">
     <div class="modal-dialog modal-lg" role="document">
         <div class="modal-content">
-            <form id="form1" action="addcar" method="post">
+            <form id="form1" action="adddriver" method="post">
                 <div class="modal-header">
                     <h5 class="modal-title" id="modal-title">Эд анги бүртгэх цонх</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
@@ -485,7 +586,7 @@
                     <div class="form-row">
 
                         <div class="form-group col-md-4">
-                            <label for="inputAddress">Эд ангийн нэр</label>
+                            <label for="inputAddress">Жолоочийн нэр</label>
                             <input type="hidden" name="_token" value="{{ csrf_token() }}">
                             <input type="hidden" class="form-control" id="gcar" name="gcar">
                             <select class="form-control" id="product_id" name="product_id" >
@@ -500,14 +601,16 @@
                         </div>
                    
                         <div class="form-group col-md-4">
-                            <label for="inputAddress">Явсан км</label>
-                            <input type="number" class="form-control" id="carno" name="carno" maxlength="10">
+                            <label for="inputAddress">Эхэлсэн огноо</label>
+                            <input class="form-control form-control-inline input-medium date-picker" name="fdate" id="fdate"
+                            size="16" type="text" value="">
                         
                         </div>
                       
                         <div class="form-group col-md-4">
-                            <label for="inputAddress">Огноо</label>
-                            <input type="text" class="form-control" id="engineid" name="engineid" placeholder="">
+                            <label for="inputAddress">Дууссан огноо</label>
+                            <input class="form-control form-control-inline input-medium date-picker" name="fdate" id="fdate"
+                        size="16" type="text" value="">
                         
                         </div>
                      
@@ -531,6 +634,10 @@
 
 @section('scripts')
 <script>
+   $(document).ready(function() {
+    $('.date-picker').datepicker();
+    
+});
        $('.select2').select2();
      $('#mark_id').change(function() {
         var item=$(this).val();
@@ -560,7 +667,7 @@
             $("#producttable tbody").empty();
             $.each(data,function(i,qwe){
 
-                $('#gcar_id').val(qwe.carid);
+                $('#gcar').val(qwe.carid);
                 var sHtml = " <tr class='table-row' >" +
 
                     "   <td class='m1'>" + qwe.vtypename + "</td>" +
