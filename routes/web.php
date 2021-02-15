@@ -58,3 +58,12 @@ Route::get('/productfill/{id?}',function($id = 0){
     $dt=DB::table('v_products')->where('carid','=',$id)->get();
     return $dt;
 });
+
+Route::get('/driver', 'DriverController@index')->name('driver');
+Route::get('/driver/delete/{id}', 'DriverController@destroy');
+Route::post('/adddriver','DriverController@store');
+Route::post('/updatedriver','DriverController@update');
+Route::get('/driverfill/{id?}',function($id = 0){
+    $dt=DB::table('CONST_DRIVER')->where('driver_id','=',$id)->get();
+    return $dt;
+});

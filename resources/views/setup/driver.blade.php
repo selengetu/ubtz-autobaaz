@@ -49,13 +49,23 @@
                                     <th>№</th>
                                   
                                     <th>Жолоочийн нэр</th>
+                                    <th>Жолоочийн ангилал</th>
+                                    <th>Мэргэшсэн</th>
                                     <th></th>
                                 </tr>
                             </thead>
                             <tbody>
                                 <?php $no = 1; ?>
-                                  
-
+                                    @foreach($driver as $d)
+                                        <tr>
+                                            <td>{{$no}}</td>
+                                            <td>{{$d->driver_name}}</td>
+                                            <td>{{$d->driver_type}}</td>
+                                            <td>{{$d->driver_spec}}</td>
+                                            <td class='m1'> <a class='btn btn-xs btn-info update' data-toggle='modal' data-target='#exampleModal' data-id="{{$d->driver_id}}" tag='{{$d->driver_id}}'><i class="fa fa-pencil-square-o" style="color: rgb(255, 255, 255); "></i></a> </td>
+                                        </tr>
+                                        <?php $no++; ?>
+                                    @endforeach
                             </tbody>
                         </table>
                     </div>
@@ -67,9 +77,9 @@
 <div class="modal fade " id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" data-keyboard="false" data-backdrop="static">
     <div class="modal-dialog modal-lg" role="document">
         <div class="modal-content">
-            <form id="form1" action="post">
+            <form id="form1" action="post" method="adddriver">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="modal-title">үйлдвэрлэгч бүртгэх цонх</h5>
+                    <h5 class="modal-title" id="modal-title">Жолооч бүртгэх цонх</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
@@ -78,13 +88,25 @@
 
                     <div class="form-row">
 
-                        <div class="form-group col-md-12">
-                            <label for="inputAddress">Үйлдвэрлэгчийн нэр</label>
+                        <div class="form-group col-md-3">
+                            <label for="inputAddress">Жолоочийн нэр</label>
                             <input type="hidden" name="_token" value="{{ csrf_token() }}">
-                            <input type="hidden" class="form-control" id="mark_id" name="mark_id">
-                            <input type="text" class="form-control" id="mark_name" name="mark_name" placeholder="">
+                            <input type="hidden" class="form-control" id="driver_id" name="driver_id">
+                            <input type="text" class="form-control" id="driver_name" name="driver_name" placeholder="">
                         </div>
-                    
+                        <div class="form-group col-md-3">
+                            <label for="inputAddress">Жолоочийн код</label>
+                            <input type="text" class="form-control" id="driver_code" name="driver_code" placeholder="">
+                        </div>
+                        <div class="form-group col-md-3">
+                            <label for="inputAddress">Жолоочийн ангилал</label>
+                            <input type="text" class="form-control" id="driver_type" name="driver_type" placeholder="">
+                        </div>
+                        <div class="form-group col-md-3">
+                            <label for="inputAddress">Жолоочийн мэргэшсэн</label>
+                            <input type="text" class="form-control" id="driver_spec" name="driver_spec" placeholder="">
+                        </div>
+                       
                     </div>
 
                 </div>

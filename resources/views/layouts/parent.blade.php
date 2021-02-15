@@ -108,7 +108,7 @@
                             <ul aria-expanded="false" class="collapse first-level in">
                                 <li class="sidebar-item"><a href="{{ route('mark') }}" class="sidebar-link"><i class="mdi mdi-format-align-left"></i><span class="hide-menu"> Үйлдвэрлэгч </span></a></li>
                                 <li class="sidebar-item"><a href="{{ route('model') }}" class="sidebar-link"><i class="mdi mdi-format-align-right"></i><span class="hide-menu"> Загвар </span></a></li>
-                   
+                                <li class="sidebar-item"><a href="{{ route('driver') }}" class="sidebar-link"><i class="mdi mdi-format-align-right"></i><span class="hide-menu"> Жолооч </span></a></li>
                                   </span></a></li>
                           
                             </ul>
