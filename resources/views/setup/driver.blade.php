@@ -47,7 +47,7 @@
                             <thead style="background-color:#ceedf9; font-size: 10px;">
                                 <tr>
                                     <th>№</th>
-                                  
+                                    <th>Жолоочийн код</th>
                                     <th>Жолоочийн нэр</th>
                                     <th>Жолоочийн ангилал</th>
                                     <th>Мэргэшсэн</th>
@@ -59,6 +59,7 @@
                                     @foreach($driver as $d)
                                         <tr>
                                             <td>{{$no}}</td>
+                                            <td>{{$d->driver_code}}</td>
                                             <td>{{$d->driver_name}}</td>
                                             <td>{{$d->driver_type}}</td>
                                             <td>{{$d->driver_spec}}</td>
@@ -157,15 +158,17 @@
     <script>
         $('.update').on('click',function(){
             var title = document.getElementById("modal-title");
-            title.innerHTML = "Үйлдвэрлэгч засварлах цонх";
-            document.getElementById('form1').action = "updatemark";
+            title.innerHTML = "Жолооч засварлах цонх";
+            document.getElementById('form1').action = "updatedriver";
             document.getElementById('form1').method ="post"
             var itag=$(this).attr('tag');
-            $.get('markfill/'+itag,function(data){
+            $.get('driverfill/'+itag,function(data){
                 $.each(data,function(i,qwe){
-                    $('#mark_id').val(qwe.mark_id);
-                    $('#mark_name').val(qwe.mark_name);
-                   
+                    $('#driver_id').val(qwe.driver_id);
+                    $('#driver_name').val(qwe.driver_name);
+                    $('#driver_spec').val(qwe.driver_spec);
+                    $('#driver_type').val(qwe.driver_type);
+                    $('#driver_code').val(qwe.driver_code);
                 });
 
             });
@@ -175,12 +178,14 @@
     <script>
         $('.add').on('click',function(){
             var title = document.getElementById("modal-title");
-            title.innerHTML = "Үйлдвэрлэгч бүртгэх цонх";
-            document.getElementById('form1').action = "addmark"
+            title.innerHTML = "Жолооч бүртгэх цонх";
+            document.getElementById('form1').action = "adddriver"
             document.getElementById('form1').method ="post";
-            $('#mark_id').val('');
-            $('#mark_name').val('');
-            
+            $('#driver_id').val('');
+            $('#driver_name').val('');
+            $('#driver_spec').val('');
+            $('#driver_type').val('');
+            $('#driver_code').val('');
             $('.delete').hide();
         });
         $('.delete').on('click',function(){
@@ -188,7 +193,7 @@
 
             $.ajax(
                 {
-                    url: "mark/delete/" + itag,
+                    url: "driver/delete/" + itag,
                     type: 'GET',
                     dataType: "JSON",
                     data: {
@@ -196,11 +201,11 @@
                         "_method": 'DELETE',
                     },
                     success: function () {
-                        alert('Үйлдвэрлэгч устгагдлаа');
+                        alert('Жолооч устгагдлаа');
                     }
 
                 });
-            alert(' Үйлдвэрлэгч устгагдлаа');
+        
             location.reload();
         });
     </script>

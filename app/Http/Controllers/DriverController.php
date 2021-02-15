@@ -47,7 +47,7 @@ class DriverController extends Controller {
      */
     public function destroy($id)
     {
-        Mark::where('driver_id', '=', $id)->delete();
+        Driver::where('driver_id', '=', $id)->delete();
         return Redirect('driver');
     }
 }
