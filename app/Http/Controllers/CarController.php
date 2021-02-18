@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use DB;
 use App\Mark;
 use App\Car;
+use App\CarDriver;
 class CarController extends Controller {
 
    public function __construct() {
@@ -68,6 +69,39 @@ class CarController extends Controller {
     public function destroy($id)
     {
         Car::where('carid', '=', $id)->delete();
+        return Redirect('car');
+    }
+    
+
+    public function storecardriver(Request $request)
+    {
+        
+        $car = new CarDriver;
+        $car->car_id = $request->gcar;
+        $car->sdate =$request->sdate;
+        $car->fdate = $request->fdate;
+        $car->driver_id = $request->driver_id;
+        $car->save();
+        return Redirect('car');
+    }
+
+    public function updatecardriver(Request $request)
+    {
+        $car = DB::table('CAR_DRIVER')
+            ->where('cd_id', $request->cd_id)
+            ->update(['sdate' =>  $request->sdate,'fdate' =>  $request->fdate,'driver_id' =>  $request->driver_id]);
+        return Redirect('car');
+    }
+
+    /**
+     * Remove the specified resource from storage.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function destroycardriver($id)
+    {
+        CarDriver::where('cd_id', '=', $id)->delete();
         return Redirect('car');
     }
 }

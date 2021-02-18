@@ -276,7 +276,7 @@
                                           
                                       </div>
                                       <div class="col-md-3" >
-                                          <a href="#" class="btn waves-effect waves-light btn btn-info pull-right hidden-sm-down" data-toggle="modal" data-target="#driverModal"> <i class="fa fa-plus" aria-hidden="true"></i> Жолооч бүртгэх</a>
+                                          <a href="#" id="adddriver" class="btn waves-effect waves-light btn btn-info pull-right hidden-sm-down" data-toggle="modal" data-target="#driverModal"> <i class="fa fa-plus" aria-hidden="true"></i> Жолооч бүртгэх</a>
                                       </div>
                                   </div>
                                
@@ -292,7 +292,7 @@
 <div class="modal fade " id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" data-keyboard="false" data-backdrop="static">
     <div class="modal-dialog modal-lg" role="document">
         <div class="modal-content">
-            <form id="form1" action="addcar" method="post">
+            <form id="formcar" action="addcar" method="post">
                 <div class="modal-header">
                     <h5 class="modal-title" id="modal-title">Тээврийн хэрэгсэл бүртгэх цонх</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
@@ -442,9 +442,9 @@
 <div class="modal fade " id="repairModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" data-keyboard="false" data-backdrop="static">
     <div class="modal-dialog modal-lg" role="document">
         <div class="modal-content">
-            <form id="form1" action="addrepair" method="post">
+            <form id="formrepair" action="addrepair" method="post">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="modal-title">Эд анги бүртгэх цонх</h5>
+                    <h5 class="modal-title" id="modal-title">Засвар бүртгэх цонх</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
@@ -462,7 +462,7 @@
                         <div class="form-group col-md-4">
                             <label for="inputAddress">Эд анги</label>
                             <input type="hidden" name="_token" value="{{ csrf_token() }}">
-                            <input type="hidden" class="form-control" id="gcar" name="gcar">
+                            <input type="" class="form-control gcar" id="gcar" name="gcar">
                             <select class="form-control" id="product_id" name="product_id" >
                              
                                 @foreach($product as $p)
@@ -476,7 +476,6 @@
                         <div class="form-group col-md-4">
                             <label for="inputAddress">Хийгдсэн үйлчилгээ</label>
                             <input type="hidden" name="_token" value="{{ csrf_token() }}">
-                            <input type="hidden" class="form-control" id="gcar" name="gcar">
                             <select class="form-control" id="product_id" name="product_id" >
                              
                             </select>
@@ -513,7 +512,7 @@
 <div class="modal fade " id="productModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" data-keyboard="false" data-backdrop="static">
     <div class="modal-dialog modal-lg" role="document">
         <div class="modal-content">
-            <form id="form1" action="addproduct" method="post">
+            <form id="formproduct" action="addproduct" method="post">
                 <div class="modal-header">
                     <h5 class="modal-title" id="modal-title">Эд анги бүртгэх цонх</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
@@ -527,7 +526,7 @@
                         <div class="form-group col-md-4">
                             <label for="inputAddress">Эд ангийн нэр</label>
                             <input type="hidden" name="_token" value="{{ csrf_token() }}">
-                            <input type="hidden" class="form-control" id="gcar" name="gcar">
+                            <input type="" class="form-control gcar" id="gcar" name="gcar">
                             <select class="form-control" id="product_id" name="product_id" >
                              
                                 @foreach($product as $p)
@@ -570,9 +569,9 @@
 <div class="modal fade " id="driverModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" data-keyboard="false" data-backdrop="static">
     <div class="modal-dialog modal-lg" role="document">
         <div class="modal-content">
-            <form id="form1" action="adddriver" method="post">
+            <form id="" method="post" action="addcardriver">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="modal-title">Эд анги бүртгэх цонх</h5>
+                    <h5 class="modal-title1" id="modal-title1">Жолооч бүртгэх цонх</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
@@ -584,7 +583,9 @@
                         <div class="form-group col-md-4">
                             <label for="inputAddress">Жолоочийн нэр</label>
                             <input type="hidden" name="_token" value="{{ csrf_token() }}">
-                            <input type="hidden" class="form-control" id="gcar" name="gcar">
+                            <input type="" class="form-control gcar" id="gcar" name="gcar">
+                            <input type="hidden" class="form-control gcar" id="cd_id" name="cd_id">
+                            <input type="" class="form-control" id="type" name="type">
                             <select class="form-control" id="driver_id" name="driver_id" >
                              
                                 @foreach($driver as $d)
@@ -654,6 +655,106 @@
     });
 </script>
 <script>
+     $('#adddriver').on('click',function(){
+        var title = document.getElementById("modal-title1");
+        $('#type').val('1');
+        title.innerHTML = "Жолооч бүртгэх цонх";
+
+        $('#gcar').val('');
+        $('#driver_id').val('1');
+        $('#sdate').val('');
+        $('#fdate').val('');
+        $('.delete').hide();
+
+    });
+    function deletedriver($id){
+
+            $.ajax(
+                {
+                    url: "cardriver/delete/" + $id,
+                    type: 'GET',
+                    dataType: "JSON",
+                    data: {
+                        "id": $id,
+                        "_method": 'DELETE',
+                    },
+                    success: function () {
+                        alert('Жолооч устгагдлаа');
+                    }
+
+                });
+
+
+                }
+                function updatedriver($id){
+
+                        var title = document.getElementById("modal-title1");
+                        title.innerHTML = "Жолооч засварлах цонх";
+
+                        $('#type').val('2');
+
+                        $.get('cardriverfill/'+$id,function(data){
+                            $.each(data,function(i,qwe){
+
+                                $('#cd_id').val(qwe.cd_id);
+                                $('#gcar').val(qwe.car_id);
+                                $('#driver_id').val(qwe.driver_id);
+                                $('#sdate').val(qwe.sdate);
+                                $('#fdate').val(qwe.fdate);
+                            });
+
+                        });
+                       
+                        };
+        $('#formdriver').submit(function(event){
+        var itag = $('#type').val();
+
+        event.preventDefault();
+
+
+        if(itag == 1){
+            $.ajax({
+                type: 'POST',
+                url: 'addcardriver',
+                data: $('form#formdriver').serialize(),
+                success: function(){
+                    alert('Жолооч нэмэгдлээ');
+                    location.reload();
+
+                },
+                error: function (jqXHR, textStatus, errorThrown) {
+                    if (jqXHR.status == 500) {
+                        alert('Internal error: ' + jqXHR.responseText);
+                    } else {
+                        alert('Unexpected error.');
+                    }
+                }
+            })
+
+        }
+        if(itag == 2){
+            $.ajax({
+                type: 'POST',
+                url: 'updatecardriver',
+                data: $('form#formdriver').serialize(),
+                success: function(){
+                    alert('Жолооч засварлагдлаа');
+                   
+                },
+                error: function (jqXHR, textStatus, errorThrown) {
+                    if (jqXHR.status == 500) {
+                        alert('Internal error: ' + jqXHR.responseText);
+                    } else {
+                        alert('Unexpected error.');
+                    }
+                }
+            })
+
+        }
+
+
+
+    });
         function getcar($id){
 
         $.get('carfill/'+$id,function(data){
@@ -663,7 +764,7 @@
             $("#producttable tbody").empty();
             $.each(data,function(i,qwe){
 
-                $('#gcar').val(qwe.carid);
+                $('.gcar').val(qwe.carid);
                 var sHtml = " <tr class='table-row' >" +
 
                     "   <td class='m1'>" + qwe.vtypename + "</td>" +
