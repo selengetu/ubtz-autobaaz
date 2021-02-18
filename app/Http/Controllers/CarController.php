@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use DB;
+use Carbon;
 use App\Mark;
 use App\Car;
 use App\CarDriver;
@@ -75,11 +76,11 @@ class CarController extends Controller {
 
     public function storecardriver(Request $request)
     {
-        
+    
         $car = new CarDriver;
         $car->car_id = $request->gcar;
-        $car->sdate =$request->sdate;
-        $car->fdate = $request->fdate;
+        $car->sdate =Carbon\Carbon::parse($request->sdate)->format('Y-m-d');
+        $car->fdate =Carbon\Carbon::parse($request->fdate)->format('Y-m-d');
         $car->driver_id = $request->driver_id;
         $car->save();
         return Redirect('car');
@@ -87,9 +88,10 @@ class CarController extends Controller {
 
     public function updatecardriver(Request $request)
     {
+       
         $car = DB::table('CAR_DRIVER')
             ->where('cd_id', $request->cd_id)
-            ->update(['sdate' =>  $request->sdate,'fdate' =>  $request->fdate,'driver_id' =>  $request->driver_id]);
+            ->update(['sdate' =>  Carbon\Carbon::parse($request->sdate)->format('Y-m-d'),'fdate' =>Carbon\Carbon::parse($request->fdate)->format('Y-m-d'),'driver_id' =>$request->driver_id]);
         return Redirect('car');
     }
 

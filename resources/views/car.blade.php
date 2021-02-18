@@ -257,7 +257,7 @@
                                       </div>
                                       <div class="col-md-6" >
                                        
-                                        <table class="table table-bordered vm"
+                                        <table class="table table-bordered vm" id="cardrivertable"
                                     style="font-size:10px;width:100%; color:black; word-wrap:break-word;" >
                                     <thead style="background-color:#ceedf9; font-size: 10px;">
                                         <tr>
@@ -266,7 +266,7 @@
                                             <th>Мэргэшсэн</th>
                                             <th>Эхэлсэн огноо </th>
                                             <th>Дууссан огноо</th>
-                                          
+                                            <th></th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -455,7 +455,7 @@
 
                         <div class="form-group col-md-4">
                             <label for="inputAddress">Огноо</label>
-                            <input class="form-control form-control-inline input-medium date-picker" name="fdate" id="fdate"
+                            <input class="form-control form-control-inline input-medium date-picker" name="fdxate" id="fdaddte"
                             size="16" type="text" value="">
                         
                         </div>
@@ -546,7 +546,7 @@
                       
                         <div class="form-group col-md-4">
                             <label for="inputAddress">Огноо</label>
-                            <input class="form-control form-control-inline input-medium date-picker" name="fdate" id="fdate"
+                            <input class="form-control form-control-inline input-medium date-picker" name="fdddate" id="fdddate"
                             size="16" type="text" value="">
                         </div>
                      
@@ -569,7 +569,7 @@
 <div class="modal fade " id="driverModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" data-keyboard="false" data-backdrop="static">
     <div class="modal-dialog modal-lg" role="document">
         <div class="modal-content">
-            <form id="" method="post" action="addcardriver">
+            <form id="formdriver" method="post" >
                 <div class="modal-header">
                     <h5 class="modal-title1" id="modal-title1">Жолооч бүртгэх цонх</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
@@ -583,9 +583,9 @@
                         <div class="form-group col-md-4">
                             <label for="inputAddress">Жолоочийн нэр</label>
                             <input type="hidden" name="_token" value="{{ csrf_token() }}">
-                            <input type="" class="form-control gcar" id="gcar" name="gcar">
+                            <input type="hidden" class="form-control gcar" id="gcar" name="gcar">
                             <input type="hidden" class="form-control gcar" id="cd_id" name="cd_id">
-                            <input type="" class="form-control" id="type" name="type">
+                            <input type="hidden" class="form-control" id="type" name="type">
                             <select class="form-control" id="driver_id" name="driver_id" >
                              
                                 @foreach($driver as $d)
@@ -632,7 +632,7 @@
 @section('scripts')
 <script>
    $(document).ready(function() {
-    $('.date-picker').datepicker();
+    $('.date-picker').datepicker({ dateFormat: 'dd-mm-yy' });
     
 });
        $('.select2').select2();
@@ -660,7 +660,7 @@
         $('#type').val('1');
         title.innerHTML = "Жолооч бүртгэх цонх";
 
-        $('#gcar').val('');
+        $('.gcar').val('');
         $('#driver_id').val('1');
         $('#sdate').val('');
         $('#fdate').val('');
@@ -692,12 +692,12 @@
                         title.innerHTML = "Жолооч засварлах цонх";
 
                         $('#type').val('2');
-
+                        alert($id);
                         $.get('cardriverfill/'+$id,function(data){
                             $.each(data,function(i,qwe){
 
                                 $('#cd_id').val(qwe.cd_id);
-                                $('#gcar').val(qwe.car_id);
+                                $('.gcar').val(qwe.car_id);
                                 $('#driver_id').val(qwe.driver_id);
                                 $('#sdate').val(qwe.sdate);
                                 $('#fdate').val(qwe.fdate);
@@ -708,7 +708,7 @@
                         };
         $('#formdriver').submit(function(event){
         var itag = $('#type').val();
-
+        var gcar = $('#gcar').val();
         event.preventDefault();
 
 
@@ -719,7 +719,7 @@
                 data: $('form#formdriver').serialize(),
                 success: function(){
                     alert('Жолооч нэмэгдлээ');
-                    location.reload();
+                    getcardrivers(gcar);
 
                 },
                 error: function (jqXHR, textStatus, errorThrown) {
@@ -739,7 +739,8 @@
                 data: $('form#formdriver').serialize(),
                 success: function(){
                     alert('Жолооч засварлагдлаа');
-                   
+                    getcardrivers(gcar);
+
                 },
                 error: function (jqXHR, textStatus, errorThrown) {
                     if (jqXHR.status == 500) {
@@ -755,6 +756,29 @@
 
 
     });
+    function getcardrivers($id){
+        $.get('cardriversfill/'+$id,function(data){
+            $("#cardrivertable tbody").empty();
+           
+            $.each(data,function(i,qwe){
+
+                $('.gcar').val(qwe.carid);
+                var sHtml = " <tr class='table-row' >" +
+
+                    "   <td class='m1'>" + qwe.driver_name + "</td>" +
+                    "   <td class='m1'>" + qwe.driver_type + "</td>" +
+                    "   <td class='m1'>" + qwe.driver_spec+ "</td>" +
+                    "   <td class='m1'>" + qwe.sdate + "</td>" +
+                    "   <td class='m1'>" + qwe.fdate+ "</td>" +
+                    "   <td class='m1'><button type='button' class='btn btn-sm btn-primary add' data-toggle='modal' data-target='#driverModal' onclick='updatedriver("+qwe.cd_id+")'><i class='fa fa-pencil' aria-hidden='true'></i></button></td>" +
+                    "</tr>";
+
+                $("#cardrivertable tbody").append(sHtml);
+
+            });
+
+        });
+    }
         function getcar($id){
 
         $.get('carfill/'+$id,function(data){
@@ -797,6 +821,7 @@
         $('#profile-tab').trigger('click');
 
         getcar(carid);
+        getcardrivers(carid);
       
     }
     $('#home-tab').on('click',function(){

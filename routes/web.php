@@ -72,6 +72,10 @@ Route::get('/cardriver/delete/{id}', 'CarController@destroycardriver');
 Route::post('/addcardriver','CarController@storecardriver');
 Route::post('/updatecardriver','CarController@updatecardriver');
 Route::get('/cardriverfill/{id?}',function($id = 0){
-    $dt=DB::table('CAR_DRIVER')->where('cd_id','=',$id)->get();
+    $dt=DB::table('V_CAR_DRIVER')->where('cd_id','=',$id)->get();
+    return $dt;
+});
+Route::get('/cardriversfill/{id?}',function($id = 0){
+    $dt=DB::table('V_CAR_DRIVER')->where('car_id','=',$id)->get();
     return $dt;
 });
