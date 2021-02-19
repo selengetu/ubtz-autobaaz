@@ -135,14 +135,15 @@
                             <div class="col-md-6" >
                              
                                 <table class="table table-bordered vm"
-                                style="font-size:10px;width:100%; color:black; word-wrap:break-word;">
+                                style="font-size:10px;width:100%; color:black; word-wrap:break-word;" id="carproducttable">
                                 <thead style="background-color:#ceedf9; font-size: 10px;" >
                                     <tr>
                                        
                                         <th>Эд ангийн нэр </th>
                                         <th>Явсан км</th>
-                                        <th>Огноо</th>
-                                      
+                                        <th>Эхэлсэн огноо</th>
+                                        <th>Дууссан огноо</th>
+                                        <th></th>
                                     </tr>
                                 </thead>
                                <tbody>
@@ -462,7 +463,7 @@
                         <div class="form-group col-md-4">
                             <label for="inputAddress">Эд анги</label>
                             <input type="hidden" name="_token" value="{{ csrf_token() }}">
-                            <input type="" class="form-control gcar" id="gcar" name="gcar">
+ 
                             <select class="form-control" id="product_id" name="product_id" >
                              
                                 @foreach($product as $p)
@@ -512,9 +513,9 @@
 <div class="modal fade " id="productModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" data-keyboard="false" data-backdrop="static">
     <div class="modal-dialog modal-lg" role="document">
         <div class="modal-content">
-            <form id="formproduct" action="addproduct" method="post">
+            <form id="formproduct" method="post">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="modal-title">Эд анги бүртгэх цонх</h5>
+                    <h5 class="modal-title" id="modal-title2">Эд анги бүртгэх цонх</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
@@ -526,7 +527,8 @@
                         <div class="form-group col-md-4">
                             <label for="inputAddress">Эд ангийн нэр</label>
                             <input type="hidden" name="_token" value="{{ csrf_token() }}">
-                            <input type="" class="form-control gcar" id="gcar" name="gcar">
+                            <input type="hidden" class="form-control" id="pcar" name="pcar" maxlength="10">
+                            <input type="hidden" class="form-control" id="p_id" name="p_id" maxlength="10">
                             <select class="form-control" id="product_id" name="product_id" >
                              
                                 @foreach($product as $p)
@@ -540,13 +542,17 @@
                    
                         <div class="form-group col-md-4">
                             <label for="inputAddress">Явсан км</label>
-                            <input type="number" class="form-control" id="carno" name="carno" maxlength="10">
+                            <input type="number" class="form-control" id="product_km" name="product_km" maxlength="10">
                         
                         </div>
-                      
                         <div class="form-group col-md-4">
-                            <label for="inputAddress">Огноо</label>
-                            <input class="form-control form-control-inline input-medium date-picker" name="fdddate" id="fdddate"
+                            <label for="inputAddress">Эхэлсэн огноо</label>
+                            <input class="form-control form-control-inline input-medium date-picker" name="product_sdate" id="product_sdate"
+                            size="16" type="text" value="">
+                        </div>
+                        <div class="form-group col-md-4">
+                            <label for="inputAddress">Дууссан огноо</label>
+                            <input class="form-control form-control-inline input-medium date-picker" name="product_fdate" id="product_fdate"
                             size="16" type="text" value="">
                         </div>
                      
@@ -584,7 +590,7 @@
                             <label for="inputAddress">Жолоочийн нэр</label>
                             <input type="hidden" name="_token" value="{{ csrf_token() }}">
                             <input type="hidden" class="form-control gcar" id="gcar" name="gcar">
-                            <input type="hidden" class="form-control gcar" id="cd_id" name="cd_id">
+                            <input type="hidden" class="form-control" id="cd_id" name="cd_id">
                             <input type="hidden" class="form-control" id="type" name="type">
                             <select class="form-control" id="driver_id" name="driver_id" >
                              
@@ -660,7 +666,7 @@
         $('#type').val('1');
         title.innerHTML = "Жолооч бүртгэх цонх";
 
-        $('.gcar').val('');
+        $('#gcar').val('');
         $('#driver_id').val('1');
         $('#sdate').val('');
         $('#fdate').val('');
@@ -697,7 +703,7 @@
                             $.each(data,function(i,qwe){
 
                                 $('#cd_id').val(qwe.cd_id);
-                                $('.gcar').val(qwe.car_id);
+                                $('#gcar').val(qwe.car_id);
                                 $('#driver_id').val(qwe.driver_id);
                                 $('#sdate').val(qwe.sdate);
                                 $('#fdate').val(qwe.fdate);
@@ -812,7 +818,132 @@
 
         });
     }
+    $('#addproduct').on('click',function(){
+        var title = document.getElementById("modal-title2");
+        $('#c_type').val('1');
+        title.innerHTML = "Жолооч бүртгэх цонх";
 
+        $('#pcar').val('');
+        $('#product_id').val('1');
+        $('#product_sdate').val('');
+        $('#product_fdate').val('');
+        $('#product_km').val('');
+        $('.delete').hide();
+
+    });
+    function deleteproduct($id){
+
+            $.ajax(
+                {
+                    url: "carproduct/delete/" + $id,
+                    type: 'GET',
+                    dataType: "JSON",
+                    data: {
+                        "id": $id,
+                        "_method": 'DELETE',
+                    },
+                    success: function () {
+                        alert('Жолооч устгагдлаа');
+                    }
+
+                });
+
+
+                }
+                function updateproduct($id){
+
+                        var title = document.getElementById("modal-title2");
+                        title.innerHTML = "Жолооч засварлах цонх";
+
+                        $('#c_type').val('2');
+                        alert($id);
+                        $.get('carproductfill/'+$id,function(data){
+                            $.each(data,function(i,qwe){
+
+                                $('#cp_id').val(qwe.cp_id);
+                                $('#pcar').val(qwe.car_id);
+                                $('#product_id').val(qwe.product_id);
+                                $('#product_sdate').val(qwe.begin_date);
+                                $('#product_fdate').val(qwe.end_date);
+                                $('#product_km').val(qwe.km);
+                            });
+
+                        });
+                       
+                        };
+        $('#formproduct').submit(function(event){
+        var itag = $('#c_type').val();
+        var gcar = $('pcar').val();
+        event.preventDefault();
+
+
+        if(itag == 1){
+            $.ajax({
+                type: 'POST',
+                url: 'addcarproduct',
+                data: $('form#formproduct').serialize(),
+                success: function(){
+                    alert('Жолооч нэмэгдлээ');
+                    getcardrivers(gcar);
+
+                },
+                error: function (jqXHR, textStatus, errorThrown) {
+                    if (jqXHR.status == 500) {
+                        alert('Internal error: ' + jqXHR.responseText);
+                    } else {
+                        alert('Unexpected error.');
+                    }
+                }
+            })
+
+        }
+        if(itag == 2){
+            $.ajax({
+                type: 'POST',
+                url: 'updatecarproduct',
+                data: $('form#formproduct').serialize(),
+                success: function(){
+                    alert('Жолооч засварлагдлаа');
+                    getcardproducts(gcar);
+
+                },
+                error: function (jqXHR, textStatus, errorThrown) {
+                    if (jqXHR.status == 500) {
+                        alert('Internal error: ' + jqXHR.responseText);
+                    } else {
+                        alert('Unexpected error.');
+                    }
+                }
+            })
+
+        }
+
+
+
+    });
+    function getcarproducts($id){
+        $.get('carproductsfill/'+$id,function(data){
+            $("#carproducttable tbody").empty();
+           
+            $.each(data,function(i,qwe){
+
+                $('#pcar').val(qwe.carid);
+                var sHtml = " <tr class='table-row' >" +
+
+                    "   <td class='m1'>" + qwe.product_name + "</td>" +
+                    "   <td class='m1'>" + qwe.begin_date + "</td>" +
+                    "   <td class='m1'>" + qwe.end_date+ "</td>" +
+                    "   <td class='m1'>" + qwe.km + "</td>" +
+                    "   <td class='m1'><button type='button' class='btn btn-sm btn-primary add' data-toggle='modal' data-target='#productModal' onclick='updateproduct("+qwe.cp_id+")'><i class='fa fa-pencil' aria-hidden='true'></i></button></td>" +
+                    "</tr>";
+
+                $("#carproducttable tbody").append(sHtml);
+
+            });
+
+        });
+    }
+       
    
     function carClicked(carid) {
         $( "#profile-tab" ).removeClass("disabled disabledTab");
@@ -822,6 +953,7 @@
 
         getcar(carid);
         getcardrivers(carid);
+        getcarproducts(carid);
       
     }
     $('#home-tab').on('click',function(){

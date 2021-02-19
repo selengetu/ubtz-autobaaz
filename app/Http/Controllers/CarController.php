@@ -106,4 +106,39 @@ class CarController extends Controller {
         CarDriver::where('cd_id', '=', $id)->delete();
         return Redirect('car');
     }
+
+    public function storecarproduct(Request $request)
+    {
+    
+        $car = new CarProduct;
+        $car->car_id = $request->pcar;
+        $car->begin_date =Carbon\Carbon::parse($request->product_sdate)->format('Y-m-d');
+        $car->end_date =Carbon\Carbon::parse($request->product_fdate)->format('Y-m-d');
+        $car->product_id = $request->product_id;
+        $car->km = $request->product_km;
+        $car->save();
+        return Redirect('car');
+    }
+
+    public function updatecarproduct(Request $request)
+    {
+       
+        $car = DB::table('CAR_PRODUCT')
+            ->where('cp_id', $request->cp_id)
+            ->update(['begin_date' =>  Carbon\Carbon::parse($request->product_sdate)->format('Y-m-d'),'end_date' =>Carbon\Carbon::parse($request->product_fdate)->format('Y-m-d'),
+            'product_id' =>$request->product_id,'km' =>$request->product_km]);
+        return Redirect('car');
+    }
+
+    /**
+     * Remove the specified resource from storage.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function destroycarproduct($id)
+    {
+        CarProduct::where('cp_id', '=', $id)->delete();
+        return Redirect('car');
+    }
 }
