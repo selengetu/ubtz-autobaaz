@@ -8,6 +8,7 @@ use Carbon;
 use App\Mark;
 use App\Car;
 use App\CarDriver;
+use App\CarProduct;
 class CarController extends Controller {
 
    public function __construct() {

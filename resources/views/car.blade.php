@@ -153,7 +153,7 @@
                                 
                             </div>
                             <div class="col-md-3" >
-                                <a href="#" class="btn waves-effect waves-light btn btn-info pull-right hidden-sm-down" data-toggle="modal" data-target="#productModal"> <i class="fa fa-plus" aria-hidden="true"></i> Эд анги бүртгэх</a>
+                                <a href="#" class="btn waves-effect waves-light btn btn-info pull-right hidden-sm-down" data-toggle="modal" data-target="#productModal" id="addproduct"> <i class="fa fa-plus" aria-hidden="true"></i> Эд анги бүртгэх</a>
                             </div>
                         </div>
                             </div>
@@ -513,7 +513,7 @@
 <div class="modal fade " id="productModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" data-keyboard="false" data-backdrop="static">
     <div class="modal-dialog modal-lg" role="document">
         <div class="modal-content">
-            <form id="formproduct" method="post">
+            <form id="" method="post" action="addcarproduct">
                 <div class="modal-header">
                     <h5 class="modal-title" id="modal-title2">Эд анги бүртгэх цонх</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
@@ -527,8 +527,9 @@
                         <div class="form-group col-md-4">
                             <label for="inputAddress">Эд ангийн нэр</label>
                             <input type="hidden" name="_token" value="{{ csrf_token() }}">
-                            <input type="hidden" class="form-control" id="pcar" name="pcar" maxlength="10">
+                            <input type="hidden" class="form-control gcar" id="pcar" name="pcar" maxlength="10">
                             <input type="hidden" class="form-control" id="p_id" name="p_id" maxlength="10">
+                            <input type="hidden" class="form-control" id="c_type" name="c_type" maxlength="10">
                             <select class="form-control" id="product_id" name="product_id" >
                              
                                 @foreach($product as $p)
@@ -795,6 +796,7 @@
             $.each(data,function(i,qwe){
 
                 $('.gcar').val(qwe.carid);
+                $('#pcar').val(qwe.carid);
                 var sHtml = " <tr class='table-row' >" +
 
                     "   <td class='m1'>" + qwe.vtypename + "</td>" +
@@ -872,8 +874,10 @@
                        
                         };
         $('#formproduct').submit(function(event){
+         
         var itag = $('#c_type').val();
-        var gcar = $('pcar').val();
+
+        var pcar = $('pcar').val();
         event.preventDefault();
 
 
@@ -884,7 +888,7 @@
                 data: $('form#formproduct').serialize(),
                 success: function(){
                     alert('Жолооч нэмэгдлээ');
-                    getcardrivers(gcar);
+                    getcardrivers(pcar);
 
                 },
                 error: function (jqXHR, textStatus, errorThrown) {
@@ -903,8 +907,8 @@
                 url: 'updatecarproduct',
                 data: $('form#formproduct').serialize(),
                 success: function(){
-                    alert('Жолооч засварлагдлаа');
-                    getcardproducts(gcar);
+                    alert('Бүтээгдэхүүн засварлагдлаа');
+                    getcardproducts(pcar);
 
                 },
                 error: function (jqXHR, textStatus, errorThrown) {
