@@ -463,6 +463,8 @@
                         <div class="form-group col-md-4">
                             <label for="inputAddress">Эд анги</label>
                             <input type="hidden" name="_token" value="{{ csrf_token() }}">
+                            <input type="hidden" class="form-control rcar" id="rcar" name="rcar">
+                            <input type="hidden" class="form-control" id="cr_id" name="cr_id" maxlength="10"> <input type="hidden" name="_token" value="{{ csrf_token() }}">
  
                             <select class="form-control" id="product_id" name="product_id" >
                              
@@ -475,21 +477,27 @@
                         
                         </div>
                         <div class="form-group col-md-4">
-                            <label for="inputAddress">Хийгдсэн үйлчилгээ</label>
-                            <input type="hidden" name="_token" value="{{ csrf_token() }}">
-                            <select class="form-control" id="product_id" name="product_id" >
-                             
-                            </select>
-                        
-                        </div>
-                        <div class="form-group col-md-4">
                             <label for="inputAddress">Явсан км</label>
-                            <input type="number" class="form-control" id="carno" name="carno" maxlength="10">
+                            <input type="number" class="form-control" id="repair_km" name="repair_km" maxlength="10">
                         
                         </div>
                         <div class="form-group col-md-8">
-                            <label for="inputAddress">Тайлбар</label>
-                            <textarea class="form-control" id="exampleFormControlTextarea1" ></textarea>
+                            <label for="inputAddress">Хийгдсэн үйлчилгээ</label>
+                            <input type="hidden" name="_token" value="{{ csrf_token() }}">
+                            <input type="number" class="form-control" id="repair_comment" name="repair_comment" maxlength="10">
+                        
+                        </div>
+                       
+                        <div class="form-group col-md-4">
+                            <label for="inputAddress">Жолоочийн нэр</label>
+                            <select class="form-control" id="driver_id" name="driver_id" >
+                             
+                                @foreach($driver as $d)
+                                  
+                                    <option value= "{{$d->driver_id}}">  {{$d->driver_name}}</option>
+                                  
+                                @endforeach
+                            </select>
                         
                         </div>
                         
