@@ -119,7 +119,7 @@
                     "   <td class='m1'>" + qwe.repair_km + "</td>" +
                     "   <td class='m1'>" + qwe.repair_comment+ "</td>" +
                     "   <td class='m1'>" + qwe.driver_name+ "</td>" +
-                    "   <td class='m1'><button type='button' class='btn btn-sm btn-primary add' data-toggle='modal' data-target='#productModal' onclick='updateproduct("+qwe.cr_id+")'><i class='fa fa-pencil' aria-hidden='true'></i></button></td>" +
+                    "   <td class='m1'><button type='button' class='btn btn-sm btn-primary add' data-toggle='modal' data-target='#repairModal' onclick='updaterepair("+qwe.cr_id+")'><i class='fa fa-pencil' aria-hidden='true'></i></button></td>" +
                     "</tr>";
     
                 $("#carrepairtable tbody").append(sHtml);
