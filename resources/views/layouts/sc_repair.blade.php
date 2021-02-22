@@ -2,7 +2,7 @@
     $('#addrepair').on('click',function(){
         var title = document.getElementById("modal-title3");
         $('#r_type').val('1');
-        title.innerHTML = "Эд анги бүртгэх цонх";
+        title.innerHTML = "Засвар бүртгэх цонх";
     
         $('#product_id').val('1');
         $('#repair_date').val('');
@@ -36,7 +36,7 @@
                         var title = document.getElementById("modal-title2");
                         title.innerHTML = "Засвар засварлах цонх";
     
-                        $('#c_type').val('2');
+                        $('#r_type').val('2');
                       
                         $.get('carrepairfill/'+$id,function(data){
                             $.each(data,function(i,qwe){
@@ -118,7 +118,7 @@
                     "   <td class='m1'>" + qwe.product_name + "</td>" +
                     "   <td class='m1'>" + qwe.repair_km + "</td>" +
                     "   <td class='m1'>" + qwe.repair_comment+ "</td>" +
-                    "   <td class='m1'>" + qwe.repair_name+ "</td>" +
+                    "   <td class='m1'>" + qwe.driver_name+ "</td>" +
                     "   <td class='m1'><button type='button' class='btn btn-sm btn-primary add' data-toggle='modal' data-target='#productModal' onclick='updateproduct("+qwe.cr_id+")'><i class='fa fa-pencil' aria-hidden='true'></i></button></td>" +
                     "</tr>";
     

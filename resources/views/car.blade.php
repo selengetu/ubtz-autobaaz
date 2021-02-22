@@ -196,15 +196,16 @@
                                       </div>
                                       <div class="col-md-6" >
                                        
-                                        <table class="table table-bordered vm"
+                                        <table class="table table-bordered vm" id="carrepairtable"
                                         style="font-size:10px;width:100%; color:black; word-wrap:break-word;">
                                         <thead style="background-color:#ceedf9; font-size: 10px;"  >
                                             <tr>
                                                 <th>Огноо</th>
-                                                <th>Хийгдсэн үйлчилгээ</th>
+                                                <th>Эд анги</th>
                                                 <th>Явсан км</th>
                                                 <th>Тайлбар</th>
-                                              
+                                                <th>Жолооч</th>
+                                                <th></th>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -214,7 +215,7 @@
                                           
                                       </div>
                                       <div class="col-md-3" >
-                                          <a href="#" class="btn waves-effect waves-light btn btn-info pull-right hidden-sm-down" data-toggle="modal" data-target="#repairModal"> <i class="fa fa-plus" aria-hidden="true"></i> Засвар бүртгэх</a>
+                                          <a href="#" id="addrepair" class="btn waves-effect waves-light btn btn-info pull-right hidden-sm-down" data-toggle="modal" data-target="#repairModal"> <i class="fa fa-plus" aria-hidden="true"></i> Засвар бүртгэх</a>
                                       </div>
                                   </div>
                               
@@ -443,9 +444,9 @@
 <div class="modal fade " id="repairModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" data-keyboard="false" data-backdrop="static">
     <div class="modal-dialog modal-lg" role="document">
         <div class="modal-content">
-            <form id="formrepair" action="addrepair" method="post">
+            <form id="formrepair" method="post">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="modal-title">Засвар бүртгэх цонх</h5>
+                    <h5 class="modal-title3" id="modal-title3">Засвар бүртгэх цонх</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
@@ -456,7 +457,7 @@
 
                         <div class="form-group col-md-4">
                             <label for="inputAddress">Огноо</label>
-                            <input class="form-control form-control-inline input-medium date-picker" name="fdxate" id="fdaddte"
+                            <input class="form-control form-control-inline input-medium date-picker" name="repair_date" id="repair_date"
                             size="16" type="text" value="">
                         
                         </div>
@@ -464,6 +465,7 @@
                             <label for="inputAddress">Эд анги</label>
                             <input type="hidden" name="_token" value="{{ csrf_token() }}">
                             <input type="hidden" class="form-control rcar" id="rcar" name="rcar">
+                            <input type="hidden" class="form-control" id="r_type" name="r_type">
                             <input type="hidden" class="form-control" id="cr_id" name="cr_id" maxlength="10"> <input type="hidden" name="_token" value="{{ csrf_token() }}">
  
                             <select class="form-control" id="product_id" name="product_id" >
@@ -490,7 +492,7 @@
                        
                         <div class="form-group col-md-4">
                             <label for="inputAddress">Жолоочийн нэр</label>
-                            <select class="form-control" id="driver_id" name="driver_id" >
+                            <select class="form-control" id="repair_personid" name="repair_personid" >
                              
                                 @foreach($driver as $d)
                                   
@@ -523,7 +525,7 @@
         <div class="modal-content">
             <form id="formproduct" method="post" >
                 <div class="modal-header">
-                    <h5 class="modal-title" id="modal-title2">Эд анги бүртгэх цонх</h5>
+                    <h5 class="modal-title2" id="modal-title2">Эд анги бүртгэх цонх</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
@@ -680,12 +682,13 @@
         getcar(carid);
         getcardrivers(carid);
         getcarproducts(carid);
-      
+        getcarrepairs(carid);
     }
         function getcar($id){
             console.log($id);
             $('#gcar').val($id);
             $('#pcar').val($id);
+            $('#rcar').val($id);
             $.get('carfill/'+$id,function(data){
             $(".main tbody").empty();
             $("#drivertable tbody").empty();
@@ -727,4 +730,5 @@
 </script>
 @include('layouts.sc_driver')
 @include('layouts.sc_product')
+@include('layouts.sc_repair')
 @endsection

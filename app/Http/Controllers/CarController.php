@@ -9,6 +9,7 @@ use App\Mark;
 use App\Car;
 use App\CarDriver;
 use App\CarProduct;
+use App\CarRepair;
 class CarController extends Controller {
 
    public function __construct() {
@@ -151,7 +152,7 @@ class CarController extends Controller {
         $car = new CarRepair;
         $car->car_id = $request->rcar;
         $car->repair_date =Carbon\Carbon::parse($request->repair_date)->format('Y-m-d');
-        $car->driver_id = $request->driver_id;
+        $car->repair_personid = $request->repair_personid;
         $car->repair_km = $request->repair_km;
         $car->repair_personid = $request->repair_personid;
         $car->repair_comment = $request->repair_comment;
