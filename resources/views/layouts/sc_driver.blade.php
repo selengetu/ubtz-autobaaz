@@ -3,8 +3,6 @@ $('#adddriver').on('click',function(){
     var title = document.getElementById("modal-title1");
     $('#type').val('1');
     title.innerHTML = "Жолооч бүртгэх цонх";
-
-    $('#gcar').val('');
     $('#driver_id').val('1');
     $('#sdate').val('');
     $('#fdate').val('');
@@ -106,7 +104,6 @@ function getcardrivers($id){
        
         $.each(data,function(i,qwe){
 
-            $('.gcar').val(qwe.carid);
             var sHtml = " <tr class='table-row' >" +
 
                 "   <td class='m1'>" + qwe.driver_name + "</td>" +

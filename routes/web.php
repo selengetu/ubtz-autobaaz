@@ -84,7 +84,7 @@ Route::get('/carproduct/delete/{id}', 'CarController@destroycarproduct');
 Route::post('/addcarproduct','CarController@storecarproduct');
 Route::post('/updatecarproduct','CarController@updatecarproduct');
 Route::get('/carproductfill/{id?}',function($id = 0){
-    $dt=DB::table('V_CAR_PRODUCT')->where('cd_id','=',$id)->get();
+    $dt=DB::table('V_CAR_PRODUCT')->where('cp_id','=',$id)->get();
     return $dt;
 });
 Route::get('/carproductsfill/{id?}',function($id = 0){

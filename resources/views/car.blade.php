@@ -513,7 +513,7 @@
 <div class="modal fade " id="productModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" data-keyboard="false" data-backdrop="static">
     <div class="modal-dialog modal-lg" role="document">
         <div class="modal-content">
-            <form id="" method="post" action="addcarproduct">
+            <form id="formproduct" method="post" >
                 <div class="modal-header">
                     <h5 class="modal-title" id="modal-title2">Эд анги бүртгэх цонх</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
@@ -527,8 +527,8 @@
                         <div class="form-group col-md-4">
                             <label for="inputAddress">Эд ангийн нэр</label>
                             <input type="hidden" name="_token" value="{{ csrf_token() }}">
-                            <input type="hidden" class="form-control pcar" id="pcar" name="pcar" maxlength="10">
-                            <input type="hidden" class="form-control" id="p_id" name="p_id" maxlength="10">
+                            <input type="hidden" class="form-control pcar" id="pcar" name="pcar">
+                            <input type="hidden" class="form-control" id="cp_id" name="cp_id" maxlength="10">
                             <input type="hidden" class="form-control" id="c_type" name="c_type" maxlength="10">
                             <select class="form-control" id="product_id" name="product_id" >
                              
@@ -662,10 +662,22 @@
     });
 </script>
 <script>
-  
+      function carClicked(carid) {
+        $( "#profile-tab" ).removeClass("disabled disabledTab");
+        $( "#driver-tab" ).removeClass("disabled disabledTab");
+        $( "#contact-tab" ).removeClass("disabled disabledTab");
+        $('#profile-tab').trigger('click');
+
+        
+        getcar(carid);
+        getcardrivers(carid);
+        getcarproducts(carid);
+      
+    }
         function getcar($id){
-            $('.gcar').val($id);
-            $('.pcar').val($id);
+            console.log($id);
+            $('#gcar').val($id);
+            $('#pcar').val($id);
             $.get('carfill/'+$id,function(data){
             $(".main tbody").empty();
             $("#drivertable tbody").empty();
@@ -698,18 +710,6 @@
         });
     }
    
-   
-    function carClicked(carid) {
-        $( "#profile-tab" ).removeClass("disabled disabledTab");
-        $( "#driver-tab" ).removeClass("disabled disabledTab");
-        $( "#contact-tab" ).removeClass("disabled disabledTab");
-        $('#profile-tab').trigger('click');
-
-        getcar(carid);
-        getcardrivers(carid);
-        getcarproducts(carid);
-      
-    }
     $('#home-tab').on('click',function(){
         $( "#profile-tab" ).addClass("disabled disabledTab");
         $( "#driver-tab" ).addClass("disabled disabledTab");
