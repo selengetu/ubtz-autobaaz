@@ -156,7 +156,7 @@ class CarController extends Controller {
         $car->repair_km = $request->repair_km;
         $car->repair_personid = $request->repair_personid;
         $car->repair_comment = $request->repair_comment;
-        $car->product_id = $request->product_id;
+        $car->product_id = $request->rproduct_id;
         $car->save();
         return Redirect('car');
     }
@@ -167,7 +167,7 @@ class CarController extends Controller {
         $car = DB::table('CAR_REPAIR')
             ->where('cr_id', $request->cr_id)
             ->update(['repair_date' =>  Carbon\Carbon::parse($request->repair_date)->format('Y-m-d'),'repair_km' =>$request->repair_km,'repair_comment' =>$request->repair_comment, 
-                    'repair_personid' =>$request->repair_personid,'product_id' =>$request->product_id]);
+                    'repair_personid' =>$request->repair_personid,'product_id' =>$request->rproduct_id]);
         return Redirect('car');
     }
 

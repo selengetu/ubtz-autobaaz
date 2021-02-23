@@ -4,7 +4,7 @@
         $('#r_type').val('1');
         title.innerHTML = "Засвар бүртгэх цонх";
     
-        $('#product_id').val('1');
+        $('#rproduct_id').val('1');
         $('#repair_date').val('');
         $('#repair_personid').val('1');
         $('#repair_km').val('');
@@ -43,7 +43,7 @@
     
                                 $('#cr_id').val(qwe.cr_id);
                                 $('#rcar').val(qwe.car_id);
-                                $('#product_id').val(qwe.product_id);
+                                $('#rproduct_id').val(qwe.product_id);
                                 $('#repair_comment').val(qwe.repair_comment);
                                 $('#repair_km').val(qwe.repair_km);
                                 $('#repair_personid').val(qwe.repair_personid);
@@ -51,7 +51,7 @@
                             });
     
                         });
-                       
+                        $('.delete').show();
                         };
         $('#formrepair').submit(function(event){
          

@@ -9,11 +9,12 @@ $('#adddriver').on('click',function(){
     $('.delete').hide();
 
 });
-function deletedriver($id){
-
+function deletedriver(){
+        var itag =  $('#cd_id').val();
+        console.log(itag);
         $.ajax(
             {
-                url: "cardriver/delete/" + $id,
+                url: "cardriver/delete/" + itag,
                 type: 'GET',
                 dataType: "JSON",
                 data: {
@@ -34,7 +35,7 @@ function deletedriver($id){
                     title.innerHTML = "Жолооч засварлах цонх";
 
                     $('#type').val('2');
-                    alert($id);
+                    
                     $.get('cardriverfill/'+$id,function(data){
                         $.each(data,function(i,qwe){
 
@@ -46,7 +47,7 @@ function deletedriver($id){
                         });
 
                     });
-                   
+                    $('.delete').show();
                     };
     $('#formdriver').submit(function(event){
     var itag = $('#type').val();

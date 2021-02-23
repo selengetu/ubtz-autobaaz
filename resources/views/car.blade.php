@@ -468,7 +468,7 @@
                             <input type="hidden" class="form-control" id="r_type" name="r_type">
                             <input type="hidden" class="form-control" id="cr_id" name="cr_id" maxlength="10"> <input type="hidden" name="_token" value="{{ csrf_token() }}">
  
-                            <select class="form-control" id="product_id" name="product_id" >
+                            <select class="form-control" id="rproduct_id" name="rproduct_id" >
                              
                                 @foreach($product as $p)
                                   
@@ -633,7 +633,7 @@
                 </div>
                 <div class="modal-footer">
                     <div class="col-md-5">
-                        <button type="button" class="btn btn-danger delete">Устгах</button>
+                        <button type="button" class="btn btn-danger" onclick="deleterepair()">Устгах</button>
                     </div>
                     <div class="col-md-7" style="display: inline-block; text-align: right;" >
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Хаах</button>
@@ -655,10 +655,10 @@
        $('.select2').select2();
      $('#mark_id').change(function() {
         var item=$(this).val();
-        console.log(item);
+       
     
         $.get('modelfill/'+item,function(data){
-            console.log(data);
+        
             $('#model_id').empty();
 
             $.each(data,function(i,qwe){
@@ -685,7 +685,7 @@
         getcarrepairs(carid);
     }
         function getcar($id){
-            console.log($id);
+            
             $('#gcar').val($id);
             $('#pcar').val($id);
             $('#rcar').val($id);

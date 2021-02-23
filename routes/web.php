@@ -94,7 +94,7 @@ Route::get('/carproductsfill/{id?}',function($id = 0){
 
 Route::get('/carrepair/delete/{id}', 'CarController@destroycarrepair');
 Route::post('/addcarrepair','CarController@storecarrepair');
-Route::post('/updatecarrepairproduct','CarController@updatecarrepair');
+Route::post('/updatecarrepair','CarController@updatecarrepair');
 Route::get('/carrepairfill/{id?}',function($id = 0){
     $dt=DB::table('V_CAR_REPAIR')->where('cr_id','=',$id)->get();
     return $dt;

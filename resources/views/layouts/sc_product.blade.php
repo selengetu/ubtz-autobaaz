@@ -49,7 +49,7 @@ function deleteproduct($id){
                         });
 
                     });
-                   
+                    $('.delete').show();
                     };
     $('#formproduct').submit(function(event){
      
