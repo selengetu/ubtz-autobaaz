@@ -43,8 +43,8 @@
                     </div>
                     <div class="table-responsive m-t-20 no-wrap">
                         <table class="table table-bordered vm" id="example"
-                            style="font-size:10px; color:black; word-wrap:break-word;">
-                            <thead style="background-color:#ceedf9; font-size: 10px;">
+                            style="font-size:12px; color:black; word-wrap:break-word;">
+                            <thead style="background-color:#ceedf9; font-size: 12px;">
                                 <tr>
                                     <th>№</th>
                                   

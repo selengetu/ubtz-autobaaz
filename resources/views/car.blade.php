@@ -2,11 +2,6 @@
 
 @section('style')
 <style>
-    .table td,
-    .table th {
-        font-size: 10px;
-    }
-   
     .disabledTab {
         pointer-events: none;
     }
@@ -26,7 +21,7 @@
         </div>
         <div class="col-md-7 align-self-center">
             <a href="#" class="btn waves-effect waves-light btn btn-info pull-right hidden-sm-down" data-toggle="modal"
-                data-target="#exampleModal"> <i class="fa fa-plus" aria-hidden="true"></i> Тээврийн хэрэгсэл бүртгэх</a>
+                data-target="#exampleModal" > <i class="fa fa-plus" aria-hidden="true"></i> Тээврийн хэрэгсэл бүртгэх</a>
         </div>
     </div>
 
@@ -55,8 +50,8 @@
                           
                                 <div class="table-responsive m-t-20 no-wrap">
                                     <table class="table table-bordered vm"
-                                        style="font-size:10px; color:black; word-wrap:break-word;">
-                                        <thead style="background-color:#ceedf9; font-size: 10px;">
+                                        style="font-size:12px; color:black; word-wrap:break-word;">
+                                        <thead style="background-color:#ceedf9; font-size: 12px;">
                                             <tr>
                                                 <th>№</th>
                                                 <th>Төрөл </th>
@@ -109,8 +104,8 @@
                           <div class="col-md-12">
                                 <div class="table-responsive m-t-20 no-wrap">
                                     <table class="table table-bordered main"
-                                        style="font-size:10px; color:black; word-wrap:break-word;" id="producttable">
-                                        <thead style="background-color:#ceedf9; font-size: 10px;">
+                                        style="font-size:12px; color:black; word-wrap:break-word;" id="producttable">
+                                        <thead style="background-color:#ceedf9; font-size: 12px;">
                                             <tr>
                                               
                                                 <th>Төрөл </th>
@@ -135,8 +130,8 @@
                             <div class="col-md-6" >
                              
                                 <table class="table table-bordered vm"
-                                style="font-size:10px;width:100%; color:black; word-wrap:break-word;" id="carproducttable">
-                                <thead style="background-color:#ceedf9; font-size: 10px;" >
+                                style="font-size:12px;width:100%; color:black; word-wrap:break-word;" id="carproducttable">
+                                <thead style="background-color:#ceedf9; font-size: 12px;" >
                                     <tr>
                                        
                                         <th>Эд ангийн нэр </th>
@@ -171,8 +166,8 @@
                                     <div class="col-md-12">
                                           <div class="table-responsive m-t-20 no-wrap">
                                               <table class="table table-bordered main"
-                                                  style="font-size:10px; color:black; word-wrap:break-word;" id="repairtable">
-                                                  <thead style="background-color:#ceedf9; font-size: 10px;">
+                                                  style="font-size:12px; color:black; word-wrap:break-word;" id="repairtable">
+                                                  <thead style="background-color:#ceedf9; font-size: 12px;">
                                                       <tr>
                                                         
                                                           <th>Төрөл </th>
@@ -197,8 +192,8 @@
                                       <div class="col-md-6" >
                                        
                                         <table class="table table-bordered vm" id="carrepairtable"
-                                        style="font-size:10px;width:100%; color:black; word-wrap:break-word;">
-                                        <thead style="background-color:#ceedf9; font-size: 10px;"  >
+                                        style="font-size:12px;width:100%; color:black; word-wrap:break-word;">
+                                        <thead style="background-color:#ceedf9; font-size: 12px;"  >
                                             <tr>
                                                 <th>Огноо</th>
                                                 <th>Эд анги</th>
@@ -234,8 +229,8 @@
                                     <div class="col-md-12">
                                           <div class="table-responsive m-t-20 no-wrap">
                                               <table class="table table-bordered main"
-                                                  style="font-size:10px; color:black; word-wrap:break-word;" id="repairtable">
-                                                  <thead style="background-color:#ceedf9; font-size: 10px;">
+                                                  style="font-size:12px; color:black; word-wrap:break-word;" id="repairtable">
+                                                  <thead style="background-color:#ceedf9; font-size: 12px;">
                                                       <tr>
                                                         
                                                           <th>Төрөл </th>
@@ -260,8 +255,8 @@
                                       <div class="col-md-6" >
                                        
                                         <table class="table table-bordered vm" id="cardrivertable"
-                                    style="font-size:10px;width:100%; color:black; word-wrap:break-word;" >
-                                    <thead style="background-color:#ceedf9; font-size: 10px;">
+                                    style="font-size:12px;width:100%; color:black; word-wrap:break-word;" >
+                                    <thead style="background-color:#ceedf9; font-size: 12px;">
                                         <tr>
                                             <th>Нэр</th>
                                             <th>Ангилал</th>
@@ -633,7 +628,7 @@
                 </div>
                 <div class="modal-footer">
                     <div class="col-md-5">
-                        <button type="button" class="btn btn-danger" onclick="deleterepair()">Устгах</button>
+                        <button type="button" class="btn btn-danger" >Устгах</button>
                     </div>
                     <div class="col-md-7" style="display: inline-block; text-align: right;" >
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Хаах</button>
@@ -720,7 +715,97 @@
 
         });
     }
-   
+              function updatedriver($id){
+
+                    var title = document.getElementById("modal-title1");
+                    title.innerHTML = "Жолооч засварлах цонх";
+
+                    $('#type').val('2');
+                    
+                    $.get('cardriverfill/'+$id,function(data){
+                        $.each(data,function(i,qwe){
+
+                            $('#cd_id').val(qwe.cd_id);
+                            $('#gcar').val(qwe.car_id);
+                            $('#driver_id').val(qwe.driver_id);
+                            $('#sdate').val(qwe.sdate);
+                            $('#fdate').val(qwe.fdate);
+                        });
+
+                    });
+                    $('.delete').show();
+                    };
+    $('#formdriver').submit(function(event){
+    var itag = $('#type').val();
+    var gcar = $('#gcar').val();
+    event.preventDefault();
+
+
+    if(itag == 1){
+        $.ajax({
+            type: 'POST',
+            url: 'addcardriver',
+            data: $('form#formdriver').serialize(),
+            success: function(){
+                alert('Жолооч нэмэгдлээ');
+                getcardrivers(gcar);
+
+            },
+            error: function (jqXHR, textStatus, errorThrown) {
+                if (jqXHR.status == 500) {
+                    alert('Internal error: ' + jqXHR.responseText);
+                } else {
+                    alert('Unexpected error.');
+                }
+            }
+        })
+
+    }
+    if(itag == 2){
+        $.ajax({
+            type: 'POST',
+            url: 'updatecardriver',
+            data: $('form#formdriver').serialize(),
+            success: function(){
+                alert('Жолооч засварлагдлаа');
+                getcardrivers(gcar);
+
+            },
+            error: function (jqXHR, textStatus, errorThrown) {
+                if (jqXHR.status == 500) {
+                    alert('Internal error: ' + jqXHR.responseText);
+                } else {
+                    alert('Unexpected error.');
+                }
+            }
+        })
+
+    }
+
+
+
+});
+
+                function updatecar($id){
+
+                var title = document.getElementById("modal-title1");
+                title.innerHTML = "Жолооч засварлах цонх";
+
+                $('#type').val('2');
+
+                $.get('cardriverfill/'+$id,function(data){
+                    $.each(data,function(i,qwe){
+
+                        $('#cd_id').val(qwe.cd_id);
+                        $('#gcar').val(qwe.car_id);
+                        $('#driver_id').val(qwe.driver_id);
+                        $('#sdate').val(qwe.sdate);
+                        $('#fdate').val(qwe.fdate);
+                    });
+
+                });
+                $('.delete').show();
+                };
     $('#home-tab').on('click',function(){
         $( "#profile-tab" ).addClass("disabled disabledTab");
         $( "#driver-tab" ).addClass("disabled disabledTab");
