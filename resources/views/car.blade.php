@@ -133,7 +133,7 @@
                                         <th>Явсан км</th>
                                         <th>Эхэлсэн огноо</th>
                                         <th>Дууссан огноо</th>
-                                        <th>   <a href="#" class="btn waves-effect waves-light btn btn-info pull-right hidden-sm-down" data-toggle="modal" data-target="#productModal" id="addproduct"> <i class="fa fa-plus" aria-hidden="true"></i> </a></th>
+                                        <th>   <a href="#" class="btn waves-effect waves-light btn btn-sm btn-info  hidden-sm-down" data-toggle="modal" data-target="#productModal" id="addproduct"> <i class="fa fa-plus" aria-hidden="true"></i> </a></th>
                                     </tr>
                                 </thead>
                                <tbody>
@@ -153,7 +153,7 @@
                                     <th>Мэргэшсэн</th>
                                     <th>Эхэлсэн огноо </th>
                                     <th>Дууссан огноо</th>
-                                    <th> <a href="#" id="adddriver" class="btn waves-effect waves-light btn btn-info pull-right hidden-sm-down" data-toggle="modal" data-target="#driverModal"> <i class="fa fa-plus" aria-hidden="true"></i></a></th>
+                                    <th> <a href="#" id="adddriver" class="btn waves-effect waves-light btn btn-sm btn-info hidden-sm-down" data-toggle="modal" data-target="#driverModal"> <i class="fa fa-plus" aria-hidden="true"></i></a></th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -173,7 +173,7 @@
                                         <th>Явсан км</th>
                                         <th>Тайлбар</th>
                                         <th>Жолооч</th>
-                                        <th><a href="#" id="addrepair" class="btn waves-effect waves-light btn btn-info pull-right hidden-sm-down" data-toggle="modal" data-target="#repairModal"> <i class="fa fa-plus" aria-hidden="true"></i> </a></th>
+                                        <th><a href="#" id="addrepair" class="btn btn-sm waves-effect waves-light btn btn-info  hidden-sm-down" data-toggle="modal" data-target="#repairModal"> <i class="fa fa-plus" aria-hidden="true"></i> </a></th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -197,7 +197,7 @@
         <div class="modal-content">
             <form id="formcar" action="addcar" method="post">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="modal-title">Тээврийн хэрэгсэл бүртгэх цонх</h5>
+                    <h5 class="modal-title" id="modal-title4">Тээврийн хэрэгсэл бүртгэх цонх</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
@@ -387,7 +387,7 @@
                         <div class="form-group col-md-8">
                             <label for="inputAddress">Хийгдсэн үйлчилгээ</label>
                             <input type="hidden" name="_token" value="{{ csrf_token() }}">
-                            <input type="number" class="form-control" id="repair_comment" name="repair_comment" maxlength="10">
+                            <input type="text" class="form-control" id="repair_comment" name="repair_comment" maxlength="10">
                         
                         </div>
                        
