@@ -85,7 +85,7 @@ class CarController extends Controller {
         $car->fdate =Carbon\Carbon::parse($request->fdate)->format('Y-m-d');
         $car->driver_id = $request->driver_id;
         $car->save();
-        return Redirect('car');
+      
     }
 
     public function updatecardriver(Request $request)
@@ -94,7 +94,7 @@ class CarController extends Controller {
         $car = DB::table('CAR_DRIVER')
             ->where('cd_id', $request->cd_id)
             ->update(['sdate' =>  Carbon\Carbon::parse($request->sdate)->format('Y-m-d'),'fdate' =>Carbon\Carbon::parse($request->fdate)->format('Y-m-d'),'driver_id' =>$request->driver_id]);
-        return Redirect('car');
+      
     }
 
     /**
