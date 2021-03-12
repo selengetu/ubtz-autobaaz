@@ -11,22 +11,23 @@ $('#addproduct').on('click',function(){
     $('.delete').hide();
 
 });
-function deleteproduct($id){
-
+function deleteproduct(){
+    var itag =  $('#cp_id').val();
+    var pcar = $('#pcar').val();
         $.ajax(
             {
-                url: "carproduct/delete/" + $id,
+                url: "carproduct/delete/" + itag,
                 type: 'GET',
                 dataType: "JSON",
                 data: {
-                    "id": $id,
+                    "id": itag,
                     "_method": 'DELETE',
-                },
-                success: function () {
-                    alert('Жолооч устгагдлаа');
                 }
-
+               
+                   
             });
+            alert('Жолооч устгагдлаа');
+                    getcarproducts(pcar);
 
 
             }

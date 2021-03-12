@@ -12,23 +12,24 @@
         $('.delete').hide();
     
     });
-    function deleterepair($id){
-    
+    function deleterepair(){
+        var itag =  $('#cr_id').val();
+        var pcar = $('#rcar').val();
             $.ajax(
                 {
-                    url: "carrepair/delete/" + $id,
+                    url: "carrepair/delete/" + itag,
                     type: 'GET',
                     dataType: "JSON",
                     data: {
-                        "id": $id,
+                        "id": itag,
                         "_method": 'DELETE',
-                    },
-                    success: function () {
-                        alert('Засвар устгагдлаа');
                     }
-    
+                
                 });
     
+                alert('Засвар устгагдлаа');
+              
+              getcarrepairs(pcar);
     
                 }
                 function updaterepair($id){

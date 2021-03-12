@@ -410,7 +410,7 @@
                 </div>
                 <div class="modal-footer">
                     <div class="col-md-5">
-                        <button type="button" class="btn btn-danger delete">Устгах</button>
+                        <button type="button" class="btn btn-danger delete" onclick="deleterepair()">Устгах</button>
                     </div>
                     <div class="col-md-7" style="display: inline-block; text-align: right;" >
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Хаах</button>
@@ -473,7 +473,7 @@
                 </div>
                 <div class="modal-footer">
                     <div class="col-md-5">
-                        <button type="button" class="btn btn-danger delete">Устгах</button>
+                        <button type="button" class="btn btn-danger delete" onclick="deleteproduct()">Устгах</button>
                     </div>
                     <div class="col-md-7" style="display: inline-block; text-align: right;" >
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Хаах</button>
@@ -534,7 +534,7 @@
                 </div>
                 <div class="modal-footer">
                     <div class="col-md-5">
-                        <button type="button" class="btn btn-danger" >Устгах</button>
+                        <button type="button" class="btn btn-danger" onclick="deletedriver()">Устгах</button>
                     </div>
                     <div class="col-md-7" style="display: inline-block; text-align: right;" >
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Хаах</button>

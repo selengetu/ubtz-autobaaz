@@ -11,6 +11,7 @@ $('#adddriver').on('click',function(){
 });
 function deletedriver(){
         var itag =  $('#cd_id').val();
+        var gcar = $('#gcar').val();
         console.log(itag);
         $.ajax(
             {
@@ -18,15 +19,16 @@ function deletedriver(){
                 type: 'GET',
                 dataType: "JSON",
                 data: {
-                    "id": $id,
+                    "id": itag,
                     "_method": 'DELETE',
-                },
-                success: function () {
-                    alert('Жолооч устгагдлаа');
                 }
+              
+                  
 
             });
-
+            alert('Жолооч устгагдлаа');
+                    getcardrivers(gcar);
+                    
 
             }
             function updatedriver($id){
