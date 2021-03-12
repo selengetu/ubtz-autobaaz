@@ -104,7 +104,7 @@
                 <!-- Sidebar navigation-->
                 <nav class="sidebar-nav">
                     <ul id="sidebarnav">
-                        <li> <a class="waves-effect waves-dark" aria-expanded="false"><i class="fa fa-table"></i><span class="hide-menu">Тохиргоо</span></a>
+                        <li> <a class="waves-effect waves-dark" aria-expanded="false"><i class="fa fa-pencil"></i><span class="hide-menu">Тохиргоо</span></a>
                             <ul aria-expanded="false" class="collapse first-level in">
                                 <li class="sidebar-item"><a href="{{ route('mark') }}" class="sidebar-link"><i class="mdi mdi-format-align-left"></i><span class="hide-menu"> Үйлдвэрлэгч </span></a></li>
                                 <li class="sidebar-item"><a href="{{ route('model') }}" class="sidebar-link"><i class="mdi mdi-format-align-right"></i><span class="hide-menu"> Загвар </span></a></li>
@@ -113,24 +113,15 @@
                           
                             </ul>
                         </li>
-                        <li> <a class="waves-effect waves-dark" href="{{ route('home') }}" aria-expanded="false"><i class="fa fa-table"></i><span class="hide-menu">Бүртгэл</span></a>
+                        <li> <a class="waves-effect waves-dark" href="{{ route('home') }}" aria-expanded="false"><i class="fa fa-cog"></i><span class="hide-menu">Бүртгэл</span></a>
                             <ul aria-expanded="false" class="collapse first-level in">
                                 <li class="sidebar-item"><a href="{{ route('car') }}" class="sidebar-link"><i class="mdi mdi-format-align-left"></i><span class="hide-menu"> Тээврийн хэрэгсэл </span></a></li>
-                                <li class="sidebar-item"><a href="#" class="sidebar-link"><i class="mdi mdi-format-align-right"></i><span class="hide-menu"> Спидометр </span></a></li>
-                                <li class="sidebar-item"><a href="#" class="sidebar-link"><i class="mdi mdi-format-float-left"></i><span class="hide-menu"> Засвар үйлчилгээ </span></a></li>
-                                 </span></a></li>
+                               
                           
                             </ul>
                         </li>
                     
-                        <li> <a class="waves-effect waves-dark" href="pages-blank.html" aria-expanded="false"><i class="fa fa-bookmark-o"></i><span class="hide-menu">Засвар</span></a>
-                            <ul aria-expanded="false" class="collapse first-level in">
-                                <li class="sidebar-item"><a href="#" class="sidebar-link"><i class="mdi mdi-format-align-left"></i><span class="hide-menu"> Төлөвлөгөөт засвар </span></a></li>
-                                <li class="sidebar-item"><a href="#" class="sidebar-link"><i class="mdi mdi-format-align-right"></i><span class="hide-menu"> Цагийн хуваарилалт </span></a></li>
-                                <li class="sidebar-item"><a href="#" class="sidebar-link"><i class="mdi mdi-format-float-left"></i><span class="hide-menu"> Ажлын хувиарлалт </span></a></li>
-                               
-                            </ul>
-                        </li>
+                      
                       
                     </ul>
                   
