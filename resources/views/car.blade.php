@@ -20,7 +20,7 @@
             </ol>
         </div>
         <div class="col-md-7 align-self-center">
-            <a href="#" class="btn waves-effect waves-light btn btn-info pull-right hidden-sm-down" data-toggle="modal"
+            <a href="#" class="btn waves-effect waves-light btn btn-info pull-right hidden-sm-down" data-toggle="modal" id="addcar"
                 data-target="#exampleModal" > <i class="fa fa-plus" aria-hidden="true"></i> Тээврийн хэрэгсэл бүртгэх</a>
         </div>
     </div>
@@ -77,7 +77,7 @@
                                                     <td>{{$c->enginecc}} {{$c->engineid}} -{{$c->enginecap}}л </td>
                                                     <td>{{$c->speedbox_name}}- {{$c->speedtype}} {{$c->speedcap}}л</td>
                                                     <td><button onclick="carClicked({{$c->carid}})" data-id="{{$c->carid}}" tag="{{$c->carid}}" class="btn btn-primary btn-sm process"> <i class="fa fa-plus" style="color: rgb(255, 255, 255);"></i></button>
-                                                        <button class='btn btn-sm btn-info update' data-toggle='modal' data-target='#exampleModal' data-id="{{$c->carid}}" tag='{{$c->carid}}'><i class="fa fa-pencil-square-o" style="color: rgb(255, 255, 255); "></i></button> </td>
+                                                        <button class='btn btn-sm btn-info update' data-toggle='modal' data-target='#exampleModal' data-id="{{$c->carid}}" tag='{{$c->carid}}' onclick="updatecar({{$c->carid}})"><i class="fa fa-pencil-square-o" style="color: rgb(255, 255, 255); "></i></button> </td>
                                                 </tr>
                                                 <?php $no++; ?>
                                             @endforeach
@@ -100,7 +100,7 @@
                                 <div class="table-responsive m-t-20 no-wrap">
                                     <table class="table table-bordered main"
                                         style="font-size:12px; color:black; word-wrap:break-word;" id="producttable">
-                                        <thead style="background-color:#ceedf9; font-size: 12px;">
+                                        <thead style="background-color:#ced8f9; font-size: 12px;">
                                             <tr>
                                               
                                                 <th>Төрөл </th>
@@ -331,7 +331,7 @@
                 </div>
                 <div class="modal-footer">
                     <div class="col-md-5">
-                        <button type="button" class="btn btn-danger delete">Устгах</button>
+                        <button type="button" class="btn btn-danger delete " onclick="deletecar()">Устгах</button>
                     </div>
                     <div class="col-md-7" style="display: inline-block; text-align: right;" >
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Хаах</button>
@@ -631,6 +631,7 @@
     });
    
 </script>
+@include('layouts.sc_car')
 @include('layouts.sc_driver')
 @include('layouts.sc_product')
 @include('layouts.sc_repair')
