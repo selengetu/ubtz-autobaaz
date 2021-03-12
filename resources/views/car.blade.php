@@ -44,7 +44,7 @@
                             <div class="card-body">
                           
                                 <div class="table-responsive m-t-20 no-wrap">
-                                    <table class="table table-bordered vm"
+                                    <table class="table table-bordered vm" id="example"
                                         style="font-size:12px; color:black; word-wrap:break-word;">
                                         <thead style="background-color:#ceedf9; font-size: 12px;">
                                             <tr>
@@ -551,6 +551,25 @@
 <script>
    $(document).ready(function() {
     $('.date-picker').datepicker({ dateFormat: 'dd-mm-yy' });
+    $(document).ready(function() {
+            $('#example').dataTable( {
+                "language": {
+                    "lengthMenu": " _MENU_ бичлэг",
+                    "zeroRecords": "Бичлэг олдсонгүй",
+                    "info": "_PAGE_ ээс _PAGES_ хуудас" ,
+                    "infoEmpty": "Бичлэг олдсонгүй",
+                    "infoFiltered": "(filtered from _MAX_ total records)",
+                    "search": "Хайлт:",
+                    "paginate": {
+                        "first":      "Эхнийх",
+                        "last":       "Сүүлийнх",
+                        "next":       "Дараагийнх",
+                        "previous":   "Өмнөх"
+                    },
+                },
+                "pageLength": 10
+            } );
+        } );
     
 });
        $('.select2').select2();
