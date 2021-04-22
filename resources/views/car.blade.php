@@ -381,13 +381,13 @@
                         </div>
                         <div class="form-group col-md-4">
                             <label for="inputAddress">Явсан км</label>
-                            <input type="number" class="form-control" id="repair_km" name="repair_km" maxlength="10">
+                            <input type="number" class="form-control" id="repair_km" name="repair_km" step="0.01">
                         
                         </div>
                         <div class="form-group col-md-8">
                             <label for="inputAddress">Хийгдсэн үйлчилгээ</label>
                             <input type="hidden" name="_token" value="{{ csrf_token() }}">
-                            <input type="text" class="form-control" id="repair_comment" name="repair_comment" maxlength="10">
+                            <input type="text" class="form-control" id="repair_comment" name="repair_comment" maxlength="100">
                         
                         </div>
                        
