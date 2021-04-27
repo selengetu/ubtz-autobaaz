@@ -63,7 +63,7 @@
                              
                                         @foreach($mark as $m)
                                           
-                                            <option value= "{{$m->mark_id}}">  {{$m->mark_name}}</option>
+                                            <option value= "{{$m->mark_id}}"  @if($m->mark_id==$mark) selected @endif>  {{$m->mark_name}}</option>
                                           
                                         @endforeach
                                     </select>
@@ -74,7 +74,7 @@
                              
                                         @foreach($model as $mo)
                                           
-                                            <option value= "{{$mo->model_id}}">  {{$mo->model_name}}</option>
+                                            <option value= "{{$mo->model_id}}" @if($mo->model_id==$model) selected @endif>  {{$mo->model_name}}</option>
                                           
                                         @endforeach
                                     </select>
@@ -85,7 +85,7 @@
                                
                                           @foreach($speedbox as $s)
                                             
-                                              <option value= "{{$s->speedbox_id}}">  {{$s->speedbox_name}}</option>
+                                              <option value= "{{$s->speedbox_id}}" @if($s->speedbox_id==$speedbox) selected @endif>  {{$s->speedbox_name}}</option>
                                             
                                           @endforeach
                                       </select>

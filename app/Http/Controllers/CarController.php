@@ -21,6 +21,9 @@ class CarController extends Controller {
     public function index() {
         $query = "";
         $vtypecode = Input::get('s_vtypecode');
+        $mark = Input::get('s_mark');
+        $model = Input::get('s_model_id');
+        $speedbox = Input::get('s_speedbox');
         if(Session::has('vtypecode')) {
             $vtypecode = Session::get('vtypecode');
 
@@ -31,6 +34,54 @@ class CarController extends Controller {
 
         if ($vtypecode!=NULL && $vtypecode !=0) {
             $query.=" and vtypecode = '".$vtypecode."'";
+
+        }
+        else
+        {
+            $query.=" ";
+        }
+        if(Session::has('mark')) {
+            $mark = Session::get('mark');
+
+        }
+        else {
+            Session::put('mark', $mark);
+        }
+
+        if ($mark!=NULL && $mark !=0) {
+            $query.=" and mark = '".$mark."'";
+
+        }
+        else
+        {
+            $query.=" ";
+        }
+        if(Session::has('model')) {
+            $mark = Session::get('model');
+
+        }
+        else {
+            Session::put('model', $model);
+        }
+
+        if ($model!=NULL && $model !=0) {
+            $query.=" and model = '".$model."'";
+
+        }
+        else
+        {
+            $query.=" ";
+        }
+        if(Session::has('speedbox')) {
+            $speedbox = Session::get('speedbox');
+
+        }
+        else {
+            Session::put('speedbox', $speedbox);
+        }
+
+        if ($speedbox!=NULL && $speedbox !=0) {
+            $query.=" and speedbox = '".$speedbox."'";
 
         }
         else
@@ -48,7 +99,7 @@ class CarController extends Controller {
         $product = DB::select('select * from CONST_PRODUCT');
         $driver = DB::select('select * from CONST_DRIVER');
 
-        return view('car',compact('car','mark','model','park','oil','colour','type','speedbox','product','driver','vtypecode'));
+        return view('car',compact('car','mark','model','park','oil','colour','type','speedbox','product','driver','vtypecode','speedbox','mark','model'));
     }
 
     public function store(Request $request)
@@ -207,8 +258,8 @@ class CarController extends Controller {
         CarRepair::where('cr_id', '=', $id)->delete();
         return Redirect('car');
     }
-    public function filter_speedbox($s_speedbox) {
-        Session::put('s_speedbox',$s_speedbox);
+    public function filter_speedbox($speedbox) {
+        Session::put('s_speedbox',$speedbox);
         return back();
     }
     public function filter_mark($mark) {
