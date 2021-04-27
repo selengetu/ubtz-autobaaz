@@ -10,6 +10,8 @@ use App\Car;
 use App\CarDriver;
 use App\CarProduct;
 use App\CarRepair;
+use Illuminate\Support\Facades\Input;
+use Session;
 class CarController extends Controller {
 
    public function __construct() {
@@ -17,7 +19,25 @@ class CarController extends Controller {
     }
 
     public function index() {
-        $car = DB::select('select * from V_CARS');
+        $query = "";
+        $vtypecode = Input::get('s_vtypecode');
+        if(Session::has('vtypecode')) {
+            $vtypecode = Session::get('vtypecode');
+
+        }
+        else {
+            Session::put('vtypecode', $vtypecode);
+        }
+
+        if ($vtypecode!=NULL && $vtypecode !=0) {
+            $query.=" and vtypecode = '".$vtypecode."'";
+
+        }
+        else
+        {
+            $query.=" ";
+        }
+        $car = DB::select('select * from V_CARS where 1=1 ' .$query.'');
         $mark = DB::select('select * from CONST_CAR_MARK');
         $model = DB::select('select * from CONST_CAR_MODEL');
         $park = DB::select('select * from CONST_PARKS');
@@ -27,7 +47,8 @@ class CarController extends Controller {
         $type = DB::select('select * from CONST_VEHICLE_TYPES');
         $product = DB::select('select * from CONST_PRODUCT');
         $driver = DB::select('select * from CONST_DRIVER');
-        return view('car',compact('car','mark','model','park','oil','colour','type','speedbox','product','driver'));
+
+        return view('car',compact('car','mark','model','park','oil','colour','type','speedbox','product','driver','vtypecode'));
     }
 
     public function store(Request $request)
@@ -185,5 +206,21 @@ class CarController extends Controller {
     {
         CarRepair::where('cr_id', '=', $id)->delete();
         return Redirect('car');
+    }
+    public function filter_speedbox($s_speedbox) {
+        Session::put('s_speedbox',$s_speedbox);
+        return back();
+    }
+    public function filter_mark($mark) {
+        Session::put('mark',$mark);
+        return back();
+    }
+    public function filter_model($model) {
+        Session::put('model',$model);
+        return back();
+    }
+    public function filter_vtypecode($vtypecode) {
+        Session::put('vtypecode',$vtypecode);
+        return back();
     }
 }

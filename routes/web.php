@@ -103,3 +103,9 @@ Route::get('/carrepairsfill/{id?}',function($id = 0){
     $dt=DB::table('V_CAR_REPAIR')->where('car_id','=',$id)->get();
     return $dt;
 });
+
+
+Route::get('/filter_speedbox/{id}', 'CarController@filter_speedbox');
+Route::get('/filter_mark/{id}', 'CarController@filter_mark');
+Route::get('/filter_model/{id}', 'CarController@filter_model');
+Route::get('/filter_vtypecode/{id}', 'CarController@filter_vtypecode');

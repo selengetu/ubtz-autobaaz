@@ -37,12 +37,60 @@
           </ul>
           <div class="tab-content" id="myTabContent">
             <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+                
                 <div class="row">
                     <!-- Column -->
                     <div class="col-lg-12">
+                    
                         <div class="card">
                             <div class="card-body">
-                          
+                                <div class="form-row">
+                                   
+                                    <div class="form-group col-md-3">
+                                      <label for="inputPassword4">Төрөл</label>
+                                      <select class="form-control" id="s_vtypecode" name="s_vtypecode"  onchange="javascript:location.href = 'filter_vtypecode/'+this.value;" >
+                             
+                                        @foreach($type as $t)
+                                          
+                                            <option value= "{{$t->vtypecode}} " @if($t->vtypecode==$vtypecode) selected @endif >  {{$t->vtypename}}</option>
+                                          
+                                        @endforeach
+                                    </select>
+                                    </div>
+                                    <div class="form-group col-md-3">
+                                      <label for="inputPassword4">Марк</label>
+                                      <select class="form-control" id="s_mark" name="s_mark"  onchange="javascript:location.href = 'filter_mark/'+this.value;">
+                             
+                                        @foreach($mark as $m)
+                                          
+                                            <option value= "{{$m->mark_id}}">  {{$m->mark_name}}</option>
+                                          
+                                        @endforeach
+                                    </select>
+                                    </div>
+                                    <div class="form-group col-md-3">
+                                      <label for="inputPassword4">Модель</label>
+                                      <select class="form-control" id="s_model_id" name="s_model_id" onchange="javascript:location.href = 'filter_model/'+this.value;">
+                             
+                                        @foreach($model as $mo)
+                                          
+                                            <option value= "{{$mo->model_id}}">  {{$mo->model_name}}</option>
+                                          
+                                        @endforeach
+                                    </select>
+                                    </div>
+                                    <div class="form-group col-md-3">
+                                        <label for="inputEmail4">Хурдны хайрцаг</label>
+                                        <select class="form-control" id="s_speedbox" name="s_speedbox" onchange="javascript:location.href = 'filter_speedbox/'+this.value;">
+                               
+                                          @foreach($speedbox as $s)
+                                            
+                                              <option value= "{{$s->speedbox_id}}">  {{$s->speedbox_name}}</option>
+                                            
+                                          @endforeach
+                                      </select>
+                                      </div>
+                                  </div>
                                 <div class="table-responsive m-t-20 no-wrap">
                                     <table class="table table-bordered vm" id="example"
                                         style="font-size:12px; color:black; word-wrap:break-word;">
