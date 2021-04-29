@@ -49,7 +49,7 @@
                                     <div class="form-group col-md-3">
                                       <label for="inputPassword4">Төрөл</label>
                                       <select class="form-control" id="s_vtypecode" name="s_vtypecode"  onchange="javascript:location.href = 'filter_vtypecode/'+this.value;" >
-                             
+                                        <option value= "0">  Бүгд</option>
                                         @foreach($type as $t)
                                           
                                             <option value= "{{$t->vtypecode}} " @if($t->vtypecode==$vtypecode) selected @endif >  {{$t->vtypename}}</option>
@@ -60,10 +60,11 @@
                                     <div class="form-group col-md-3">
                                       <label for="inputPassword4">Марк</label>
                                       <select class="form-control" id="s_mark" name="s_mark"  onchange="javascript:location.href = 'filter_mark/'+this.value;">
-                             
+                                        <option value= "0">  Бүгд</option>
+                                       
                                         @foreach($mark as $m)
                                           
-                                            <option value= "{{$m->mark_id}}"  @if($m->mark_id==$mark) selected @endif>  {{$m->mark_name}}</option>
+                                            <option value= "{{$m->mark_id}}"  @if($m->mark_id==$s_mark) selected @endif>  {{$m->mark_name}}</option>
                                           
                                         @endforeach
                                     </select>
@@ -71,10 +72,10 @@
                                     <div class="form-group col-md-3">
                                       <label for="inputPassword4">Модель</label>
                                       <select class="form-control" id="s_model_id" name="s_model_id" onchange="javascript:location.href = 'filter_model/'+this.value;">
-                             
+                                        <option value= "0">  Бүгд</option>
                                         @foreach($model as $mo)
-                                          
-                                            <option value= "{{$mo->model_id}}" @if($mo->model_id==$model) selected @endif>  {{$mo->model_name}}</option>
+                                       
+                                            <option value= "{{$mo->model_id}}" @if($mo->model_id==$s_model) selected @endif>  {{$mo->model_name}}</option>
                                           
                                         @endforeach
                                     </select>
@@ -82,10 +83,10 @@
                                     <div class="form-group col-md-3">
                                         <label for="inputEmail4">Хурдны хайрцаг</label>
                                         <select class="form-control" id="s_speedbox" name="s_speedbox" onchange="javascript:location.href = 'filter_speedbox/'+this.value;">
-                               
+                                            <option value= "0">  Бүгд</option>
                                           @foreach($speedbox as $s)
                                             
-                                              <option value= "{{$s->speedbox_id}}" @if($s->speedbox_id==$speedbox) selected @endif>  {{$s->speedbox_name}}</option>
+                                              <option value= "{{$s->speedbox_id}}" @if($s->speedbox_id==$s_speedbox) selected @endif>  {{$s->speedbox_name}}</option>
                                             
                                           @endforeach
                                       </select>

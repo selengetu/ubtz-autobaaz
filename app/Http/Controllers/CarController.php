@@ -21,9 +21,9 @@ class CarController extends Controller {
     public function index() {
         $query = "";
         $vtypecode = Input::get('s_vtypecode');
-        $mark = Input::get('s_mark');
-        $model = Input::get('s_model_id');
-        $speedbox = Input::get('s_speedbox');
+        $s_mark = Input::get('s_mark');
+        $s_model = Input::get('s_model_id');
+        $s_speedbox = Input::get('s_speedbox');
         if(Session::has('vtypecode')) {
             $vtypecode = Session::get('vtypecode');
 
@@ -41,15 +41,15 @@ class CarController extends Controller {
             $query.=" ";
         }
         if(Session::has('mark')) {
-            $mark = Session::get('mark');
+            $s_mark = Session::get('mark');
 
         }
         else {
-            Session::put('mark', $mark);
+            Session::put('mark', $s_mark);
         }
 
-        if ($mark!=NULL && $mark !=0) {
-            $query.=" and mark = '".$mark."'";
+        if ($s_mark!=NULL && $s_mark !=0) {
+            $query.=" and mark = '".$s_mark."'";
 
         }
         else
@@ -57,15 +57,15 @@ class CarController extends Controller {
             $query.=" ";
         }
         if(Session::has('model')) {
-            $mark = Session::get('model');
+            $s_model = Session::get('model');
 
         }
         else {
-            Session::put('model', $model);
+            Session::put('model', $s_model);
         }
 
-        if ($model!=NULL && $model !=0) {
-            $query.=" and model = '".$model."'";
+        if ($s_model!=NULL && $s_model !=0) {
+            $query.=" and model = '".$s_model."'";
 
         }
         else
@@ -73,21 +73,22 @@ class CarController extends Controller {
             $query.=" ";
         }
         if(Session::has('speedbox')) {
-            $speedbox = Session::get('speedbox');
+            $s_speedbox = Session::get('speedbox');
 
         }
         else {
-            Session::put('speedbox', $speedbox);
+            Session::put('speedbox', $s_speedbox);
         }
 
-        if ($speedbox!=NULL && $speedbox !=0) {
-            $query.=" and speedbox = '".$speedbox."'";
+        if ($s_speedbox!=NULL && $s_speedbox !=0) {
+            $query.=" and speedbox = '".$s_speedbox."'";
 
         }
         else
         {
             $query.=" ";
         }
+ 
         $car = DB::select('select * from V_CARS where 1=1 ' .$query.'');
         $mark = DB::select('select * from CONST_CAR_MARK');
         $model = DB::select('select * from CONST_CAR_MODEL');
@@ -99,7 +100,7 @@ class CarController extends Controller {
         $product = DB::select('select * from CONST_PRODUCT');
         $driver = DB::select('select * from CONST_DRIVER');
 
-        return view('car',compact('car','mark','model','park','oil','colour','type','speedbox','product','driver','vtypecode','speedbox','mark','model'));
+        return view('car',compact('car','mark','model','park','oil','colour','type','speedbox','product','driver','vtypecode','s_speedbox','s_mark','s_model'));
     }
 
     public function store(Request $request)
