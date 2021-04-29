@@ -109,3 +109,6 @@ Route::get('/filter_speedbox/{id}', 'CarController@filter_speedbox');
 Route::get('/filter_mark/{id}', 'CarController@filter_mark');
 Route::get('/filter_model/{id}', 'CarController@filter_model');
 Route::get('/filter_vtypecode/{id}', 'CarController@filter_vtypecode');
+
+
+Route::get('/rep1', 'HomeController@index')->name('rep1');
