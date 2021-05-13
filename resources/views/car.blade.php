@@ -93,9 +93,9 @@
                                       </div>
                                   </div>
                                 <div class="table-responsive m-t-20 no-wrap">
-                                    <table class="table table-bordered vm" id="example"
+                                    <table class="table table-bordered table-striped" id="example"
                                         style="font-size:12px; color:black; word-wrap:break-word;">
-                                        <thead style="background-color:#ceedf9; font-size: 12px;">
+                                        <thead style="background-color:#1890ff; color:#fff; font-size: 12px;">
                                             <tr>
                                                 <th>№</th>
                                                 <th>Төрөл </th>
@@ -105,8 +105,6 @@
                                                 <th>Марк</th>
                                                 <th>Модель</th>
                                                 <th>Үйлдвэрлэсэн он</th>
-                                                <th>Хөдөлгүүрийн<br>багтаамж</th>
-                                                <th>Хурдны хайрцаг</th>
                                                 <th></th>
                                                
                                             </tr>
@@ -123,10 +121,8 @@
                                                     <td>{{$c->mark_name}}</td>
                                                     <td>{{$c->model_name}}</td>
                                                     <td>{{$c->manuyear}}</td>
-                                                    <td>{{$c->enginecc}} {{$c->engineid}} -{{$c->enginecap}}л </td>
-                                                    <td>{{$c->speedbox_name}}- {{$c->speedtype}} {{$c->speedcap}}л</td>
-                                                    <td><button onclick="carClicked({{$c->carid}})" data-id="{{$c->carid}}" tag="{{$c->carid}}" class="btn btn-primary btn-sm process"> <i class="fa fa-plus" style="color: rgb(255, 255, 255);"></i></button>
-                                                        <button class='btn btn-sm btn-info update' data-toggle='modal' data-target='#exampleModal' data-id="{{$c->carid}}" tag='{{$c->carid}}' onclick="updatecar({{$c->carid}})"><i class="fa fa-pencil-square-o" style="color: rgb(255, 255, 255); "></i></button> </td>
+                                                    <td><button onclick="carClicked({{$c->carid}})" data-id="{{$c->carid}}" tag="{{$c->carid}}" class="btn btn-info btn-sm process"> <i class="fa fa-plus" style="color: rgb(255, 255, 255);"></i></button>
+                                                        <button class='btn btn-sm btn-warning update' data-toggle='modal' data-target='#exampleModal' data-id="{{$c->carid}}" tag='{{$c->carid}}' onclick="updatecar({{$c->carid}})"><i class="fa fa-pencil-square-o" style="color: rgb(255, 255, 255); "></i></button> </td>
                                                 </tr>
                                                 <?php $no++; ?>
                                             @endforeach
@@ -145,7 +141,20 @@
                         <div class="card">
                             <div class="card-body">
                                 <div class="row">
-                          <div class="col-md-12">
+                                <div class="col-md-4">
+                                <div class="card text-white bg-info">
+                                    <div class="card-header"><b>ТЭЭВРИЙН ХЭРЭГСЭЛ</b></div>
+                                    <div class="card-body">
+                                       
+                                        <p class="card-text">УЛСЫН ДУГААР: 1869УАР</p>
+                                        <p class="card-text">ЗАГВАР: TOYOTA Prius Alpha</p>
+                                        <p class="card-text">ҮЙЛДВЭРЛЭСЭН ОН: 2011</p>
+                                        <a href="#" class="btn waves-effect waves-light btn btn-warning  hidden-sm-down" data-toggle="modal" data-target="#productModal" id="addproduct"> <i class="fa fa-plus" aria-hidden="true">ХӨДӨЛГҮҮР</i> </a>
+                                        <a href="#" class="btn waves-effect waves-light btn btn-success  hidden-sm-down" data-toggle="modal" data-target="#productModal" id="addproduct"> <i class="fa fa-plus" aria-hidden="true">ӨӨ</i> </a>
+                                    </div>
+                                    </div>
+                                </div>
+                          <div class="col-md-8">
                                 <div class="table-responsive m-t-20 no-wrap">
                                     <table class="table table-bordered main"
                                         style="font-size:12px; color:black; word-wrap:break-word;" id="producttable">
@@ -169,70 +178,71 @@
                                     </table>
                                    
                                 </div>
-                               
-                            </div>
-                            <div class="col-md-6" >
+                                <div class="col-md-6" >
                              
-                                <table class="table table-bordered vm"
-                                style="font-size:12px;width:100%; color:black; word-wrap:break-word;" id="carproducttable">
-                                <thead style="background-color:#ceedf9; font-size: 12px;" >
-                                    <tr>
-                                       
-                                        <th>Эд ангийн нэр </th>
-                                        <th>Явсан км</th>
-                                        <th>Эхэлсэн огноо</th>
-                                        <th>Дууссан огноо</th>
-                                        <th>   <a href="#" class="btn waves-effect waves-light btn btn-sm btn-info  hidden-sm-down" data-toggle="modal" data-target="#productModal" id="addproduct"> <i class="fa fa-plus" aria-hidden="true"></i> </a></th>
-                                    </tr>
-                                </thead>
-                               <tbody>
-                               </tbody>
-                            </table>
-                               
-                                
-                            </div>
-                            <div class="col-md-6" >
-                                       
-                                <table class="table table-bordered vm" id="cardrivertable"
-                            style="font-size:12px;width:100%; color:black; word-wrap:break-word;" >
-                            <thead style="background-color:#ceedf9; font-size: 12px;">
-                                <tr>
-                                    <th>Нэр</th>
-                                    <th>Ангилал</th>
-                                    <th>Мэргэшсэн</th>
-                                    <th>Эхэлсэн огноо </th>
-                                    <th>Дууссан огноо</th>
-                                    <th> <a href="#" id="adddriver" class="btn waves-effect waves-light btn btn-sm btn-info hidden-sm-down" data-toggle="modal" data-target="#driverModal"> <i class="fa fa-plus" aria-hidden="true"></i></a></th>
-                                </tr>
-                            </thead>
+                             <table class="table table-bordered vm"
+                             style="font-size:12px;width:100%; color:black; word-wrap:break-word;" id="carproducttable">
+                             <thead style="background-color:#ceedf9; font-size: 12px;" >
+                                 <tr>
+                                    
+                                     <th>Эд ангийн нэр </th>
+                                     <th>Явсан км</th>
+                                     <th>Эхэлсэн огноо</th>
+                                     <th>Дууссан огноо</th>
+                                     <th>   <a href="#" class="btn waves-effect waves-light btn btn-sm btn-info  hidden-sm-down" data-toggle="modal" data-target="#productModal" id="addproduct"> <i class="fa fa-plus" aria-hidden="true"></i> </a></th>
+                                 </tr>
+                             </thead>
                             <tbody>
                             </tbody>
-                        </table>
-                                 
-                                  
-                              </div>
-                              <div class="col-md-6" >
-                                       
-                                <table class="table table-bordered vm" id="carrepairtable"
-                                style="font-size:12px;width:100%; color:black; word-wrap:break-word;">
-                                <thead style="background-color:#ceedf9; font-size: 12px;"  >
-                                    <tr>
-                                        <th>Огноо</th>
-                                        <th>Эд анги</th>
-                                        <th>Явсан км</th>
-                                        <th>Тайлбар</th>
-                                        <th>Жолооч</th>
-                                        <th><a href="#" id="addrepair" class="btn btn-sm waves-effect waves-light btn btn-info  hidden-sm-down" data-toggle="modal" data-target="#repairModal"> <i class="fa fa-plus" aria-hidden="true"></i> </a></th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                </tbody>
-                            </table>
-                                 
-                                  
-                              </div>
+                         </table>
+                            
+                             
+                         </div>
+                         <div class="col-md-6" >
+                                    
+                             <table class="table table-bordered vm" id="cardrivertable"
+                         style="font-size:12px;width:100%; color:black; word-wrap:break-word;" >
+                         <thead style="background-color:#ceedf9; font-size: 12px;">
+                             <tr>
+                                 <th>Нэр</th>
+                                 <th>Ангилал</th>
+                                 <th>Мэргэшсэн</th>
+                                 <th>Эхэлсэн огноо </th>
+                                 <th>Дууссан огноо</th>
+                                 <th> <a href="#" id="adddriver" class="btn waves-effect waves-light btn btn-sm btn-info hidden-sm-down" data-toggle="modal" data-target="#driverModal"> <i class="fa fa-plus" aria-hidden="true"></i></a></th>
+                             </tr>
+                         </thead>
+                         <tbody>
+                         </tbody>
+                     </table>
+                              
+                               
+                           </div>
+                           <div class="col-md-6" >
+                                    
+                             <table class="table table-bordered vm" id="carrepairtable"
+                             style="font-size:12px;width:100%; color:black; word-wrap:break-word;">
+                             <thead style="background-color:#ceedf9; font-size: 12px;"  >
+                                 <tr>
+                                     <th>Огноо</th>
+                                     <th>Эд анги</th>
+                                     <th>Явсан км</th>
+                                     <th>Тайлбар</th>
+                                     <th>Жолооч</th>
+                                     <th><a href="#" id="addrepair" class="btn btn-sm waves-effect waves-light btn btn-info  hidden-sm-down" data-toggle="modal" data-target="#repairModal"> <i class="fa fa-plus" aria-hidden="true"></i> </a></th>
+                                 </tr>
+                             </thead>
+                             <tbody>
+                             </tbody>
+                         </table>
+                              
+                               
+                           </div>
+                            </div>
+                        
                         </div>
                             </div>
+                        </div>
                         </div>
                     </div>
                 </div>
