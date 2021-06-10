@@ -153,6 +153,63 @@
                                         <a href="#" class="btn waves-effect waves-light btn btn-success  hidden-sm-down" data-toggle="modal" data-target="#productModal" id="addproduct"> <i class="fa fa-plus" aria-hidden="true">ӨӨ</i> </a>
                                     </div>
                                     </div>
+                                    <div class="sidebar">
+                                        @if (Auth::check())
+                                            <div class="block clearfix">
+                                                <nav>
+                                                    <ul class="nav flex-column">
+                                                        <li class="nav-item">
+                                                            <a class="nav-link" style="color:#404142;" href="">
+                                                                <img src="{{ url('/assets/images/car.png') }}" style="width: 20px;" class="mr-2" />
+                                                                Профайл мэдээлэл
+                                                              
+                                                                    <div class="gradient-seperator" style="margin: 0 auto 0 70px;"></div>
+                                                        
+                                                            </a>
+                                                        </li>
+                                                        <li class="nav-item">
+                                                            <a class="nav-link" style="color:#404142;" href="">
+                                                                <img src="{{ url('/assets/images/wheel.png') }}" style="width: 20px;"
+                                                                    class="mr-2" />
+                                                               Хөдөлгүүр
+                                                        
+                                                                    <div class="gradient-seperator" style="margin: 0 auto 0 70px;"></div>
+                                                         
+                                                            </a>
+                                                        </li>
+                                                        <li class="nav-item">
+                                                            <a class="nav-link" style="color:#404142;" href="">
+                                                                <img src="{{ url('/assets/images/oil.png') }}" style="width: 20px;"
+                                                                    class="mr-2" />
+                                                               Тос
+                                                                    <div class="gradient-seperator" style="margin: 0 auto 0 70px;"></div>
+                                                         
+                                                            </a>
+                                                        </li>
+                                                        <li class="nav-item">
+                                                            <a class="nav-link" style="color:#404142;" href="">
+                                                                <img src="{{ url('/assets/images/repair.png') }}" style="width: 20px;"
+                                                                    class="mr-2" />
+                                                               Засвар
+                                                                    <div class="gradient-seperator" style="margin: 0 auto 0 70px;"></div>
+                                                         
+                                                            </a>
+                                                        </li>
+                                                        <li class="nav-item">
+                                                            <a class="nav-link" style="color:#404142;" href="">
+                                                                <img src="{{ url('/assets/images/driver.png') }}" style="width: 20px;"
+                                                                    class="mr-2" />
+                                                               Жолооч
+                                                                    <div class="gradient-seperator" style="margin: 0 auto 0 70px;"></div>
+                                                         
+                                                            </a>
+                                                        </li>
+                                                    </ul>
+                                                </nav>
+                                            </div>
+                                        @endif
+                                  
+                                    </div>
                                 </div>
                           <div class="col-md-8">
                                 <div class="table-responsive m-t-20 no-wrap">
