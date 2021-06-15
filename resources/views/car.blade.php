@@ -5,6 +5,9 @@
     .disabledTab {
         pointer-events: none;
     }
+    span{
+        cursor: pointer;
+    }
 </style>
 @endsection
 
@@ -149,9 +152,7 @@
                                         <p class="card-text">УЛСЫН ДУГААР: 1869УАР</p>
                                         <p class="card-text">ЗАГВАР: TOYOTA Prius Alpha</p>
                                         <p class="card-text">ҮЙЛДВЭРЛЭСЭН ОН: 2011</p>
-                                        <a href="#" class="btn waves-effect waves-light btn btn-warning  hidden-sm-down" data-toggle="modal" data-target="#productModal" id="addproduct"> <i class="fa fa-plus" aria-hidden="true">ХӨДӨЛГҮҮР</i> </a>
-                                        <a href="#" class="btn waves-effect waves-light btn btn-success  hidden-sm-down" data-toggle="modal" data-target="#productModal" id="addproduct"> <i class="fa fa-plus" aria-hidden="true">ӨӨ</i> </a>
-                                    </div>
+                                         </div>
                                     </div>
                                     <div class="sidebar">
                                         @if (Auth::check())
@@ -159,47 +160,47 @@
                                                 <nav>
                                                     <ul class="nav flex-column">
                                                         <li class="nav-item">
-                                                            <a class="nav-link" style="color:#404142;" href="">
+                                                            <a class="nav-link" style="color:#404142;" onclick= getdiv('producttable')>
                                                                 <img src="{{ url('/assets/images/car.png') }}" style="width: 20px;" class="mr-2" />
-                                                                Профайл мэдээлэл
+                                                                <span>  Профайл мэдээлэл </span>
                                                               
                                                                     <div class="gradient-seperator" style="margin: 0 auto 0 70px;"></div>
                                                         
                                                             </a>
                                                         </li>
                                                         <li class="nav-item">
-                                                            <a class="nav-link" style="color:#404142;" href="">
+                                                            <a class="nav-link" style="color:#404142;" onclick= getdiv()>
                                                                 <img src="{{ url('/assets/images/wheel.png') }}" style="width: 20px;"
                                                                     class="mr-2" />
-                                                               Хөдөлгүүр
+                                                                    <span>    Хөдөлгүүр </span>
                                                         
                                                                     <div class="gradient-seperator" style="margin: 0 auto 0 70px;"></div>
                                                          
                                                             </a>
                                                         </li>
                                                         <li class="nav-item">
-                                                            <a class="nav-link" style="color:#404142;" href="">
+                                                            <a class="nav-link" style="color:#404142;" onclick= getdiv('cartostable')>
                                                                 <img src="{{ url('/assets/images/oil.png') }}" style="width: 20px;"
                                                                     class="mr-2" />
-                                                               Тос
+                                                                    <span> Тос </span>
                                                                     <div class="gradient-seperator" style="margin: 0 auto 0 70px;"></div>
                                                          
                                                             </a>
                                                         </li>
                                                         <li class="nav-item">
-                                                            <a class="nav-link" style="color:#404142;" href="">
+                                                            <a class="nav-link" style="color:#404142;" onclick= getdiv('carrepairtable');>
                                                                 <img src="{{ url('/assets/images/repair.png') }}" style="width: 20px;"
                                                                     class="mr-2" />
-                                                               Засвар
+                                                               <span> Засвар </span>
                                                                     <div class="gradient-seperator" style="margin: 0 auto 0 70px;"></div>
                                                          
                                                             </a>
                                                         </li>
                                                         <li class="nav-item">
-                                                            <a class="nav-link" style="color:#404142;" href="">
+                                                            <a class="nav-link" style="color:#404142;" onclick= getdiv('cardrivertable')>
                                                                 <img src="{{ url('/assets/images/driver.png') }}" style="width: 20px;"
                                                                     class="mr-2" />
-                                                               Жолооч
+                                                                    <span>  Жолооч</span>
                                                                     <div class="gradient-seperator" style="margin: 0 auto 0 70px;"></div>
                                                          
                                                             </a>
@@ -213,8 +214,8 @@
                                 </div>
                           <div class="col-md-8">
                                 <div class="table-responsive m-t-20 no-wrap">
-                                    <table class="table table-bordered main"
-                                        style="font-size:12px; color:black; word-wrap:break-word;" id="producttable">
+                                    <table class="table table-bordered main hiddentable"
+                                        style="font-size:12px; color:black; word-wrap:break-word; display:none" id="producttable">
                                         <thead style="background-color:#ced8f9; font-size: 12px;">
                                             <tr>
                                               
@@ -235,10 +236,10 @@
                                     </table>
                                    
                                 </div>
-                                <div class="col-md-6" >
                              
-                             <table class="table table-bordered vm"
-                             style="font-size:12px;width:100%; color:black; word-wrap:break-word;" id="carproducttable">
+                             
+                             <table class="table table-bordered vm hiddentable"
+                             style="font-size:12px;width:100%; color:black; word-wrap:break-word; display:none;" id="cartostable">
                              <thead style="background-color:#ceedf9; font-size: 12px;" >
                                  <tr>
                                     
@@ -254,11 +255,11 @@
                          </table>
                             
                              
-                         </div>
-                         <div class="col-md-6" >
+                         
+                       
                                     
-                             <table class="table table-bordered vm" id="cardrivertable"
-                         style="font-size:12px;width:100%; color:black; word-wrap:break-word;" >
+                             <table class="table table-bordered vm hiddentable" id="cardrivertable"
+                         style="font-size:12px;width:100%; color:black; word-wrap:break-word; display:none" >
                          <thead style="background-color:#ceedf9; font-size: 12px;">
                              <tr>
                                  <th>Нэр</th>
@@ -274,11 +275,10 @@
                      </table>
                               
                                
-                           </div>
-                           <div class="col-md-6" >
+                          
                                     
-                             <table class="table table-bordered vm" id="carrepairtable"
-                             style="font-size:12px;width:100%; color:black; word-wrap:break-word;">
+                             <table class="table table-bordered vm hiddentable" id="carrepairtable"
+                             style="font-size:12px;width:100%; color:black; word-wrap:break-word; display:none">
                              <thead style="background-color:#ceedf9; font-size: 12px;"  >
                                  <tr>
                                      <th>Огноо</th>
@@ -293,8 +293,7 @@
                              </tbody>
                          </table>
                               
-                               
-                           </div>
+                         
                             </div>
                         
                         </div>
@@ -665,7 +664,7 @@
 
 @section('scripts')
 <script>
-   $(document).ready(function() {
+
     $('.date-picker').datepicker({ dateFormat: 'dd-mm-yy' });
     $(document).ready(function() {
             $('#example').dataTable( {
@@ -687,7 +686,13 @@
             } );
         } );
     
-});
+
+        function getdiv(id) {
+            $(".hiddentable").hide();
+        document.getElementById(id);
+        var x = document.getElementById(id);
+            x.style.display = "block";
+        }
        $('.select2').select2();
      $('#mark_id').change(function() {
         var item=$(this).val();
