@@ -157,9 +157,9 @@
                                     <div class="card-header"><b>ТЭЭВРИЙН ХЭРЭГСЭЛ</b></div>
                                     <div class="card-body">
                                        
-                                        <p class="card-text">УЛСЫН ДУГААР: 1869УАР</p>
-                                        <p class="card-text">ЗАГВАР: TOYOTA Prius Alpha</p>
-                                        <p class="card-text">ҮЙЛДВЭРЛЭСЭН ОН: 2011</p>
+                                        <p class="card-text">УЛСЫН ДУГААР: <span id="carnum" style="color:#00008B"></span></p>
+                                        <p class="card-text">ЗАГВАР: <span id="carbrand" style="color:#00008B"></span></p>
+                                        <p class="card-text">ҮЙЛДВЭРЛЭСЭН ОН:  <span id="cardate" style="color:#00008B"></span></p>
                                          </div>
                                     </div>
                                     <div class="sidebar">
@@ -168,48 +168,52 @@
                                                 <nav>
                                                     <ul class="nav flex-column">
                                                         <li class="nav-item">
-                                                            <a class="nav-link" style="color:#404142;" onclick= getdiv('producttable')>
+                                                            <a class="nav-link" style="color:#404142;" onclick= "getdiv('producttable')">
                                                                 <img src="{{ url('/assets/images/car.png') }}" style="width: 20px;" class="mr-2" />
-                                                                <span>  Профайл мэдээлэл </span> 
-                                                              
-                                                                    <div class="gradient-seperator" style="margin: 0 auto 0 70px;"></div>
+                                                                <span id ="sp_producttable" class="sphidden">  Профайл мэдээлэл </span> 
+                                                                <img src="{{ url('/assets/images/arrow.png') }}" class="hiddenarrow" id ="arrow_producttable" style="width: 20px;"
+                                                                    class="mr-2" />
                                                         
                                                             </a>
                                                         </li>
                                                         <li class="nav-item">
-                                                            <a class="nav-link" style="color:#404142;" onclick= getdiv()>
+                                                            <a class="nav-link" style="color:#404142;"  onclick= "getdiv('carhudtable')">
                                                                 <img src="{{ url('/assets/images/wheel.png') }}" style="width: 20px;"
                                                                     class="mr-2" />
-                                                                    <span>    Хөдөлгүүр </span>
+                                                                    <span id ="sp_cartostable"  class="sphidden">    Хөдөлгүүр </span>
                                                         
-                                                                    <div class="gradient-seperator" style="margin: 0 auto 0 70px;"></div>
+                                                                    <img src="{{ url('/assets/images/arrow.png') }}" class="hiddenarrow" id ="carhudtable" style="width: 20px;"
+                                                                    class="mr-2" />
                                                          
                                                             </a>
                                                         </li>
                                                         <li class="nav-item">
-                                                            <a class="nav-link" style="color:#404142;" onclick= getdiv('cartostable')>
+                                                            <a class="nav-link" style="color:#404142;" onclick= "getdiv('cartostable')">
                                                                 <img src="{{ url('/assets/images/oil.png') }}" style="width: 20px;"
                                                                     class="mr-2" />
-                                                                    <span> Тос </span>
-                                                                    <div class="gradient-seperator" style="margin: 0 auto 0 70px;"></div>
+                                                                    <span id ="sp_cartostable"  class="sphidden"> Тос </span>
+                                                                    <img src="{{ url('/assets/images/arrow.png') }}" class="hiddenarrow" id ="arrow_cartostable" style="width: 20px;"
+                                                                    class="mr-2" />
                                                          
                                                             </a>
                                                         </li>
                                                         <li class="nav-item">
-                                                            <a class="nav-link" style="color:#404142; opacity: 60%" onclick= "getdiv('carrepairtable')"; > 
+                                                            <a class="nav-link" style="color:#404142;" onclick= " getdiv('carrepairtable')"; > 
                                                                 <img src="{{ url('/assets/images/repair.png') }}" style="width: 20px;"
                                                                     class="mr-2" />
-                                                               <span> Засвар </span><img src="{{ url('/assets/images/arrow.png') }}" style="width: 20px;"
+                                                               <span id ="sp_carrepairtable"  class="sphidden"> Засвар </span>
+                                                               <img src="{{ url('/assets/images/arrow.png') }}" class="hiddenarrow" id ="arrow_carrepairtable" style="width: 20px;"
                                                                     class="mr-2" />
                                                                     <div class="gradient-seperator" style="margin: 0 auto 0 70px;"></div>
                                                          
                                                             </a>
                                                         </li>
                                                         <li class="nav-item">
-                                                            <a class="nav-link" style="color:#404142;" onclick= getdiv('cardrivertable')>
+                                                            <a class="nav-link" style="color:#404142;" onclick= "getdiv('cardrivertable')">
                                                                 <img src="{{ url('/assets/images/driver.png') }}" style="width: 20px;"
                                                                     class="mr-2" />
-                                                                    <span>  Жолооч</span>
+                                                                    <span id="sp_cardrivertable"  class="sphidden">  Жолооч</span>  <img src="{{ url('/assets/images/arrow.png') }}" class="hiddenarrow" id ="arrow_cardrivertable" style="width: 20px;"
+                                                                    class="mr-2" />
                                                                     <div class="gradient-seperator" style="margin: 0 auto 0 70px;"></div>
                                                          
                                                             </a>
@@ -222,10 +226,10 @@
                                     </div>
                                 </div>
                           <div class="col-md-8">
-                                <div class="table-responsive m-t-20 no-wrap">
+                  
                                     <table class="table table-bordered main hiddentable"
                                         style="font-size:12px; color:black; word-wrap:break-word; display:none" id="producttable">
-                                        <thead style="background-color:#ced8f9; font-size: 12px;">
+                                        <thead style="background-color:#20aee3; color:#fff; font-size: 12px;">
                                             <tr>
                                               
                                                 <th>Төрөл </th>
@@ -243,13 +247,12 @@
                                         <tbody>
                                         </tbody>
                                     </table>
-                                   
-                                </div>
+                        
                              
                              
                              <table class="table table-bordered vm hiddentable"
                              style="font-size:12px;width:100%; color:black; word-wrap:break-word; display:none;" id="cartostable">
-                             <thead style="background-color:#ceedf9; font-size: 12px;" >
+                             <thead style="background-color: #20aee3; color#:fff; font-size: 12px;" >
                                  <tr>
                                     
                                      <th>Эд ангийн нэр </th>
@@ -269,7 +272,7 @@
                                     
                              <table class="table table-bordered vm hiddentable" id="cardrivertable"
                          style="font-size:12px;width:100%; color:black; word-wrap:break-word; display:none" >
-                         <thead style="background-color:#ceedf9; font-size: 12px;">
+                         <thead style="background-color:#20aee3;color:#fff; font-size: 12px;">
                              <tr>
                                  <th>Нэр</th>
                                  <th>Ангилал</th>
@@ -288,7 +291,7 @@
                                     
                              <table class="table table-bordered vm hiddentable" id="carrepairtable"
                              style="font-size:12px;width:100%; color:black; word-wrap:break-word; display:none">
-                             <thead style="background-color:#ceedf9; font-size: 12px;"  >
+                             <thead style="background-color:#20aee3; color:#fff; font-size: 12px;"  >
                                  <tr>
                                      <th>Огноо</th>
                                      <th>Эд анги</th>
@@ -673,7 +676,7 @@
 
 @section('scripts')
 <script>
-
+getdiv('producttable');
     $('.date-picker').datepicker({ dateFormat: 'dd-mm-yy' });
     $(document).ready(function() {
             $('#example').dataTable( {
@@ -697,8 +700,11 @@
     
 
         function getdiv(id) {
+            $(".hiddenarrow").hide();
+            $("#arrow_"+ id +"").show();
             $(".hiddentable").hide();
             $("#"+ id +"").show();
+    
         }
        $('.select2').select2();
      $('#mark_id').change(function() {
@@ -739,6 +745,9 @@
             $('#rcar').val($id);
             $.get('carfill/'+$id,function(data){
             $(".main tbody").empty();
+            $("#carbrand").empty();
+            $("#carnum").empty();
+            $("#cardate").empty();
             $("#drivertable tbody").empty();
             $("#repairtable tbody").empty();
             $("#producttable tbody").empty();
@@ -762,8 +771,9 @@
                 $("#drivertable tbody").append(sHtml);
                 $("#repairtable tbody").append(sHtml);
                 $("#producttable tbody").append(sHtml);
-              
-
+                $("#carbrand").append(qwe.mark_name + " - " + qwe.model_name );
+                $("#carnum").append(qwe.carno);
+                $("#cardate").append(qwe.manuyear);
             });
 
         });
