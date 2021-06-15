@@ -188,7 +188,7 @@
                                                             </a>
                                                         </li>
                                                         <li class="nav-item">
-                                                            <a class="nav-link" style="color:#404142;" onclick= getdiv('carrepairtable');>
+                                                            <a class="nav-link" style="color:#404142; opacity: 60%" onclick= "getdiv('carrepairtable')"; > 
                                                                 <img src="{{ url('/assets/images/repair.png') }}" style="width: 20px;"
                                                                     class="mr-2" />
                                                                <span> Засвар </span>
@@ -689,9 +689,7 @@
 
         function getdiv(id) {
             $(".hiddentable").hide();
-        document.getElementById(id);
-        var x = document.getElementById(id);
-            x.style.display = "block";
+            $("#"+ id +"").show();
         }
        $('.select2').select2();
      $('#mark_id').change(function() {
