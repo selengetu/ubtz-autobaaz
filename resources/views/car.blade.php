@@ -8,6 +8,14 @@
     span{
         cursor: pointer;
     }
+    .gradient-seperator {
+    width: 20%;
+    height: 4px;
+    position: relative;
+    background-image: linear-gradient(to right, rgba(66, 247, 139, 0.78), #1352a3 104%);
+    margin: 20px auto 15px;
+    border-radius: 2px;
+}
 </style>
 @endsection
 
@@ -162,7 +170,7 @@
                                                         <li class="nav-item">
                                                             <a class="nav-link" style="color:#404142;" onclick= getdiv('producttable')>
                                                                 <img src="{{ url('/assets/images/car.png') }}" style="width: 20px;" class="mr-2" />
-                                                                <span>  Профайл мэдээлэл </span>
+                                                                <span>  Профайл мэдээлэл </span> 
                                                               
                                                                     <div class="gradient-seperator" style="margin: 0 auto 0 70px;"></div>
                                                         
@@ -191,7 +199,8 @@
                                                             <a class="nav-link" style="color:#404142; opacity: 60%" onclick= "getdiv('carrepairtable')"; > 
                                                                 <img src="{{ url('/assets/images/repair.png') }}" style="width: 20px;"
                                                                     class="mr-2" />
-                                                               <span> Засвар </span>
+                                                               <span> Засвар </span><img src="{{ url('/assets/images/arrow.png') }}" style="width: 20px;"
+                                                                    class="mr-2" />
                                                                     <div class="gradient-seperator" style="margin: 0 auto 0 70px;"></div>
                                                          
                                                             </a>
