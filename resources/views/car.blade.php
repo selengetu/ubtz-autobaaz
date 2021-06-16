@@ -191,7 +191,7 @@
                                                             <a class="nav-link" style="color:#404142;" onclick= "getdiv('cartostable')">
                                                                 <img src="{{ url('/assets/images/oil.png') }}" style="width: 20px;"
                                                                     class="mr-2" />
-                                                                    <span id ="sp_cartostable"  class="sphidden"> Тос </span>
+                                                                    <span id ="sp_cartostable"  class="sphidden"> Хурдны хайрцаг </span>
                                                                     <img src="{{ url('/assets/images/arrow.png') }}" class="hiddenarrow" id ="arrow_cartostable" style="width: 20px;"
                                                                     class="mr-2" />
                                                          
