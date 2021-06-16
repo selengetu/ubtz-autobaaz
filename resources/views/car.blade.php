@@ -182,7 +182,7 @@
                                                                     class="mr-2" />
                                                                     <span id ="sp_cartostable"  class="sphidden">    Хөдөлгүүр </span>
                                                         
-                                                                    <img src="{{ url('/assets/images/arrow.png') }}" class="hiddenarrow" id ="carhudtable" style="width: 20px;"
+                                                                    <img src="{{ url('/assets/images/arrow.png') }}" class="hiddenarrow" id ="arrow_carhudtable" style="width: 20px;"
                                                                     class="mr-2" />
                                                          
                                                             </a>
@@ -201,7 +201,7 @@
                                                             <a class="nav-link" style="color:#404142;" onclick= " getdiv('carrepairtable')"; > 
                                                                 <img src="{{ url('/assets/images/repair.png') }}" style="width: 20px;"
                                                                     class="mr-2" />
-                                                               <span id ="sp_carrepairtable"  class="sphidden"> Засвар </span>
+                                                               <span id ="sp_carrepairtable"  class="sphidden"> Техник үйлчилгээ  </span>
                                                                <img src="{{ url('/assets/images/arrow.png') }}" class="hiddenarrow" id ="arrow_carrepairtable" style="width: 20px;"
                                                                     class="mr-2" />
                                                                     <div class="gradient-seperator" style="margin: 0 auto 0 70px;"></div>
@@ -239,8 +239,7 @@
                                                 <th>Марк</th>
                                                 <th>Модель</th>
                                                 <th>Үйлдвэрлэсэн он</th>
-                                                <th>Хөдөлгүүрийн<br>багтаамж</th>
-                                                <th>Хурдны хайрцаг</th>
+                                                
                                               
                                             </tr>
                                         </thead>
@@ -252,13 +251,14 @@
                              
                              <table class="table table-bordered vm hiddentable"
                              style="font-size:12px;width:100%; color:black; word-wrap:break-word; display:none;" id="cartostable">
-                             <thead style="background-color: #20aee3; color#:fff; font-size: 12px;" >
+                             <thead style="background-color: #20aee3; color:#fff; font-size: 12px;" >
                                  <tr>
                                     
-                                     <th>Эд ангийн нэр </th>
-                                     <th>Явсан км</th>
-                                     <th>Эхэлсэн огноо</th>
-                                     <th>Дууссан огноо</th>
+                                        
+                                 <th>Тосны марк </th>
+                                     <th>Тосны төрөл</th>
+                                     <th>Тосны багтаамж</th>
+                                   
                                      <th>   <a href="#" class="btn waves-effect waves-light btn btn-sm btn-info  hidden-sm-down" data-toggle="modal" data-target="#productModal" id="addproduct"> <i class="fa fa-plus" aria-hidden="true"></i> </a></th>
                                  </tr>
                              </thead>
@@ -266,7 +266,21 @@
                             </tbody>
                          </table>
                             
-                             
+                         <table class="table table-bordered vm hiddentable"
+                             style="font-size:12px;width:100%; color:black; word-wrap:break-word; display:none;" id="carhudtable">
+                             <thead style="background-color: #20aee3; color:#fff; font-size: 12px;" >
+                                 <tr>
+                                    
+                                     <th>Тосны марк </th>
+                                     <th>Тосны төрөл</th>
+                                     <th>Тосны багтаамж</th>
+                                   
+                                     <th>   <a href="#" class="btn waves-effect waves-light btn btn-sm btn-info  hidden-sm-down" data-toggle="modal" data-target="#productModal" id="addproduct"> <i class="fa fa-plus" aria-hidden="true"></i> </a></th>
+                                 </tr>
+                             </thead>
+                            <tbody>
+                            </tbody>
+                         </table>
                          
                        
                                     
@@ -474,7 +488,7 @@
         <div class="modal-content">
             <form id="formrepair" method="post">
                 <div class="modal-header">
-                    <h5 class="modal-title3" id="modal-title3">Засвар бүртгэх цонх</h5>
+                    <h5 class="modal-title3" id="modal-title3">Техник үйлчилгээ бүртгэх цонх</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
@@ -763,9 +777,7 @@ getdiv('producttable');
                     "   <td class='m1'>" + qwe.mark_name + "</td>" +
                     "   <td class='m1'>" + qwe.model_name+ "</td>" +
                     "   <td class='m1'>" + qwe.manuyear+ "</td>" +
-                    "   <td class='m1'>" +  qwe.enginecc + " - "+ qwe.engineid + " - "+ qwe.enginecap + "</td>" +
-                    "   <td class='m1'>" + qwe.speedbox_name  + " - "+ qwe.speedtype  + " - "+ qwe.speedcap + "</td>" +
-                  
+                    
                     "</tr>";
 
                 $("#drivertable tbody").append(sHtml);
