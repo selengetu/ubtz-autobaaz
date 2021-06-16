@@ -384,26 +384,7 @@
                             <input type="text" class="form-control" id="vinno" name="vinno" placeholder="" maxlength="17">
                         
                         </div>
-                        <div class="form-group col-md-4">
-                            <label for="inputAddress">Хөдөлгүүрийн марк</label>
-                            <input type="text" class="form-control" id="enginecc" name="enginecc" placeholder="">
-                        
-                        </div>
-                        <div class="form-group col-md-4">
-                            <label for="inputAddress">Хөдөлгүүрийн дугаар</label>
-                            <input type="text" class="form-control" id="engineid" name="engineid" placeholder="">
-                        
-                        </div>
-                        <div class="form-group col-md-4">
-                            <label for="inputAddress">Тосны багтаамж</label>
-                            <input type="text" class="form-control" id="enginecap" name="enginecap" placeholder="" step="0.01">
-                        
-                        </div>
-                        <div class="form-group col-md-4">
-                            <label for="inputAddress">Тосны төрөл</label>
-                            <input type="text" class="form-control" id="enginetype" name="enginetype" placeholder="">
-                        
-                        </div>
+                      
                         <div class="form-group col-md-4">
                             <label for="inputAddress">Шатахууны төрөл</label>
                             <select class="form-control" id="oil_id" name="oil_id" >
@@ -445,28 +426,7 @@
                             <input type="number" class="form-control" id="manuyear" name="manuyear" maxlength="4">
                         
                         </div>
-                        <div class="form-group col-md-4">
-                            <label for="inputAddress">Хурдны хайрцаг</label>
-                            <select class="form-control" id="speedbox" name="speedbox" >
-                             
-                                @foreach($speedbox as $s)
-                                  
-                                    <option value= "{{$s->speedbox_id}}">  {{$s->speedbox_name}}</option>
-                                  
-                                @endforeach
-                            </select>
-                        
-                        </div>
-                        <div class="form-group col-md-4">
-                            <label for="inputAddress">Тосны төрөл </label>
-                            <input type="text" class="form-control" id="speedtype" name="speedtype" maxlength="4">
-                        
-                        </div>
-                        <div class="form-group col-md-4">
-                            <label for="inputAddress">Тосны багтаамж</label>
-                            <input type="number" class="form-control" id="speedcap" name="speedcap" maxlength="4" step="0.01">
-                        
-                        </div>
+                      
                     </div>
 
                 </div>
@@ -670,6 +630,108 @@
                         
                         </div>
                      
+                    </div>
+
+                </div>
+                <div class="modal-footer">
+                    <div class="col-md-5">
+                        <button type="button" class="btn btn-danger" onclick="deletedriver()">Устгах</button>
+                    </div>
+                    <div class="col-md-7" style="display: inline-block; text-align: right;" >
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Хаах</button>
+                        <button type="submit" class="btn btn-primary">Хадгалах</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<div class="modal fade " id="tosModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" data-keyboard="false" data-backdrop="static">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <form id="formdriver" method="post" >
+                <div class="modal-header">
+                    <h5 class="modal-title1" id="modal-title1">Хурдны хайрцаг бүртгэх цонх</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+
+                    <div class="form-row">
+
+                    <div class="form-group col-md-4">
+                            <label for="inputAddress">Хурдны хайрцаг</label>
+                            <select class="form-control" id="speedbox" name="speedbox" >
+                             
+                                @foreach($speedbox as $s)
+                                  
+                                    <option value= "{{$s->speedbox_id}}">  {{$s->speedbox_name}}</option>
+                                  
+                                @endforeach
+                            </select>
+                        
+                        </div>
+                        <div class="form-group col-md-4">
+                            <label for="inputAddress">Тосны төрөл </label>
+                            <input type="text" class="form-control" id="speedtype" name="speedtype" maxlength="4">
+                        
+                        </div>
+                        <div class="form-group col-md-4">
+                            <label for="inputAddress">Тосны багтаамж</label>
+                            <input type="number" class="form-control" id="speedcap" name="speedcap" maxlength="4" step="0.01">
+                        
+                        </div>
+                     
+                    </div>
+
+                </div>
+                <div class="modal-footer">
+                    <div class="col-md-5">
+                        <button type="button" class="btn btn-danger" onclick="deletedriver()">Устгах</button>
+                    </div>
+                    <div class="col-md-7" style="display: inline-block; text-align: right;" >
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Хаах</button>
+                        <button type="submit" class="btn btn-primary">Хадгалах</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<div class="modal fade " id="hudModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" data-keyboard="false" data-backdrop="static">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <form id="formdriver" method="post" >
+                <div class="modal-header">
+                    <h5 class="modal-title1" id="modal-title1">Хөдөлгүүр бүртгэх цонх</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+
+                    <div class="form-row">
+                    <div class="form-group col-md-4">
+                            <label for="inputAddress">Хөдөлгүүрийн марк</label>
+                            <input type="text" class="form-control" id="enginecc" name="enginecc" placeholder="">
+                        
+                        </div>
+                        <div class="form-group col-md-4">
+                            <label for="inputAddress">Хөдөлгүүрийн дугаар</label>
+                            <input type="text" class="form-control" id="engineid" name="engineid" placeholder="">
+                        
+                        </div>
+                        <div class="form-group col-md-4">
+                            <label for="inputAddress">Тосны багтаамж</label>
+                            <input type="text" class="form-control" id="enginecap" name="enginecap" placeholder="" step="0.01">
+                        
+                        </div>
+                        <div class="form-group col-md-4">
+                            <label for="inputAddress">Тосны төрөл</label>
+                            <input type="text" class="form-control" id="enginetype" name="enginetype" placeholder="">
+                        
+                        </div>
                     </div>
 
                 </div>

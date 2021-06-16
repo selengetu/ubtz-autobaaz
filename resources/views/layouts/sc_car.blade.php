@@ -38,7 +38,7 @@
                                 $('#engineid').val(qwe.engineid);;
                                 $('#enginecap').val(qwe.enginecap);
                                 $('#enginetype').val(qwe.enginetype);
-                                $('#oil_id').val(qwe.oil_id);
+                                $('#oil_id').val(qwe.speedid);
                                 $('#colour').val(qwe.colour_id);
                                 $('#vtypecode').val(qwe.vtypecode);
                                 $('#manuyear').val(qwe.manuyear);

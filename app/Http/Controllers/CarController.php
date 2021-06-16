@@ -123,7 +123,7 @@ class CarController extends Controller {
         $car->engineid = $request->engineid;
         $car->enginecap = $request->enginecap;
         $car->enginetype = $request->enginetype;
-        $car->oil_id = $request->oil_id;
+        $car->speedid = $request->oil_id;
         $car->save();
         return Redirect('car');
     }
@@ -133,7 +133,7 @@ class CarController extends Controller {
       ;
         $car = DB::table('CARS')
             ->where('carid', $request->car_id)
-            ->update(['vtypecode' =>  $request->vtypecode,'vinno' =>  $request->vinno,'carno' =>  $request->carno,'oil_id' =>  $request->oil_id,
+            ->update(['vtypecode' =>  $request->vtypecode,'vinno' =>  $request->vinno,'carno' =>  $request->carno, 'speedid' =>  $request->oil_id,
             'mark' =>  $request->mark, 'enginecc' =>  $request->enginecc, 'manuyear' =>  $request->manuyear, 'speedbox' =>  $request->speedbox, 'technote' =>  $request->technote,
             'colour_id' =>  $request->colour,'model' =>  $request->model_id,'speedcap' =>  $request->speedcap,'speedtype' =>  $request->speedtype,'engineid' =>  $request->engineid
             ,'enginecap' =>  $request->enginecap,'enginetype' =>  $request->enginetype]);
