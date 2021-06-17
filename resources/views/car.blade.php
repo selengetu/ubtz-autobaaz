@@ -253,13 +253,12 @@
                              style="font-size:12px;width:100%; color:black; word-wrap:break-word; display:none;" id="cartostable">
                              <thead style="background-color: #20aee3; color:#fff; font-size: 12px;" >
                                  <tr>
-                                    
-                                        
-                                 <th>Тосны марк </th>
-                                     <th>Тосны төрөл</th>
-                                     <th>Тосны багтаамж</th>
-                                   
-                                     <th>   <a href="#" class="btn waves-effect waves-light btn btn-sm btn-info  hidden-sm-down" data-toggle="modal" data-target="#tosModal" id="addproduct"> <i class="fa fa-plus" aria-hidden="true"></i> </a></th>
+
+                                <th>Хурдны хайрцаг</th>  
+                                <th>Төрөл </th>  
+                                <th>Багтаамж</th>
+                                <th>№</th>
+                                <th>   <a href="#" class="btn waves-effect waves-light btn btn-sm btn-info  hidden-sm-down" data-toggle="modal" data-target="#tosModal" id="addproduct"> <i class="fa fa-plus" aria-hidden="true"></i> </a></th>
                                  </tr>
                              </thead>
                             <tbody>
@@ -270,11 +269,11 @@
                              style="font-size:12px;width:100%; color:black; word-wrap:break-word; display:none;" id="carhudtable">
                              <thead style="background-color: #20aee3; color:#fff; font-size: 12px;" >
                                  <tr>
-                                    
-                                     <th>Тосны марк </th>
-                                     <th>Тосны төрөл</th>
+                                     <th>Хөдөлгүүр</th>
+                                     <th>Хөдөлгүүрийн төрөл</th>
+                                     <th>Хөдөлгүүрийн марк</th>
+                                     <th>Хөдөлгүүрийн тосны №</th>
                                      <th>Тосны багтаамж</th>
-                                   
                                      <th>   <a href="#" class="btn waves-effect waves-light btn btn-sm btn-info  hidden-sm-down" data-toggle="modal" data-target="#hudModal" id="addproduct"> <i class="fa fa-plus" aria-hidden="true"></i> </a></th>
                                  </tr>
                              </thead>
@@ -387,11 +386,11 @@
                       
                         <div class="form-group col-md-4">
                             <label for="inputAddress">Шатахууны төрөл</label>
-                            <select class="form-control" id="oil_id" name="oil_id" >
+                            <select class="form-control" id="enginemaintype" name="enginemaintype" >
                              
-                                @foreach($oil as $o)
+                                @foreach($engine as $e)
                                   
-                                    <option value= "{{$o->oil_id}}">  {{$o->oil_name}}</option>
+                                    <option value= "{{$e->engine_id}}">  {{$e->engine_name}}</option>
                                   
                                 @endforeach
                             </select>
@@ -841,10 +840,26 @@ getdiv('producttable');
                     "   <td class='m1'>" + qwe.manuyear+ "</td>" +
                     
                     "</tr>";
+                    var sHtml1 = " <tr class='table-row' >" +
+                    "   <td class='m1'>" + qwe.speedbox_name + "</td>" +
+                    "   <td class='m1'>" + qwe.speedtype + "</td>" +
+                    "   <td class='m1'>" + qwe.speedcap + "</td>" +
+                    "   <td class='m1'>" + qwe.speedid + "</td>" +
+                    "</tr>";
+                    var sHtml2 = " <tr class='table-row' >" +
+
+                    "   <td class='m1'>" + qwe.egnine_name + "</td>" +
+                    "   <td class='m1'>" + qwe.egninecc + "</td>" +
+                    "   <td class='m1'>" + qwe.enginetype + "</td>" +
+                    "   <td class='m1'>" + qwe.engineid + "</td>" +
+                    "   <td class='m1'>" + qwe.enginecap + "</td>" +
+                    "</tr>";
 
                 $("#drivertable tbody").append(sHtml);
                 $("#repairtable tbody").append(sHtml);
                 $("#producttable tbody").append(sHtml);
+                $("#cartostable tbody").append(sHtml1);
+                $("#carhudtable tbody").append(sHtml2);
                 $("#carbrand").append(qwe.mark_name + " - " + qwe.model_name );
                 $("#carnum").append(qwe.carno);
                 $("#cardate").append(qwe.manuyear);

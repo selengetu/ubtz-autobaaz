@@ -93,14 +93,14 @@ class CarController extends Controller {
         $mark = DB::select('select * from CONST_CAR_MARK');
         $model = DB::select('select * from CONST_CAR_MODEL');
         $park = DB::select('select * from CONST_PARKS');
-        $oil = DB::select('select * from CONST_OIL_TYPE');
+        $engine = DB::select('select * from CONST_OIL_TYPE');
         $colour = DB::select('select * from CONST_CAR_COLOUR');
         $speedbox = DB::select('select * from CONST_CAR_SPEEDBOX');
         $type = DB::select('select * from CONST_VEHICLE_TYPES');
         $product = DB::select('select * from CONST_PRODUCT');
         $driver = DB::select('select * from CONST_DRIVER');
 
-        return view('car',compact('car','mark','model','park','oil','colour','type','speedbox','product','driver','vtypecode','s_speedbox','s_mark','s_model'));
+        return view('car',compact('car','mark','model','park','engine','colour','type','speedbox','product','driver','vtypecode','s_speedbox','s_mark','s_model'));
     }
 
     public function store(Request $request)
@@ -123,7 +123,7 @@ class CarController extends Controller {
         $car->engineid = $request->engineid;
         $car->enginecap = $request->enginecap;
         $car->enginetype = $request->enginetype;
-        $car->speedid = $request->oil_id;
+        $car->enginemaintype = $request->enginemaintype;
         $car->save();
         return Redirect('car');
     }
@@ -136,7 +136,7 @@ class CarController extends Controller {
             ->update(['vtypecode' =>  $request->vtypecode,'vinno' =>  $request->vinno,'carno' =>  $request->carno, 'speedid' =>  $request->oil_id,
             'mark' =>  $request->mark, 'enginecc' =>  $request->enginecc, 'manuyear' =>  $request->manuyear, 'speedbox' =>  $request->speedbox, 'technote' =>  $request->technote,
             'colour_id' =>  $request->colour,'model' =>  $request->model_id,'speedcap' =>  $request->speedcap,'speedtype' =>  $request->speedtype,'engineid' =>  $request->engineid
-            ,'enginecap' =>  $request->enginecap,'enginetype' =>  $request->enginetype]);
+            ,'enginecap' =>  $request->enginecap,'enginemaintype' =>  $request->enginemaintype]);
         return Redirect('car');
     }
 
