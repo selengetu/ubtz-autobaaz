@@ -259,7 +259,7 @@
                                      <th>Тосны төрөл</th>
                                      <th>Тосны багтаамж</th>
                                    
-                                     <th>   <a href="#" class="btn waves-effect waves-light btn btn-sm btn-info  hidden-sm-down" data-toggle="modal" data-target="#productModal" id="addproduct"> <i class="fa fa-plus" aria-hidden="true"></i> </a></th>
+                                     <th>   <a href="#" class="btn waves-effect waves-light btn btn-sm btn-info  hidden-sm-down" data-toggle="modal" data-target="#tosModal" id="addproduct"> <i class="fa fa-plus" aria-hidden="true"></i> </a></th>
                                  </tr>
                              </thead>
                             <tbody>
@@ -275,7 +275,7 @@
                                      <th>Тосны төрөл</th>
                                      <th>Тосны багтаамж</th>
                                    
-                                     <th>   <a href="#" class="btn waves-effect waves-light btn btn-sm btn-info  hidden-sm-down" data-toggle="modal" data-target="#productModal" id="addproduct"> <i class="fa fa-plus" aria-hidden="true"></i> </a></th>
+                                     <th>   <a href="#" class="btn waves-effect waves-light btn btn-sm btn-info  hidden-sm-down" data-toggle="modal" data-target="#hudModal" id="addproduct"> <i class="fa fa-plus" aria-hidden="true"></i> </a></th>
                                  </tr>
                              </thead>
                             <tbody>
