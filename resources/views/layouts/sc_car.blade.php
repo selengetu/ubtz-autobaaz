@@ -30,6 +30,8 @@
                         $.get('carfill/'+$id,function(data){
                             $.each(data,function(i,qwe){
                                 $('#car_id').val(qwe.carid);
+                                $('#ct_id').val(qwe.carid);
+                                $('#ch_id').val(qwe.carid);
                                 $('#mark').val(qwe.mark);
                                 $('#model_id').val(qwe.model);
                                 $('#carno').val(qwe.carno);
@@ -38,13 +40,14 @@
                                 $('#engineid').val(qwe.engineid);;
                                 $('#enginecap').val(qwe.enginecap);
                                 $('#enginetype').val(qwe.enginetype);
-                                $('#oil_id').val(qwe.speedid);
                                 $('#colour').val(qwe.colour_id);
                                 $('#vtypecode').val(qwe.vtypecode);
                                 $('#manuyear').val(qwe.manuyear);
+                                $('#speedmaintype').val(qwe.speedmaintype);
                                 $('#speedbox').val(qwe.speedbox);
                                 $('#speedtype').val(qwe.speedtype);
                                 $('#speedcap').val(qwe.speedcap);
+                                $('#speedid').val(qwe.speedid);
                             });
     
                         });

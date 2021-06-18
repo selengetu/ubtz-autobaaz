@@ -384,18 +384,7 @@
                         
                         </div>
                       
-                        <div class="form-group col-md-4">
-                            <label for="inputAddress">Шатахууны төрөл</label>
-                            <select class="form-control" id="enginemaintype" name="enginemaintype" >
-                             
-                                @foreach($engine as $e)
-                                  
-                                    <option value= "{{$e->engine_id}}">  {{$e->engine_name}}</option>
-                                  
-                                @endforeach
-                            </select>
-                        
-                        </div>
+                       
                         <div class="form-group col-md-4">
                             <label for="inputAddress">Өнгө</label>
                             <select class="form-control" id="colour" name="colour" >
@@ -648,7 +637,7 @@
 <div class="modal fade " id="tosModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" data-keyboard="false" data-backdrop="static">
     <div class="modal-dialog modal-lg" role="document">
         <div class="modal-content">
-            <form id="formdriver" method="post" >
+            <form id="formtos" method="post" >
                 <div class="modal-header">
                     <h5 class="modal-title1" id="modal-title1">Хурдны хайрцаг бүртгэх цонх</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
@@ -661,6 +650,7 @@
 
                     <div class="form-group col-md-4">
                             <label for="inputAddress">Хурдны хайрцаг</label>
+                            <input type="hidden" class="form-control" id="ct_id" name="ct_id" placeholder="">
                             <select class="form-control" id="speedbox" name="speedbox" >
                              
                                 @foreach($speedbox as $s)
@@ -681,7 +671,11 @@
                             <input type="number" class="form-control" id="speedcap" name="speedcap" maxlength="4" step="0.01">
                         
                         </div>
-                     
+                        <div class="form-group col-md-4">
+                            <label for="inputAddress">Тосны №</label>
+                            <input type="number" class="form-control" id="speedid" name="speedid" maxlength="4" step="0.01">
+                        
+                        </div>
                     </div>
 
                 </div>
@@ -701,7 +695,7 @@
 <div class="modal fade " id="hudModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" data-keyboard="false" data-backdrop="static">
     <div class="modal-dialog modal-lg" role="document">
         <div class="modal-content">
-            <form id="formdriver" method="post" >
+            <form id="formhud" method="post" >
                 <div class="modal-header">
                     <h5 class="modal-title1" id="modal-title1">Хөдөлгүүр бүртгэх цонх</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
@@ -712,9 +706,19 @@
 
                     <div class="form-row">
                     <div class="form-group col-md-4">
+                            <label for="inputAddress">Хөдөлгүүр
+                            </label>
+                            <select class="form-control" id="enginemaintype" name="enginemaintype" >                        
+                                @foreach($engine as $e)
+                                    <option value= "{{$e->engine_id}}">  {{$e->engine_name}}</option>
+                                @endforeach
+                            </select>
+                        
+                        </div>
+                    <div class="form-group col-md-4">
                             <label for="inputAddress">Хөдөлгүүрийн марк</label>
                             <input type="text" class="form-control" id="enginecc" name="enginecc" placeholder="">
-                        
+                            <input type="hidden" class="form-control" id="ch_id" name="ch_id" placeholder="">
                         </div>
                         <div class="form-group col-md-4">
                             <label for="inputAddress">Хөдөлгүүрийн дугаар</label>
@@ -827,7 +831,7 @@ getdiv('producttable');
             $("#repairtable tbody").empty();
             $("#producttable tbody").empty();
             $.each(data,function(i,qwe){
-
+                console.log(qwe);
                
                 var sHtml = " <tr class='table-row' >" +
 
@@ -845,14 +849,16 @@ getdiv('producttable');
                     "   <td class='m1'>" + qwe.speedtype + "</td>" +
                     "   <td class='m1'>" + qwe.speedcap + "</td>" +
                     "   <td class='m1'>" + qwe.speedid + "</td>" +
+                    "   <td class='m1'><button type='button' class='btn btn-sm btn-primary add' data-toggle='modal' data-target='#tosModal' onclick='updatecar("+qwe.carid+")'><i class='fa fa-pencil' aria-hidden='true'></i></button></td>" +
                     "</tr>";
                     var sHtml2 = " <tr class='table-row' >" +
 
-                    "   <td class='m1'>" + qwe.egnine_name + "</td>" +
-                    "   <td class='m1'>" + qwe.egninecc + "</td>" +
+                    "   <td class='m1'>" + qwe.engine_name + "</td>" +
+                    "   <td class='m1'>" + qwe.enginecc + "</td>" +
                     "   <td class='m1'>" + qwe.enginetype + "</td>" +
                     "   <td class='m1'>" + qwe.engineid + "</td>" +
                     "   <td class='m1'>" + qwe.enginecap + "</td>" +
+                    "   <td class='m1'><button type='button' class='btn btn-sm btn-primary add' data-toggle='modal' data-target='#hudModal' onclick='updatecar("+qwe.carid+")'><i class='fa fa-pencil' aria-hidden='true'></i></button></td>" +
                     "</tr>";
 
                 $("#drivertable tbody").append(sHtml);
