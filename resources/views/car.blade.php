@@ -258,8 +258,8 @@
                                 <th>Төрөл </th>  
                                 <th>Багтаамж</th>
                                 <th>№</th>
-                                <th>   <a href="#" class="btn waves-effect waves-light btn btn-sm btn-info  hidden-sm-down" data-toggle="modal" data-target="#tosModal" id="addproduct"> <i class="fa fa-plus" aria-hidden="true"></i> </a></th>
-                                 </tr>
+                                <th> </th>
+                                </tr>
                              </thead>
                             <tbody>
                             </tbody>
@@ -274,7 +274,7 @@
                                      <th>Хөдөлгүүрийн марк</th>
                                      <th>Хөдөлгүүрийн тосны №</th>
                                      <th>Тосны багтаамж</th>
-                                     <th>   <a href="#" class="btn waves-effect waves-light btn btn-sm btn-info  hidden-sm-down" data-toggle="modal" data-target="#hudModal" id="addproduct"> <i class="fa fa-plus" aria-hidden="true"></i> </a></th>
+                                     <th> </th>
                                  </tr>
                              </thead>
                             <tbody>
@@ -637,9 +637,9 @@
 <div class="modal fade " id="tosModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" data-keyboard="false" data-backdrop="static">
     <div class="modal-dialog modal-lg" role="document">
         <div class="modal-content">
-            <form id="formtos" method="post" >
+            <form id="formtos" method="post">
                 <div class="modal-header">
-                    <h5 class="modal-title1" id="modal-title1">Хурдны хайрцаг бүртгэх цонх</h5>
+                    <h5 class="modal-title1" id="modal-title1">Хурдны хайрцаг засварлах цонх</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
@@ -650,6 +650,7 @@
 
                     <div class="form-group col-md-4">
                             <label for="inputAddress">Хурдны хайрцаг</label>
+                            <input type="hidden" name="_token" value="{{ csrf_token() }}">
                             <input type="hidden" class="form-control" id="ct_id" name="ct_id" placeholder="">
                             <select class="form-control" id="speedbox" name="speedbox" >
                              
@@ -695,7 +696,7 @@
         <div class="modal-content">
             <form id="formhud" method="post" >
                 <div class="modal-header">
-                    <h5 class="modal-title1" id="modal-title1">Хөдөлгүүр бүртгэх цонх</h5>
+                    <h5 class="modal-title1" id="modal-title1">Хөдөлгүүр засварлах цонх</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
@@ -706,6 +707,7 @@
                     <div class="form-group col-md-4">
                             <label for="inputAddress">Хөдөлгүүр
                             </label>
+                            <input type="hidden" name="_token" value="{{ csrf_token() }}">
                             <select class="form-control" id="enginemaintype" name="enginemaintype" >                        
                                 @foreach($engine as $e)
                                     <option value= "{{$e->engine_id}}">  {{$e->engine_name}}</option>
@@ -825,6 +827,8 @@ getdiv('producttable');
             $("#drivertable tbody").empty();
             $("#repairtable tbody").empty();
             $("#producttable tbody").empty();
+            $("#cartostable tbody").empty();
+            $("#carhudtable tbody").empty();
             $.each(data,function(i,qwe){
                 console.log(qwe);
                

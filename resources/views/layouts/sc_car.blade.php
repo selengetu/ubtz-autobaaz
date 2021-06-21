@@ -67,7 +67,7 @@
                                     location.reload();
 
             }
-            $('#formhud').submit(function(event){
+        $('#formhud').submit(function(event){
          var pcar = $('#ch_id').val();
          event.preventDefault();
 
