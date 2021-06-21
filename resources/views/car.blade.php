@@ -680,9 +680,7 @@
 
                 </div>
                 <div class="modal-footer">
-                    <div class="col-md-5">
-                        <button type="button" class="btn btn-danger" onclick="deletedriver()">Устгах</button>
-                    </div>
+                  
                     <div class="col-md-7" style="display: inline-block; text-align: right;" >
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Хаах</button>
                         <button type="submit" class="btn btn-primary">Хадгалах</button>
@@ -739,9 +737,6 @@
 
                 </div>
                 <div class="modal-footer">
-                    <div class="col-md-5">
-                        <button type="button" class="btn btn-danger" onclick="deletedriver()">Устгах</button>
-                    </div>
                     <div class="col-md-7" style="display: inline-block; text-align: right;" >
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Хаах</button>
                         <button type="submit" class="btn btn-primary">Хадгалах</button>
