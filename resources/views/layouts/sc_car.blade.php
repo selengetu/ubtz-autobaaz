@@ -67,5 +67,49 @@
                                     location.reload();
 
             }
+            $('#formhud').submit(function(event){
+         var pcar = $('#ch_id').val();
+         event.preventDefault();
+
+             $.ajax({
+                 type: 'POST',
+                 url: 'updatehud',
+                 data: $('form#formhud').serialize(),
+                 success: function(){
+                     alert('Мэдээлэл засварлагдлаа');
+                     getcar(pcar);
+     
+                 },
+                 error: function (jqXHR, textStatus, errorThrown) {
+                     if (jqXHR.status == 500) {
+                         alert('Internal error: ' + jqXHR.responseText);
+                     } else {
+                         alert('Unexpected error.');
+                     }
+                 }
+             }) 
+     });
+     $('#formtos').submit(function(event){
+         var pcar = $('#ct_id').val();
+         event.preventDefault();
+
+             $.ajax({
+                 type: 'POST',
+                 url: 'updatetos',
+                 data: $('form#formtos').serialize(),
+                 success: function(){
+                     alert('Мэдээлэл засварлагдлаа');
+                     getcar(pcar);
+     
+                 },
+                 error: function (jqXHR, textStatus, errorThrown) {
+                     if (jqXHR.status == 500) {
+                         alert('Internal error: ' + jqXHR.responseText);
+                     } else {
+                         alert('Unexpected error.');
+                     }
+                 }
+             }) 
+     });
     </script>
        
