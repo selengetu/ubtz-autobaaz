@@ -130,7 +130,7 @@ class CarController extends Controller {
 
     public function update(Request $request)
     {
-      ;
+      
         $car = DB::table('CARS')
             ->where('carid', $request->car_id)
             ->update(['vtypecode' =>  $request->vtypecode,'vinno' =>  $request->vinno,'carno' =>  $request->carno, 'speedid' =>  $request->oil_id,
@@ -139,7 +139,22 @@ class CarController extends Controller {
             ,'enginecap' =>  $request->enginecap,'enginemaintype' =>  $request->enginemaintype]);
         return Redirect('car');
     }
-
+    public function updatetos(Request $request)
+    {
+      
+        $car = DB::table('CARS')
+            ->where('carid', $request->ct_id)
+            ->update([ 'speedid' =>  $request->speedid, 'speedbox' =>  $request->speedbox,'speedcap' =>  $request->speedcap,'speedtype' =>  $request->speedtype]);
+        return Redirect('car');
+    }
+    public function updatehud(Request $request)
+    {
+      
+        $car = DB::table('CARS')
+            ->where('carid', $request->ch_id)
+            ->update(['enginetype' =>  $request->enginetype, 'enginecc' =>  $request->enginecc, 'engineid' =>  $request->engineid,'enginecap' =>  $request->enginecap,'enginemaintype' =>  $request->enginemaintype]);
+        return Redirect('car');
+    }
     /**
      * Remove the specified resource from storage.
      *
