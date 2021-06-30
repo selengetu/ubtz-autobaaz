@@ -290,4 +290,6 @@ class CarController extends Controller {
         Session::put('vtypecode',$vtypecode);
         return back();
     }
+
+    
 }
