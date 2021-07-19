@@ -31,6 +31,15 @@ Route::get('/markfill/{id?}',function($id = 0){
     return $dt;
 });
 
+Route::get('/colour', 'ColourController@index')->name('mark');
+Route::get('/colour/delete/{id}', 'ColourController@destroy');
+Route::post('/addcolour','ColourController@store');
+Route::post('/updatecolour','ColourController@update');
+Route::get('/colourfill/{id?}',function($id = 0){
+    $dt=App\Colour::where('colour_id','=',$id)->get();
+    return $dt;
+});
+
 Route::get('/model', 'ModelController@index')->name('model');
 Route::get('/model/delete/{id}', 'ModelController@destroy');
 Route::post('/addmodel','ModelController@store');
