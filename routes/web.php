@@ -31,7 +31,7 @@ Route::get('/markfill/{id?}',function($id = 0){
     return $dt;
 });
 
-Route::get('/colour', 'ColourController@index')->name('mark');
+Route::get('/colour', 'ColourController@index')->name('colour');
 Route::get('/colour/delete/{id}', 'ColourController@destroy');
 Route::post('/addcolour','ColourController@store');
 Route::post('/updatecolour','ColourController@update');
