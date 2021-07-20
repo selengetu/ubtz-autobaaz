@@ -102,16 +102,28 @@
                                           @endforeach
                                       </select>
                                       </div>
+                                      <div class="form-group col-md-3">
+                                        <label for="inputEmail4">Парк </label>
+                                        <select class="form-control" id="s_parkid" name="s_parkid" onchange="javascript:location.href = 'filter_park/'+this.value;">
+                                            <option value= "0">  Бүгд</option>
+                                          @foreach($park as $p)
+                                            
+                                              <option value= "{{$p->parkid}}" @if($p->parkid==$s_parkid) selected @endif>  {{$p->parkname}}</option>
+                                            
+                                          @endforeach
+                                      </select>
+                                      </div>
                                   </div>
-                                <div class="table-responsive m-t-20 no-wrap">
+                                <div class="table-responsive m-t-1 no-wrap">
                                     <table class="table table-bordered table-striped" id="example"
                                         style="font-size:12px; color:black; word-wrap:break-word;">
                                         <thead style="background-color:#1890ff; color:#fff; font-size: 12px;">
                                             <tr>
                                                 <th>№</th>
+                                                <th>Улсын дугаар</th>
                                                 <th>Төрөл </th>
                                                 <th>Парк</th>
-                                                <th>Улсын дугаар</th>
+                                                
                                                 <th>Арлын дугаар</th>
                                                 <th>Марк</th>
                                                 <th>Модель</th>
@@ -125,9 +137,10 @@
                                             @foreach($car as $c)
                                                 <tr>
                                                     <td>{{$no}}</td>
+                                                    <td>{{$c->carno}} @if($c->carid == 2 or $c->carid == 4) <img src="{{ url('/assets/images/red.png') }}" style="width: 15px;" data-toggle="tooltip" data-placement="top" title="Засвар хийх хэрэгтэй" /> @elseif($c->carid == 7) <img src="{{ url('/assets/images/yellow.png') }}" style="width: 15px;" data-toggle="tooltip" data-placement="top" title="Хугацаа дөхсөн" /> @endif</td>
                                                     <td>{{$c->vtypename}}</td>
                                                     <td>{{$c->parkname}}</td>
-                                                    <td>{{$c->carno}}</td>
+                                                  
                                                     <td>{{$c->vinno}}</td>
                                                     <td>{{$c->mark_name}}</td>
                                                     <td>{{$c->model_name}}</td>

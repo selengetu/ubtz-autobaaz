@@ -22,6 +22,7 @@ class CarController extends Controller {
         $query = "";
         $vtypecode = Input::get('s_vtypecode');
         $s_mark = Input::get('s_mark');
+        $s_parkid = Input::get('s_parkid');
         $s_model = Input::get('s_model_id');
         $s_speedbox = Input::get('s_speedbox');
         if(Session::has('vtypecode')) {
@@ -40,6 +41,23 @@ class CarController extends Controller {
         {
             $query.=" ";
         }
+        if(Session::has('s_parkid')) {
+            $s_parkid = Session::get('s_parkid');
+
+        }
+        else {
+            Session::put('s_parkid', $s_parkid);
+        }
+
+        if ($s_parkid!=NULL && $s_parkid !=0) {
+            $query.=" and parkid = '".$s_parkid."'";
+
+        }
+        else
+        {
+            $query.=" ";
+        }
+
         if(Session::has('mark')) {
             $s_mark = Session::get('mark');
 
@@ -89,7 +107,7 @@ class CarController extends Controller {
             $query.=" ";
         }
  
-        $car = DB::select('select * from V_CARS where 1=1 ' .$query.'');
+        $car = DB::select('select * from V_CARS where 1=1 ' .$query.' order by carid');
         $mark = DB::select('select * from CONST_CAR_MARK');
         $model = DB::select('select * from CONST_CAR_MODEL');
         $park = DB::select('select * from CONST_PARKS');
@@ -100,7 +118,7 @@ class CarController extends Controller {
         $product = DB::select('select * from CONST_PRODUCT');
         $driver = DB::select('select * from CONST_DRIVER');
 
-        return view('car',compact('car','mark','model','park','engine','colour','type','speedbox','product','driver','vtypecode','s_speedbox','s_mark','s_model'));
+        return view('car',compact('car','mark','model','park','engine','colour','type','speedbox','product','driver','vtypecode','s_speedbox','s_mark','s_model','s_parkid'));
     }
 
     public function store(Request $request)
@@ -290,6 +308,9 @@ class CarController extends Controller {
         Session::put('vtypecode',$vtypecode);
         return back();
     }
-
+    public function filter_park($s_park) {
+        Session::put('s_park',$s_park);
+        return back();
+    }
     
 }
