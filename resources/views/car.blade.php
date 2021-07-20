@@ -113,6 +113,15 @@
                                           @endforeach
                                       </select>
                                       </div>
+                                      <div class="form-group col-md-3">
+                                        <label for="inputEmail4">Төлөв </label>
+                                        <select class="form-control" id="s_parkid" name="s_parkid" onchange="javascript:location.href = 'filter_park/'+this.value;">
+                                            <option value= "0">  Бүгд</option>
+                                            <option value= "1">  Хэвийн</option>
+                                            <option value= "2">  Засвар дөхсөн</option>
+                                            <option value= "3"> Засвар хийх шаардлагатай</option>
+                                      </select>
+                                      </div>
                                   </div>
                                 <div class="table-responsive m-t-1 no-wrap">
                                     <table class="table table-bordered table-striped" id="example"
@@ -123,7 +132,6 @@
                                                 <th>Улсын дугаар</th>
                                                 <th>Төрөл </th>
                                                 <th>Парк</th>
-                                                
                                                 <th>Арлын дугаар</th>
                                                 <th>Марк</th>
                                                 <th>Модель</th>
@@ -140,7 +148,6 @@
                                                     <td>{{$c->carno}} @if($c->carid == 2 or $c->carid == 4) <img src="{{ url('/assets/images/red.png') }}" style="width: 15px;" data-toggle="tooltip" data-placement="top" title="Засвар хийх хэрэгтэй" /> @elseif($c->carid == 7) <img src="{{ url('/assets/images/yellow.png') }}" style="width: 15px;" data-toggle="tooltip" data-placement="top" title="Хугацаа дөхсөн" /> @endif</td>
                                                     <td>{{$c->vtypename}}</td>
                                                     <td>{{$c->parkname}}</td>
-                                                  
                                                     <td>{{$c->vinno}}</td>
                                                     <td>{{$c->mark_name}}</td>
                                                     <td>{{$c->model_name}}</td>
