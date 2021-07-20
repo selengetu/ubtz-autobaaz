@@ -10,13 +10,13 @@
                             $('#enginecc').val('');
                             $('#engineid').val('1');
                             $('#enginecap').val('1');
-                            $('#enginetype').val('');
-                            $('#oil_id').val('');
-                            $('#colour').val('');
+                            $('#enginetype').val('1');
+                            $('#oil_id').val('1');
+                            $('#colour').val('1');
                             $('#vtypecode').val('1');
                             $('#manuyear').val('1');
                             $('#speedbox').val('');
-                            $('#speedtype').val('');
+                            $('#speedtype').val('1');
                             $('#speedcap').val('');
                             $('.delete').hide();
                 
