@@ -72,12 +72,12 @@ class CarController extends Controller {
         {
             $query.=" ";
         }
-        if(Session::has('speedbox')) {
-            $s_speedbox = Session::get('speedbox');
+        if(Session::has('s_speedbox')) {
+            $s_speedbox = Session::get('s_speedbox');
 
         }
         else {
-            Session::put('speedbox', $s_speedbox);
+            Session::put('s_speedbox', $s_speedbox);
         }
 
         if ($s_speedbox!=NULL && $s_speedbox !=0) {
@@ -274,8 +274,8 @@ class CarController extends Controller {
         CarRepair::where('cr_id', '=', $id)->delete();
         return Redirect('car');
     }
-    public function filter_speedbox($speedbox) {
-        Session::put('s_speedbox',$speedbox);
+    public function filter_speedbox($s_speedbox) {
+        Session::put('s_speedbox',$s_speedbox);
         return back();
     }
     public function filter_mark($mark) {
