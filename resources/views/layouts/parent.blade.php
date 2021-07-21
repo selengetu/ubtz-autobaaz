@@ -123,7 +123,7 @@
                         </li>
                         <li> <a class="waves-effect waves-dark" href="{{ route('rep1') }}" aria-expanded="false"><i class="fa fa-bar-chart"></i><span class="hide-menu">Тайлан</span></a>
                             <ul aria-expanded="false" class="collapse first-level in">
-                                <li class="sidebar-item"><a href="" class="sidebar-link"><i class="mdi mdi-format-align-left"></i><span class="hide-menu"> Засварын тайлан</span></a></li>
+                                <li class="sidebar-item"><a href="{{ route('rep1') }}" class="sidebar-link"><i class="mdi mdi-format-align-left"></i><span class="hide-menu"> Засварын тайлан</span></a></li>
                                
                           
                             </ul>
