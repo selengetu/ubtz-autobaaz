@@ -312,5 +312,5 @@ class CarController extends Controller {
         Session::put('s_park',$s_park);
         return back();
     }
-    
+  
 }

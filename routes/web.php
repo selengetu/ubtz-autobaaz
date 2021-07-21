@@ -122,3 +122,4 @@ Route::get('/filter_vtypecode/{id}', 'CarController@filter_vtypecode');
 Route::get('/filter_park/{id}', 'CarController@filter_park');
 
 Route::get('/rep1', 'HomeController@index')->name('rep1');
+Route::get('/admin', 'HomeController@admin')->name('admin');
