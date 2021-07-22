@@ -97,6 +97,9 @@ Route::get('/carproductfill/{id?}',function($id = 0){
     $dt=DB::table('V_CAR_PRODUCT')->where('cp_id','=',$id)->get();
     return $dt;
 });
+
+Route::get('/product', 'CarController@product')->name('product');
+
 Route::get('/carproductsfill/{id?}',function($id = 0){
     $dt=DB::table('V_CAR_PRODUCT')->where('car_id','=',$id)->get();
     return $dt;

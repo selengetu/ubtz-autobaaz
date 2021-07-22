@@ -313,4 +313,9 @@ class CarController extends Controller {
         return back();
     }
   
+    public function product() {
+
+        $product = DB::select('select * from CONST_PRODUCT');
+        return view('car',compact('product'));
+    }
 }
