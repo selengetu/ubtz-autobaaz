@@ -197,12 +197,12 @@
                                                             </a>
                                                         </li> 
                                                         <li class="nav-item">
-                                                            <a class="nav-link" style="color:#404142;"  onclick= "getdiv('carhudtable')">
+                                                            <a class="nav-link" style="color:#404142;"  onclick= "getdiv('carprotable')">
                                                                 <img src="{{ url('/assets/images/engine.png') }}" style="width: 20px;"
                                                                     class="mr-2" />
-                                                                    <span id ="sp_cartostable"  class="sphidden"> Эд анги </span>
+                                                                    <span id ="sp_carprotable"  class="sphidden"> Эд анги </span>
                                                         
-                                                                    <img src="{{ url('/assets/images/arrow.png') }}" class="hiddenarrow" id ="arrow_carhudtable" style="width: 20px;"
+                                                                    <img src="{{ url('/assets/images/arrow.png') }}" class="hiddenarrow" id ="arrow_carprotable" style="width: 20px;"
                                                                     class="mr-2" />
                                                          
                                                             </a>
@@ -278,7 +278,20 @@
                                         </tbody>
                                     </table>
                         
-                             
+                                    <table class="table table-bordered vm hiddentable"
+                             style="font-size:12px;width:100%; color:black; word-wrap:break-word; display:none;" id="carprotable">
+                             <thead style="background-color: #20aee3; color:#fff; font-size: 12px;" >
+                                 <tr>
+
+                                <th>Эд анги</th>  
+                                <th>Марк </th>  
+                                <th>№</th>
+                                <th> </th>
+                                </tr>
+                             </thead>
+                            <tbody>
+                            </tbody>
+                         </table>
                              
                              <table class="table table-bordered vm hiddentable"
                              style="font-size:12px;width:100%; color:black; word-wrap:break-word; display:none;" id="cartostable">
@@ -844,12 +857,14 @@ getdiv('producttable');
         getcardrivers(carid);
         getcarproducts(carid);
         getcarrepairs(carid);
+        getcarpro(carid);
     }
         function getcar($id){
             
             $('#gcar').val($id);
             $('#pcar').val($id);
             $('#rcar').val($id);
+            $('#pcar').val($id);
             $.get('carfill/'+$id,function(data){
             $(".main tbody").empty();
             $("#carbrand").empty();
@@ -859,6 +874,7 @@ getdiv('producttable');
             $("#repairtable tbody").empty();
             $("#producttable tbody").empty();
             $("#cartostable tbody").empty();
+            $("#carprotable tbody").empty();
             $("#carhudtable tbody").empty();
             $.each(data,function(i,qwe){
                 console.log(qwe);
@@ -890,12 +906,22 @@ getdiv('producttable');
                     "   <td class='m1'>" + qwe.enginecap + "</td>" +
                     "   <td class='m1'><button type='button' class='btn btn-sm btn-primary add' data-toggle='modal' data-target='#hudModal' onclick='updatecar("+qwe.carid+")'><i class='fa fa-pencil' aria-hidden='true'></i></button></td>" +
                     "</tr>";
+                    var sHtml3 = " <tr class='table-row' >" +
+
+                 
+                    "   <td class='m1'>" + qwe.product_name + "</td>" +
+                    "   <td class='m1'>" + qwe.model_ud + "</td>" +
+                    "   <td class='m1'>" + qwe.km + "</td>" +
+                    "   <td class='m1'>" + qwe.norm + "</td>" +
+                    "   <td class='m1'><button type='button' class='btn btn-sm btn-primary add' data-toggle='modal' data-target='#proModal' onclick='updatecar("+qwe.carid+")'><i class='fa fa-pencil' aria-hidden='true'></i></button></td>" +
+                    "</tr>";
 
                 $("#drivertable tbody").append(sHtml);
                 $("#repairtable tbody").append(sHtml);
                 $("#producttable tbody").append(sHtml);
                 $("#cartostable tbody").append(sHtml1);
                 $("#carhudtable tbody").append(sHtml2);
+                $("#carprotable tbody").append(sHtml3);
                 $("#carbrand").append(qwe.mark_name + " - " + qwe.model_name );
                 $("#carnum").append(qwe.carno);
                 $("#cardate").append(qwe.manuyear);
