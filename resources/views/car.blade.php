@@ -286,6 +286,8 @@
                                 <th>Эд анги</th>  
                                 <th>Марк </th>  
                                 <th>№</th>
+                                <th>Км</th>
+                                <th>Норм</th>
                                 <th> </th>
                                 </tr>
                              </thead>
@@ -911,6 +913,7 @@ getdiv('producttable');
                  
                     "   <td class='m1'>" + qwe.product_name + "</td>" +
                     "   <td class='m1'>" + qwe.model_ud + "</td>" +
+                    "   <td class='m1'>" + qwe.cp_id + "</td>" +
                     "   <td class='m1'>" + qwe.km + "</td>" +
                     "   <td class='m1'>" + qwe.norm + "</td>" +
                     "   <td class='m1'><button type='button' class='btn btn-sm btn-primary add' data-toggle='modal' data-target='#proModal' onclick='updatecar("+qwe.carid+")'><i class='fa fa-pencil' aria-hidden='true'></i></button></td>" +
