@@ -195,6 +195,17 @@
                                                                     class="mr-2" />
                                                         
                                                             </a>
+                                                        </li> 
+                                                        <li class="nav-item">
+                                                            <a class="nav-link" style="color:#404142;"  onclick= "getdiv('carhudtable')">
+                                                                <img src="{{ url('/assets/images/engine.png') }}" style="width: 20px;"
+                                                                    class="mr-2" />
+                                                                    <span id ="sp_cartostable"  class="sphidden"> Эд анги </span>
+                                                        
+                                                                    <img src="{{ url('/assets/images/arrow.png') }}" class="hiddenarrow" id ="arrow_carhudtable" style="width: 20px;"
+                                                                    class="mr-2" />
+                                                         
+                                                            </a>
                                                         </li>
                                                         <li class="nav-item">
                                                             <a class="nav-link" style="color:#404142;"  onclick= "getdiv('carhudtable')">
