@@ -288,7 +288,7 @@
                                 <th>№</th>
                                 <th>Км</th>
                                 <th>Норм</th>
-                                <th> </th>
+                                <th> <th><a href="#" id="addproduct" class="btn btn-sm waves-effect waves-light btn btn-info  hidden-sm-down" data-toggle="modal" data-target="#productModal"> <i class="fa fa-plus" aria-hidden="true"></i> </a></th> </th>
                                 </tr>
                              </thead>
                             <tbody>
