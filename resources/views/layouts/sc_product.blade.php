@@ -114,10 +114,10 @@ function getcarproducts($id){
             var sHtml = " <tr class='table-row' >" +
 
                 "   <td class='m1'>" + qwe.product_name + "</td>" +
+                "   <td class='m1'>" + qwe.model_ud + "</td>" +
+                "   <td class='m1'>" + qwe.cp_num + "</td>" +
                 "   <td class='m1'>" + qwe.km + "</td>" +
-                "   <td class='m1'>" + qwe.begin_date + "</td>" +
-                "   <td class='m1'>" + qwe.end_date+ "</td>" +
-                
+                "   <td class='m1'>" + qwe.norm + "</td>" +
                 "   <td class='m1'><button type='button' class='btn btn-sm btn-primary add' data-toggle='modal' data-target='#productModal' onclick='updateproduct("+qwe.cp_id+")'><i class='fa fa-pencil' aria-hidden='true'></i></button></td>" +
                 "</tr>";
 
