@@ -227,7 +227,9 @@ class CarController extends Controller {
         $car->begin_date =Carbon\Carbon::parse($request->product_sdate)->format('Y-m-d');
         $car->end_date =Carbon\Carbon::parse($request->product_fdate)->format('Y-m-d');
         $car->product_id = $request->product_id;
-        $car->km = $request->product_km;
+        $car->cp_num = $request->cp_num;
+        $car->model_ud = $request->model_ud;
+        $car->km = $request->km;
         $car->save();
         return Redirect('car');
     }
@@ -238,7 +240,7 @@ class CarController extends Controller {
         $car = DB::table('CAR_PRODUCT')
             ->where('cp_id', $request->cp_id)
             ->update(['begin_date' =>  Carbon\Carbon::parse($request->product_sdate)->format('Y-m-d'),'end_date' =>Carbon\Carbon::parse($request->product_fdate)->format('Y-m-d'),
-            'product_id' =>$request->product_id,'km' =>$request->product_km]);
+            'product_id' =>$request->product_id,'km' =>$request->km,'model_ud' =>$request->model_ud,'cp_num' =>$request->cp_num]);
         return Redirect('car');
     }
 
@@ -313,9 +315,9 @@ class CarController extends Controller {
         return back();
     }
   
-    public function product() {
+    public function searchproduct() {
 
-        $product = DB::select('select * from CONST_PRODUCT');
-        return view('car',compact('product'));
+        $product = DB::select('select * from V_CAR_PRODUCT_SEARCH');
+        return view('product',compact('product'));
     }
 }

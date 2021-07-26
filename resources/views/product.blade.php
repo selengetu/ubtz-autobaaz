@@ -44,7 +44,6 @@
                                 <tr>
                                 <tr>
                                                 <th>№</th>
-                                                <th>Огноо</th>
                                                 <th>Төрөл </th>
                                                 <th>Парк</th>
                                                 <th>Улсын дугаар</th>
@@ -52,16 +51,28 @@
                                                 <th>Загвар</th>
                                                 <th>Хөдөлгүүрийн<br>багтаамж</th>
                                                 <th>Хурдны хайрцаг</th>
-                                                <th>Км</th>
                                                 <th>Эд анги</th>
-                                                <th>Тайлбар</th>
                                             </tr>
                                 </tr>
                             </thead>
                             <tbody>
                                 <?php $no = 1; ?>
-                                   
+                                @foreach($product as $c)
+                                    <tr>
+                                        <td>{{$no}}</td>
+                                        <td>{{$c->vtypename}}</td>
+                                        <td>{{$c->parkname}}</td>
+                                        <td>{{$c->carno}}</td>
+                                        <td>{{$c->vinno}}</td>
+                                        <td>{{$c->mark_name}}- {{$c->model_name}}</td>
+                                        <td>{{$c->enginecc}} {{$c->engineid}} -{{$c->enginecap}}л </td>
+                                        <td>{{$c->speedbox_name}}- {{$c->speedtype}} {{$c->speedcap}}л</td>
+                                        <td>{{$c->product_name}} - {{$c->model_ud}}- {{$c->cp_num}}</td>
+                            
 
+                                    </tr>
+                                    <?php $no++; ?>
+                                @endforeach
                             </tbody>
                         </table>
                     </div>
@@ -70,43 +81,7 @@
         </div>
     </div>
 </div>
-<div class="modal fade " id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" data-keyboard="false" data-backdrop="static">
-    <div class="modal-dialog modal-lg" role="document">
-        <div class="modal-content">
-            <form id="form1" action="post">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="modal-title">үйлдвэрлэгч бүртгэх цонх</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <div class="modal-body">
 
-                    <div class="form-row">
-
-                        <div class="form-group col-md-12">
-                            <label for="inputAddress">Үйлдвэрлэгчийн нэр</label>
-                            <input type="hidden" name="_token" value="{{ csrf_token() }}">
-                            <input type="hidden" class="form-control" id="mark_id" name="mark_id">
-                            <input type="text" class="form-control" id="mark_name" name="mark_name" placeholder="">
-                        </div>
-                    
-                    </div>
-
-                </div>
-                <div class="modal-footer">
-                    <div class="col-md-5">
-                        <button type="button" class="btn btn-danger delete">Устгах</button>
-                    </div>
-                    <div class="col-md-7" style="display: inline-block; text-align: right;" >
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Хаах</button>
-                        <button type="submit" class="btn btn-primary">Хадгалах</button>
-                    </div>
-                </div>
-            </form>
-        </div>
-    </div>
-</div>
 @endsection
 
 @section('scripts')
@@ -138,54 +113,5 @@
             } );
         } );
     </script>
-    <script>
-        $('.update').on('click',function(){
-            var title = document.getElementById("modal-title");
-            title.innerHTML = "Үйлдвэрлэгч засварлах цонх";
-            document.getElementById('form1').action = "updatemark";
-            document.getElementById('form1').method ="post"
-            var itag=$(this).attr('tag');
-            $.get('markfill/'+itag,function(data){
-                $.each(data,function(i,qwe){
-                    $('#mark_id').val(qwe.mark_id);
-                    $('#mark_name').val(qwe.mark_name);
-                   
-                });
-
-            });
-            $('.delete').show();
-        });
-    </script>
-    <script>
-        $('.add').on('click',function(){
-            var title = document.getElementById("modal-title");
-            title.innerHTML = "Үйлдвэрлэгч бүртгэх цонх";
-            document.getElementById('form1').action = "addmark"
-            document.getElementById('form1').method ="post";
-            $('#mark_id').val('');
-            $('#mark_name').val('');
-            
-            $('.delete').hide();
-        });
-        $('.delete').on('click',function(){
-            var itag = $('#mark_id').val();
-
-            $.ajax(
-                {
-                    url: "mark/delete/" + itag,
-                    type: 'GET',
-                    dataType: "JSON",
-                    data: {
-                        "id": itag,
-                        "_method": 'DELETE',
-                    },
-                    success: function () {
-                        alert('Үйлдвэрлэгч устгагдлаа');
-                    }
-
-                });
-            alert(' Үйлдвэрлэгч устгагдлаа');
-            location.reload();
-        });
-    </script>
+  
 @endsection

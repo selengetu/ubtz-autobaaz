@@ -117,7 +117,7 @@
                         <li> <a class="waves-effect waves-dark" href="{{ route('home') }}" aria-expanded="false"><i class="fa fa-cog"></i><span class="hide-menu">Бүртгэл</span></a>
                             <ul aria-expanded="false" class="collapse first-level in">
                                 <li class="sidebar-item"><a href="{{ route('car') }}" class="sidebar-link"><i class="mdi mdi-format-align-left"></i><span class="hide-menu"> Тээврийн хэрэгсэл </span></a></li>
-                                <li class="sidebar-item"><a href="{{ route('product') }}" class="sidebar-link"><i class="mdi mdi-format-align-left"></i><span class="hide-menu"> Автомашины сэлбэг </span></a></li>
+                                <li class="sidebar-item"><a href="{{ route('searchproduct') }}" class="sidebar-link"><i class="mdi mdi-format-align-left"></i><span class="hide-menu"> Автомашины сэлбэг </span></a></li>
                             </ul>
                         </li>
                         <li> <a class="waves-effect waves-dark" href="{{ route('rep1') }}" aria-expanded="false"><i class="fa fa-bar-chart"></i><span class="hide-menu">Тайлан</span></a>
