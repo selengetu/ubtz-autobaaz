@@ -44,9 +44,9 @@ function deleteproduct(){
                             $('#cp_id').val(qwe.cp_id);
                             $('#pcar').val(qwe.car_id);
                             $('#product_id').val(qwe.product_id);
-                            $('#product_sdate').val(qwe.begin_date);
-                            $('#product_fdate').val(qwe.end_date);
-                            $('#product_km').val(qwe.km);
+                            $('#cp_num').val(qwe.cp_num);
+                            $('#model_ud').val(qwe.model_ud);
+                            $('#km').val(qwe.km);
                         });
 
                     });
@@ -106,7 +106,7 @@ function deleteproduct(){
 });
 function getcarproducts($id){
     $.get('carproductsfill/'+$id,function(data){
-        $("#carproducttable tbody").empty();
+        $("#carprotable tbody").empty();
        
         $.each(data,function(i,qwe){
 
@@ -121,7 +121,7 @@ function getcarproducts($id){
                 "   <td class='m1'><button type='button' class='btn btn-sm btn-primary add' data-toggle='modal' data-target='#productModal' onclick='updateproduct("+qwe.cp_id+")'><i class='fa fa-pencil' aria-hidden='true'></i></button></td>" +
                 "</tr>";
 
-            $("#carproducttable tbody").append(sHtml);
+            $("#carprotable tbody").append(sHtml);
 
         });
 

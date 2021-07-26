@@ -586,22 +586,22 @@
                             </select>
                         
                         </div>
-                   
                         <div class="form-group col-md-4">
-                            <label for="inputAddress">Явсан км</label>
-                            <input type="number" class="form-control" id="product_km" name="product_km" maxlength="10">
+                            <label for="inputAddress">Эд ангийн марк</label>
+                            <input type="text" class="form-control" id="model_ud" name="model_ud">
                         
                         </div>
                         <div class="form-group col-md-4">
-                            <label for="inputAddress">Эхэлсэн огноо</label>
-                            <input class="form-control form-control-inline input-medium date-picker" name="product_sdate" id="product_sdate"
-                            size="16" type="text" value="">
+                            <label for="inputAddress">Эд ангийн №</label>
+                            <input type="number" class="form-control" id="cp_num" name="cp_num" maxlength="10">
+                        
                         </div>
                         <div class="form-group col-md-4">
-                            <label for="inputAddress">Дууссан огноо</label>
-                            <input class="form-control form-control-inline input-medium date-picker" name="product_fdate" id="product_fdate"
-                            size="16" type="text" value="">
+                            <label for="inputAddress">Явсан км</label>
+                            <input type="number" class="form-control" id="km" name="km" maxlength="10">
+                        
                         </div>
+                      
                      
                     </div>
 
@@ -908,23 +908,12 @@ getdiv('producttable');
                     "   <td class='m1'>" + qwe.enginecap + "</td>" +
                     "   <td class='m1'><button type='button' class='btn btn-sm btn-primary add' data-toggle='modal' data-target='#hudModal' onclick='updatecar("+qwe.carid+")'><i class='fa fa-pencil' aria-hidden='true'></i></button></td>" +
                     "</tr>";
-                    var sHtml3 = " <tr class='table-row' >" +
-
-                 
-                    "   <td class='m1'>" + qwe.product_name + "</td>" +
-                    "   <td class='m1'>" + qwe.model_ud + "</td>" +
-                    "   <td class='m1'>" + qwe.cp_id + "</td>" +
-                    "   <td class='m1'>" + qwe.km + "</td>" +
-                    "   <td class='m1'>" + qwe.norm + "</td>" +
-                    "   <td class='m1'><button type='button' class='btn btn-sm btn-primary add' data-toggle='modal' data-target='#proModal' onclick='updatecar("+qwe.carid+")'><i class='fa fa-pencil' aria-hidden='true'></i></button></td>" +
-                    "</tr>";
 
                 $("#drivertable tbody").append(sHtml);
                 $("#repairtable tbody").append(sHtml);
                 $("#producttable tbody").append(sHtml);
                 $("#cartostable tbody").append(sHtml1);
                 $("#carhudtable tbody").append(sHtml2);
-                $("#carprotable tbody").append(sHtml3);
                 $("#carbrand").append(qwe.mark_name + " - " + qwe.model_name );
                 $("#carnum").append(qwe.carno);
                 $("#cardate").append(qwe.manuyear);
