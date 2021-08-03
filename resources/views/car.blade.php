@@ -763,7 +763,7 @@
                         </div>
                     <div class="form-group col-md-4">
                             <label for="inputAddress">Хөдөлгүүрийн марк</label>
-                            <input type="text" class="form-control" id="enginecc" name="enginecc" placeholder="">
+                            <input type="text" class="form-control" id="enginecc" name="enginecc" required>
                             <input type="hidden" class="form-control" id="ch_id" name="ch_id" placeholder="">
                         </div>
                         <div class="form-group col-md-4">
