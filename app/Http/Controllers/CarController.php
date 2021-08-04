@@ -143,6 +143,15 @@ class CarController extends Controller {
         $car->enginetype = $request->enginetype;
         $car->enginemaintype = $request->enginemaintype;
         $car->save();
+        $p=DB::getPdo()->lastInsertId();
+        DB::table('activity_log')->insert(
+            array(
+                   'log_name'     =>   'Add car', 
+                   'description'     =>  $p, 
+                   'causer_id'   =>   Auth::user()->id,
+                   'created_at'     =>   Carbon::now(), 
+            )
+       );
         return Redirect('car');
     }
 
@@ -195,7 +204,15 @@ class CarController extends Controller {
         $car->fdate =Carbon\Carbon::parse($request->fdate)->format('Y-m-d');
         $car->driver_id = $request->driver_id;
         $car->save();
-      
+        $p=DB::getPdo()->lastInsertId();
+        DB::table('activity_log')->insert(
+            array(
+                   'log_name'     =>   'Add driver', 
+                   'description'     =>  $p, 
+                   'causer_id'   =>   Auth::user()->id,
+                   'created_at'     =>   Carbon::now(), 
+            )
+       );
     }
 
     public function updatecardriver(Request $request)
@@ -231,6 +248,15 @@ class CarController extends Controller {
         $car->model_ud = $request->model_ud;
         $car->km = $request->km;
         $car->save();
+        $p=DB::getPdo()->lastInsertId();
+        DB::table('activity_log')->insert(
+            array(
+                   'log_name'     =>   'Add carproduct', 
+                   'description'     =>  $p, 
+                   'causer_id'   =>   Auth::user()->id,
+                   'created_at'     =>   Carbon::now(), 
+            )
+       );
         return Redirect('car');
     }
 
