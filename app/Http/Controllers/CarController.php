@@ -12,6 +12,7 @@ use App\CarProduct;
 use App\CarRepair;
 use Illuminate\Support\Facades\Input;
 use Session;
+use Illuminate\Support\Facades\Auth;
 class CarController extends Controller {
 
    public function __construct() {
