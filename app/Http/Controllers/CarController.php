@@ -133,15 +133,15 @@ class CarController extends Controller {
         $car->colour_id = $request->colour;
         $car->model = $request->model_id;
         $car->enginecc = $request->enginecc;
-        $car->speedbox = $request->speedbox;
+        $car->speedbox = 1;
         $car->manuyear = $request->manuyear;
         $car->technote = $request->technote;
-        $car->speedcap = $request->speedcap;
+        $car->speedcap = 1;
         $car->speedtype = $request->speedtype;
         $car->engineid = $request->engineid;
         $car->enginecap = $request->enginecap;
         $car->enginetype = $request->enginetype;
-        $car->enginemaintype = $request->enginemaintype;
+        $car->enginemaintype = 1;
         $car->save();
         $p=DB::getPdo()->lastInsertId();
         DB::table('activity_log')->insert(
