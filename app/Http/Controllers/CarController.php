@@ -211,7 +211,7 @@ class CarController extends Controller {
                    'log_name'     =>   'Add driver', 
                    'description'     =>  $p, 
                    'causer_id'   =>   Auth::user()->id,
-                   'created_at'     =>   Carbon::now(), 
+                   'created_at'     =>   Carbon\Carbon::now(), 
             )
        );
     }
@@ -255,7 +255,7 @@ class CarController extends Controller {
                    'log_name'     =>   'Add carproduct', 
                    'description'     =>  $p, 
                    'causer_id'   =>   Auth::user()->id,
-                   'created_at'     =>   Carbon::now(), 
+                   'created_at'     =>   Carbon\Carbon::now(), 
             )
        );
         return Redirect('car');
