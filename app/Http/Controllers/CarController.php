@@ -142,6 +142,7 @@ class CarController extends Controller {
         $car->engineid = $request->engineid;
         $car->enginecap = $request->enginecap;
         $car->enginetype = $request->enginetype;
+        $car->carkm = $request->carkm;
         $car->enginemaintype = 1;
         $car->save();
         $p=DB::getPdo()->lastInsertId();
@@ -164,7 +165,7 @@ class CarController extends Controller {
             ->update(['vtypecode' =>  $request->vtypecode,'vinno' =>  $request->vinno,'carno' =>  $request->carno, 'speedid' =>  $request->oil_id,
             'mark' =>  $request->mark, 'enginecc' =>  $request->enginecc, 'manuyear' =>  $request->manuyear, 'speedbox' =>  $request->speedbox, 'technote' =>  $request->technote,
             'colour_id' =>  $request->colour,'model' =>  $request->model_id,'speedcap' =>  $request->speedcap,'speedtype' =>  $request->speedtype,'engineid' =>  $request->engineid
-            ,'enginecap' =>  $request->enginecap,'enginemaintype' =>  $request->enginemaintype]);
+            ,'enginecap' =>  $request->enginecap,'enginemaintype' =>  $request->enginemaintype,'carkm' =>  $request->carkm]);
         return Redirect('car');
     }
     public function updatetos(Request $request)

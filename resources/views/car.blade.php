@@ -136,6 +136,7 @@
                                                 <th>Марк</th>
                                                 <th>Модель</th>
                                                 <th>Үйлдвэрлэсэн он</th>
+                                                <th>Км</th>
                                                 <th></th>
                                                
                                             </tr>
@@ -152,6 +153,7 @@
                                                     <td>{{$c->mark_name}}</td>
                                                     <td>{{$c->model_name}}</td>
                                                     <td>{{$c->manuyear}}</td>
+                                                    <td>{{$c->carkm}}</td>
                                                     <td><button onclick="carClicked({{$c->carid}})" data-id="{{$c->carid}}" tag="{{$c->carid}}" class="btn btn-info btn-sm process"> <i class="fa fa-plus" style="color: rgb(255, 255, 255);"></i></button>
                                                         <button class='btn btn-sm btn-warning update' data-toggle='modal' data-target='#exampleModal' data-id="{{$c->carid}}" tag='{{$c->carid}}' onclick="updatecar({{$c->carid}})"><i class="fa fa-pencil-square-o" style="color: rgb(255, 255, 255); "></i></button> </td>
                                                 </tr>
@@ -460,7 +462,11 @@
                             <input type="number" class="form-control" id="manuyear" name="manuyear" maxlength="4">
                         
                         </div>
-                      
+                        <div class="form-group col-md-4">
+                            <label for="inputAddress">Явсан км</label>
+                            <input type="number" class="form-control" id="carkm" name="carkm" maxlength="10">
+                        
+                        </div>
                     </div>
 
                 </div>
